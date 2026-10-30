@@ -1,0 +1,50 @@
+---
+import Phone from './Phone.astro'
+import Icon from '../Icon.astro'
+// Plants: one per time money went in, oldest first. Kind shows age, never value.
+const plants = [
+  ...Array(5).fill('tree-deciduous'),
+  ...Array(6).fill('flower-2'),
+  ...Array(5).fill('sprout'),
+]
+---
+<Phone kids label="Illustrative child app Today screen: Aarav's garden, his tasks and a note from Penny">
+  <div class="mock-topbar">
+    <span class="mock-topbar__title">Hi Aarav</span>
+    <span class="nb-coins"><Icon name="coins" />340</span>
+  </div>
+  <section class="nb-garden mock-garden">
+    <div class="nb-garden__head">
+      <div><span class="nb-garden__label">Your garden</span><span class="nb-garden__count">18 plants</span></div>
+      <span class="nb-garden__chip">2 new this month</span>
+    </div>
+    <div class="nb-garden__bed">
+      <div class="nb-garden__plants">
+        {plants.map((p) => <Icon name={p} kids />)}
+        <span class="nb-garden__plant--new"><Icon name="sprout" kids /></span>
+        <span class="nb-garden__plant--new"><Icon name="sprout" kids /></span>
+      </div>
+      <div class="nb-garden__ground"></div>
+    </div>
+    <div class="nb-garden__value">
+      <span class="nb-garden__worth">Worth ₹1,98,400</span>
+      <span class="nb-garden__in">₹1,84,000 went in</span>
+      <span class="nb-garden__diff">₹14,400 more than went in</span>
+    </div>
+  </section>
+  <div class="nb-task">
+    <span class="nb-task__check" aria-checked="true"><Icon name="check" kids /></span>
+    <div class="nb-task__body"><span class="nb-task__title">Make your bed</span><span class="nb-task__state">Every day</span></div>
+    <span class="nb-coins"><Icon name="coins" />+10</span>
+  </div>
+  <div class="nb-bubble">
+    <span class="nb-avatar nb-avatar--kids">P</span>
+    <div class="nb-bubble__text"><b>Penny</b><br />Tick one off and I'll send it to your parent.</div>
+  </div>
+  <nav slot="nav" class="nb-kidtabs mock-kidtabs">
+    <span aria-current="page"><span class="nb-kidtabs__icon"><Icon name="sprout" kids /></span>Today</span>
+    <span><span class="nb-kidtabs__icon"><Icon name="list-checks" kids /></span>Tasks</span>
+    <span><span class="nb-kidtabs__icon"><Icon name="book-open" kids /></span>Learn</span>
+    <span><span class="nb-kidtabs__icon"><Icon name="piggy-bank" kids /></span>Gullak</span>
+  </nav>
+</Phone>

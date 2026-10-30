@@ -1,0 +1,18 @@
+---
+// The Nuberry logo from the master SVGs. Never live text, never redrawn.
+// Primary on paper and white; reversed in dark mode and on jamun or raspberry.
+interface Props { variant?: 'wordmark' | 'lockup'; width: number; onDark?: boolean; class?: string }
+const { variant = 'wordmark', width, onDark = false, class: className = '' } = Astro.props
+const primary = `/brand/nuberry-${variant}-primary.svg`
+const reversed = `/brand/nuberry-${variant}-reversed.svg`
+const ratio = variant === 'lockup' ? 123 / 396 : 97 / 396
+const height = Math.round(width * ratio)
+---
+{onDark ? (
+  <img class={className} src={reversed} width={width} height={height} alt="Nuberry" />
+) : (
+  <span class:list={['logo-swap', className]}>
+    <img class="logo-swap__light" src={primary} width={width} height={height} alt="Nuberry" />
+    <img class="logo-swap__dark" src={reversed} width={width} height={height} alt="Nuberry" />
+  </span>
+)}

@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro'
+import Icon from '../components/Icon.astro'
+---
+<Base title="Page not found | Nuberry" description="This page does not exist. Find the Nuberry homepage, the child SIP calculator and our guides for parents here." noindex>
+  <section class="wrap page-head notfound">
+    <span class="eyebrow">404</span>
+    <h1 class="display">This page doesn't exist.</h1>
+    <p class="lede">The link may be old, or the page may have moved. These are the places most people are looking for.</p>
+    <div class="hero__cta">
+      <a href="/" class="nb-btn nb-btn--primary nb-btn--lg">Go to the homepage<Icon name="arrow-right" /></a>
+      <a href="/calculator/" class="nb-btn nb-btn--secondary nb-btn--lg">SIP calculator</a>
+      <a href="/blog/" class="nb-btn nb-btn--secondary nb-btn--lg">Read the guides</a>
+    </div>
+  </section>
+</Base>

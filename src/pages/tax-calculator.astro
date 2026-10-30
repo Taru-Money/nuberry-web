@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro'
+import TaxCalculator from '../islands/TaxCalculator.jsx'
+import { SITE_URL } from '../lib/site.js'
+
+const description =
+  "Calculate how much tax you could save by investing in your child's name instead of your own. Compare equity MF, debt MF, digital gold and more. Free, no signup needed."
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Child Investment Tax Calculator',
+  url: `${SITE_URL}/tax-calculator/`,
+  description,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  provider: { '@id': `${SITE_URL}/#organization` },
+}]
+---
+<Base
+  title="Child Investment Tax Calculator: Save Tax by Investing in Your Child's Name | Nuberry"
+  description={description}
+  ogTitle="How much tax you save by investing in your child's name"
+  ogDescription="See the corpus, the tax bill, and how much you keep by investing in your child's name. Live, with your numbers."
+  active="calculator"
+  jsonLd={jsonLd}
+>
+  <section class="wrap page-head">
+    <span class="eyebrow">Tools</span>
+    <h1 class="display">The investment that works hardest is the one in your child's name.</h1>
+    <p class="lede">See the corpus, the tax bill, and how much you keep by investing in your child's name. Live, with your numbers.</p>
+    <nav class="tool-tabs" aria-label="Calculators">
+      <a href="/calculator/">Milestone calculator</a>
+      <a href="/tax-calculator/" aria-current="page">Tax calculator</a>
+    </nav>
+  </section>
+  <section class="wrap calc-wrap">
+    <TaxCalculator client:load />
+    <p class="tc-seo">
+      Investing in your child's name can reduce the tax on capital gains. Under current Indian income tax rules, a child
+      with no other income has their own ₹4 lakh basic exemption plus a ₹1.25 lakh LTCG exemption under Section 198
+      (erstwhile Section 112A), which are not available when the same investment is held in a parent's name. This
+      calculator shows the difference across asset classes.
+    </p>
+  </section>
+</Base>

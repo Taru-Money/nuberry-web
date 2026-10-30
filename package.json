@@ -1,0 +1,35 @@
+{
+  "name": "nuberry-web",
+  "version": "1.0.0",
+  "description": "Marketing site for nuberry.in",
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "predev": "npm run tokens",
+    "dev": "astro dev",
+    "prebuild": "npm run tokens",
+    "build": "astro build",
+    "postbuild": "node scripts/check-build.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "4.4.2",
+    "@astrojs/sitemap": "3.6.0",
+    "@fontsource/baloo-2": "5.2.6",
+    "@fontsource/figtree": "5.2.8",
+    "astro": "5.16.0",
+    "marked": "15.0.12",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "lucide-static": "1.52.0"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  }
+}

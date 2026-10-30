@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro'
+import { marked } from 'marked'
+interface Props { title: string; heading: string; description: string; markdown: string }
+const { title, heading, description, markdown } = Astro.props
+// The page supplies the one h1, so a leading h1 in the markdown is dropped.
+const html = marked.parse(markdown.replace(/^# .*\n+/, ''), { async: false }) as string
+---
+<Base title={title} description={description}>
+  <section class="wrap page-head">
+    <span class="eyebrow">Legal</span>
+    <h1 class="display">{heading}</h1>
+  </section>
+  <section class="wrap legal">
+    <div class="prose" set:html={html} />
+  </section>
+</Base>

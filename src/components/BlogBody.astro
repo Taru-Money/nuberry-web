@@ -1,0 +1,37 @@
+---
+// Renders the block format used in src/data/blogs.js. Consecutive 'step'
+// blocks share one numbered list.
+interface Props { body: any[] }
+const { body } = Astro.props
+const inline = (t: string) =>
+  t.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string)
+   .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+
+const groups: any[] = []
+for (const b of body) {
+  const last = groups[groups.length - 1]
+  if (b.type === 'step' && last?.type === 'steps') last.items.push(b)
+  else if (b.type === 'step') groups.push({ type: 'steps', items: [b] })
+  else groups.push(b)
+}
+---
+{groups.map((b) => {
+  switch (b.type) {
+    case 'paragraph': return <p set:html={inline(b.text)} />
+    case 'heading': return <h2>{b.text}</h2>
+    case 'pull_quote': return <blockquote class="pull">{b.text}</blockquote>
+    case 'bullet_list': return <ul>{b.items.map((i: string) => <li set:html={inline(i)} />)}</ul>
+    case 'table': return (
+      <div class="table-scroll"><table class="figures">
+        <thead><tr>{b.headers.map((h: string) => <th scope="col">{h}</th>)}</tr></thead>
+        <tbody>{b.rows.map((r: string[]) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+      </table></div>
+    )
+    case 'assume': return <div class="assume"><b>{b.title}</b><p set:html={inline(b.text)} /></div>
+    case 'callout': return <div class="callout"><b>{b.title}</b><p set:html={inline(b.text)} /></div>
+    case 'steps': return (
+      <ol class="howto">{b.items.map((s: any) => <li><h3>{s.title}</h3><p set:html={inline(s.text)} /></li>)}</ol>
+    )
+    default: return null
+  }
+})}

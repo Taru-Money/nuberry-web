@@ -1,0 +1,41 @@
+# Netlify config for nuberry.in (Astro static site).
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# www and the Netlify subdomain both redirect to the apex, so there is one
+# canonical host. Netlify serves dist/404.html with a real 404 status for any
+# path that has no file, so there is no SPA catch-all here.
+[[redirects]]
+  from = "https://www.nuberry.in/*"
+  to = "https://nuberry.in/:splat"
+  status = 301
+  force = true
+
+# Old taru.money app paths that people may have bookmarked. The logged-in
+# app is not part of this site, so send them home rather than to a 404.
+[[redirects]]
+  from = "/signup"
+  to = "/#waitlist"
+  status = 302
+[[redirects]]
+  from = "/login"
+  to = "/"
+  status = 302
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

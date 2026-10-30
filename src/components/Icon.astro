@@ -1,0 +1,29 @@
+---
+// Lucide icon, inlined at build time. Stroke stays 1.8 (site and parent app)
+// or 2.25 (kids) at every size, per the brand book.
+import { readFileSync } from 'node:fs'
+import { createRequire } from 'node:module'
+
+interface Props { name: string; kids?: boolean; class?: string; label?: string; size?: number }
+const { name, kids = false, class: className = '', label, size } = Astro.props
+
+const require = createRequire(import.meta.url)
+const file = require.resolve(`lucide-static/icons/${name}.svg`)
+const inner = readFileSync(file, 'utf8')
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .replace(/^[\s\S]*?<svg[^>]*>/, '')
+  .replace(/<\/svg>\s*$/, '')
+  .trim()
+const stroke = kids ? 2.25 : 1.8
+const style = size ? `width:${size}px;height:${size}px` : undefined
+---
+<svg
+  class:list={['nb-icon', kids && 'nb-icon--kids', className]}
+  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={stroke}
+  stroke-linecap="round" stroke-linejoin="round"
+  style={style}
+  aria-hidden={label ? undefined : 'true'}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  set:html={inner}
+/>

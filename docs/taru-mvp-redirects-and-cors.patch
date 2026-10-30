@@ -1,0 +1,105 @@
+diff --git a/backend/src/index.js b/backend/src/index.js
+index b819065..f7e0eb3 100644
+--- a/backend/src/index.js
++++ b/backend/src/index.js
+@@ -23,6 +23,8 @@ const allowedOrigins = [
+   process.env.FRONTEND_URL,
+   'https://taru.money',
+   'https://www.taru.money',
++  'https://nuberry.in',
++  'https://www.nuberry.in',
+   'http://localhost:5173',
+ ].filter(Boolean)
+ 
+diff --git a/netlify.toml b/netlify.toml
+index 3cad54d..613c9c8 100644
+--- a/netlify.toml
++++ b/netlify.toml
+@@ -17,6 +17,87 @@
+   # can't be the thing that silently fails in this build image.
+   PUPPETEER_SKIP_DOWNLOAD = "true"
+ 
++# ── taru.money -> nuberry.in (marketing pages only) ──────────────
++# The marketing site moved to nuberry.in. Each old page 301s to the same
++# page there, so search rankings carry over. App routes (/login, /signup,
++# /parent/*, /child/*, /app/*) are NOT redirected: the pilot app still
++# lives here. These must stay above the SPA catch-all below.
++[[redirects]]
++  from = "/"
++  to = "https://nuberry.in/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/about"
++  to = "https://nuberry.in/about/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/about/"
++  to = "https://nuberry.in/about/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/calculator"
++  to = "https://nuberry.in/calculator/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/calculator/"
++  to = "https://nuberry.in/calculator/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/tax-calculator"
++  to = "https://nuberry.in/tax-calculator/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/tax-calculator/"
++  to = "https://nuberry.in/tax-calculator/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/blog"
++  to = "https://nuberry.in/blog/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/blog/*"
++  to = "https://nuberry.in/blog/:splat"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/privacy"
++  to = "https://nuberry.in/privacy/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/privacy/"
++  to = "https://nuberry.in/privacy/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/terms"
++  to = "https://nuberry.in/terms/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/terms/"
++  to = "https://nuberry.in/terms/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/eula"
++  to = "https://nuberry.in/eula/"
++  status = 301
++  force = true
++[[redirects]]
++  from = "/eula/"
++  to = "https://nuberry.in/eula/"
++  status = 301
++  force = true
++
+ # ── SPA redirect rule ─────────────────────────────────────────────
+ # All routes (/, /app, /app/*, /child/:token, /parent/*, /login, etc.)
+ # must fall through to index.html so React Router handles them client-side.

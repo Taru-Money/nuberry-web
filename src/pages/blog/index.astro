@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro'
+import Icon from '../../components/Icon.astro'
+import { blogs } from '../../data/blogs.js'
+import { SITE_URL } from '../../lib/site.js'
+
+const description =
+  "Practical guides for Indian parents on investing in their child's name: minor mutual fund accounts, SIP numbers, and how to get started."
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Nuberry Learn',
+  url: `${SITE_URL}/blog/`,
+  blogPost: blogs.map((b) => ({ '@type': 'BlogPosting', headline: b.title, url: `${SITE_URL}/blog/${b.slug}/` })),
+}]
+---
+<Base title="Learn: Investing for Your Child's Future | Nuberry" description={description} active="blog" jsonLd={jsonLd}>
+  <section class="wrap page-head">
+    <span class="eyebrow">Learn</span>
+    <h1 class="display">For parents who think ahead</h1>
+    <p class="lede">Guides on investing in your child's name. No jargon, real numbers.</p>
+  </section>
+  <section class="wrap posts">
+    {blogs.map((b) => (
+      <a href={`/blog/${b.slug}/`} class="post-card">
+        <span class="post-card__top">
+          {b.topic && <span class="tag">{b.topic}</span>}
+          <span class="post-card__read">{b.readingTime} read</span>
+        </span>
+        <h2>{b.title}</h2>
+        <p>{b.subtitle}</p>
+        <span class="post-card__go">Read<Icon name="arrow-right" /></span>
+      </a>
+    ))}
+  </section>
+</Base>

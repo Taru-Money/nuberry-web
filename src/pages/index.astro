@@ -1,0 +1,167 @@
+---
+import Base from '../layouts/Base.astro'
+import Icon from '../components/Icon.astro'
+import WaitlistForm from '../components/WaitlistForm.astro'
+import ParentHome from '../components/mock/ParentHome.astro'
+import ParentGoal from '../components/mock/ParentGoal.astro'
+import ChildToday from '../components/mock/ChildToday.astro'
+import { homeFaqs } from '../data/faqs.js'
+import { SITE_URL, COMPANY, TAGLINE } from '../lib/site.js'
+
+const description =
+  "Nuberry helps Indian parents invest in mutual funds in their child's name, and gives the child an app to understand what that money means."
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Nuberry', url: SITE_URL },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+]
+const why = [
+  { n: '01', t: 'Their name', d: "The investment is made in your child's name." },
+  { n: '02', t: 'Their future', d: "A dedicated investment for the future you're helping them build." },
+  { n: '03', t: 'Their story', d: "As they grow, they can see it and learn from what you're building together." },
+]
+const different = [
+  { icon: 'sprout', t: 'Built around your child', d: "Their investment isn't just another holding. It's the starting point for their financial journey." },
+  { icon: 'calendar-days', t: 'Goals that move with them', d: "Plan around the milestones you're working towards: college, turning 18, and everything in between." },
+  { icon: 'gift', t: 'Family can contribute directly', d: "Grandparents can add to your child's folio without needing an account of their own." },
+  { icon: 'smartphone', t: 'Their own app', d: 'A place where they learn about money, finish tasks, earn coins and see their progress.' },
+]
+---
+<Base
+  title="Nuberry: Invest in Mutual Funds in Your Child's Name"
+  description={description}
+  ogTitle="Nuberry: invest for your child's future, in their name"
+  jsonLd={jsonLd}
+>
+  <section class="hero wrap">
+    <div class="hero__copy">
+      <span class="tag"><Icon name="sprout" />Mutual funds in your child's name</span>
+      <h1 class="display">Invest in mutual funds for your child's future. <span class="accent">In their name.</span></h1>
+      <p class="lede">Open a mutual fund folio in your child's name. You manage it until they turn 18.</p>
+      <div class="hero__cta">
+        <a href="#waitlist" class="nb-btn nb-btn--primary nb-btn--lg">Join the waitlist<Icon name="arrow-right" /></a>
+        <a href="/calculator/" class="nb-btn nb-btn--secondary nb-btn--lg">Run the numbers</a>
+      </div>
+      <p class="hero__note">Going live soon. Waitlist members get access first.</p>
+      <p class="trust"><Icon name="shield-check" />AMFI-registered Mutual Fund Distributor · ARN {COMPANY.arn}</p>
+    </div>
+    <div class="hero__art">
+      <div class="hero__disc" aria-hidden="true"></div>
+      <ParentHome />
+    </div>
+  </section>
+
+  <section class="band band--jamun reveal">
+    <div class="wrap">
+      <span class="eyebrow">Why their name matters</span>
+      <h2 class="h2">Give their future a place of its own.</h2>
+      <p class="lede">It's more than money set aside for their future. It's a financial start they can grow up with.</p>
+      <ol class="steps-3">
+        {why.map((w) => (
+          <li><span class="steps-3__n">{w.n}</span><h3>{w.t}</h3><p>{w.d}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band reveal" id="apps">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">Two apps that work together</h2>
+        <p class="lede">You use one, your child uses the other.</p>
+      </div>
+
+      <div class="app-row">
+        <div class="app-row__copy">
+          <span class="eyebrow eyebrow--icon"><Icon name="user-round" />Your app</span>
+          <h3 class="h3">Open the folio. Set the SIP. Stay in control.</h3>
+          <ul class="feat">
+            <li><Icon name="check" /><span><b>No PAN needed for your child.</b> Their birth certificate and your KYC is enough.</span></li>
+            <li><Icon name="target" /><span><b>Pick a goal and an amount.</b> From ₹500 a month.</span></li>
+            <li><Icon name="calendar-days" /><span><b>Pause, increase or stop any time.</b> Runs on your bank mandate.</span></li>
+            <li><Icon name="eye" /><span><b>You choose what your child sees.</b> The full amount, or only the progress.</span></li>
+          </ul>
+        </div>
+        <div class="app-row__art"><ParentGoal /></div>
+      </div>
+
+      <div class="app-row app-row--flip">
+        <div class="app-row__copy">
+          <span class="eyebrow eyebrow--icon"><Icon name="coins" />Your child's app</span>
+          <h3 class="h3">They don't just see the money. They learn how it works.</h3>
+          <ul class="feat">
+            <li><Icon name="list-checks" /><span><b>Tasks you set.</b> Finishing them earns coins.</span></li>
+            <li><Icon name="book-open" /><span><b>Short lessons, not a course.</b> How investing works, why waiting helps, how to think about spending.</span></li>
+            <li><Icon name="coins" /><span><b>Coins add up.</b> Effort becomes something they can see.</span></li>
+            <li><Icon name="sprout" /><span><b>Their own view of the investment.</b> At the level of detail you've chosen.</span></li>
+          </ul>
+        </div>
+        <div class="app-row__art"><ChildToday /></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--mist reveal">
+    <div class="wrap">
+      <span class="eyebrow">What makes Nuberry different</span>
+      <h2 class="h2">More than a folio in your child's name.</h2>
+      <p class="lede">Nuberry is built around your child: their investment, their goals, and how they learn about money.</p>
+      <ul class="tiles">
+        {different.map((d) => (
+          <li class="tile">
+            <span class="tile__icon"><Icon name={d.icon} /></span>
+            <h3>{d.t}</h3>
+            <p>{d.d}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band reveal" id="clarity">
+    <div class="wrap clarity">
+      <div class="clarity__intro">
+        <h2 class="h2">Your child's money deserves clear answers</h2>
+        <p class="lede">A few things worth knowing before you invest in a minor's name.</p>
+        <div class="fact">
+          <span class="tile__icon"><Icon name="lock" /></span>
+          <div>
+            <h3>Nuberry never holds your money</h3>
+            <p>Your SIP goes from your bank to the AMC. The folio sits with the AMC and its registrar, in your child's name. If Nuberry shut down tomorrow, the investments wouldn't be affected.</p>
+          </div>
+        </div>
+        <div class="fact">
+          <span class="tile__icon"><Icon name="receipt-indian-rupee" /></span>
+          <div>
+            <h3>Free for parents</h3>
+            <p>No subscription and no account fee. We earn a trail commission from the AMC, paid out of the fund's expense ratio rather than added to what you invest.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq">
+        {homeFaqs.map((f) => (
+          <details class="nb-acc">
+            <summary>{f.q}<Icon name="chevron-down" /></summary>
+            <div class="nb-acc__body">{f.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--brand reveal" id="waitlist">
+    <div class="wrap cta-band">
+      <span class="eyebrow">{TAGLINE}</span>
+      <h2 class="h2">The hardest part is starting</h2>
+      <p class="lede">Join the waitlist and we'll tell you the day it opens.</p>
+      <WaitlistForm source="landing" onBrand />
+    </div>
+  </section>
+</Base>

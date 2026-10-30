@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="nuberry">
+  <title>nuberry</title>
+  <rect width="1024" height="1024" rx="229.1" ry="229.1" fill="#24122F"></rect>
+  <g transform="translate(153.19 720.40) scale(0.79559)">
+    <g transform="scale(1 -1)">
+      <g fill="#FFFFFF"><path d="M530 313V221H360V308Q360 339 341.5 353.5Q323 368 293 368Q273 368 255.5 363.0Q238 358 222 350V221H52V373Q52 400 63.5 417.0Q75 434 95 448Q129 472 181.0 486.5Q233 501 295 501Q408 501 469.0 451.5Q530 402 530 313ZM52 264H222V1Q211 -2 190.5 -5.0Q170 -8 146 -8Q97 -8 74.5 9.0Q52 26 52 72ZM360 264H530V1Q519 -2 498.5 -5.0Q478 -8 454 -8Q405 -8 382.5 9.0Q360 26 360 72Z" transform="translate(0 0)"></path></g>
+      <circle cx="718" cy="132" r="132" fill="#FFC93C"></circle>
+    </g>
+  </g>
+</svg>

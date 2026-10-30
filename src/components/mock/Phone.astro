@@ -1,0 +1,13 @@
+---
+// A phone frame for illustrative app screens. Screens inside are built from
+// the design system's own components, so they follow the theme like the apps.
+interface Props { label: string; kids?: boolean; class?: string }
+const { label, kids = false, class: className = '' } = Astro.props
+---
+<figure class:list={['phone', kids && 'phone--kids', className]} role="img" aria-label={label}>
+  <div class="phone__screen" aria-hidden="true">
+    <div class="phone__status"><span>9:41</span><span class="phone__notch"></span><span>5G</span></div>
+    <div class="phone__body"><slot /></div>
+    <slot name="nav" />
+  </div>
+</figure>

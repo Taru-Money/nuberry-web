@@ -1,0 +1,20 @@
+---
+import Phone from './Phone.astro'
+import Icon from '../Icon.astro'
+---
+<Phone label="Illustrative parent app screen: setting up a college goal with a monthly amount">
+  <div class="mock-backbar"><Icon name="chevron-left" /><span>New goal</span><span class="mock-backbar__step">Step 2 of 3</span></div>
+  <div class="nb-card mock-card">
+    <span class="nb-eyebrow">Goal</span>
+    <b class="mock-card__title">Undergraduate college</b>
+    <div class="mock-kv"><span>Target year</span><span>2038 · Aarav turns 18</span></div>
+  </div>
+  <div class="nb-card mock-card">
+    <span class="nb-eyebrow">Monthly investment</span>
+    <span class="mock-amount">₹5,000</span>
+    <div class="mock-slider"><i style="width: 45%"></i><b style="left: 45%"></b></div>
+    <div class="mock-kv mock-kv--muted"><span>₹500</span><span>₹25,000</span></div>
+  </div>
+  <div class="nb-note"><Icon name="gift" /><div>Grandparents can add to this folio, straight from their bank.</div></div>
+  <div slot="nav" class="mock-sticky"><span class="nb-btn nb-btn--primary nb-btn--block">Continue</span></div>
+</Phone>

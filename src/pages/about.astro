@@ -1,0 +1,233 @@
+---
+import Base from '../layouts/Base.astro'
+import Icon from '../components/Icon.astro'
+import Phone from '../components/mock/Phone.astro'
+import { COMPANY, FOUNDER, AMFI_REGISTRATION_URL, DISCLOSURES_URL, SITE_URL, TAGLINE } from '../lib/site.js'
+
+const description =
+  'Nuberry helps parents build long-term wealth for their children, in their own name, while giving them a meaningful way to understand and grow with it.'
+
+const sides = [
+  {
+    key: 'parents', icon: 'user-round', eyebrow: 'For parents',
+    title: 'Build their financial foundation.',
+    body: 'Invest in their name, set goals and SIPs, track progress, and decide how much of it they see.',
+    caps: [
+      ['Invest', 'Invest in mutual funds, in their name.'],
+      ['Plan', 'Set goals and goal dates for their future.'],
+      ['SIPs', 'Start, increase or pause SIPs as life changes.'],
+      ['Track', "Follow the investment's progress towards each goal."],
+      ['Share', 'Decide what your child sees.'],
+    ],
+  },
+  {
+    key: 'children', icon: 'sprout', eyebrow: 'For children',
+    title: 'Grow into what is being built for them.',
+    body: 'A separate, age-appropriate view of the investment being built for them, so it makes sense long before it becomes theirs to manage.',
+    caps: [
+      ['See', 'Their progress towards the goals set for them.'],
+      ['Understand', 'That money is being invested in their name.'],
+      ['Participate', 'In age-appropriate ways their parents set up.'],
+      ['Learn', 'Through experience with their own investment.'],
+      ['Grow', 'Into an understanding of investing, over time.'],
+    ],
+  },
+]
+const principles = [
+  { label: 'Children come first', title: 'Build for the child, not just the account.', body: "Every decision should make the child's investment more meaningful, understandable and age-appropriate, not just easier to administer." },
+  { label: 'Long-term by design', title: 'Build for the years ahead, not the next market cycle.', body: 'Nuberry is designed around the long journey of building wealth for a child, not short-term financial behaviour.' },
+  { label: 'Continuous', title: 'Build something they can eventually grow into.', body: 'The investment should make more sense to the child as they grow, so that at 18 it is a continuation, not a handover.' },
+  { label: 'Radical clarity', title: 'Financial products deserve radical clarity.', body: 'Be clear about where money goes, who holds it, how Nuberry earns and what parents are actually signing up for.' },
+]
+const trust = [
+  { label: 'AMFI registered', title: `Mutual Fund Distributor · ARN ${COMPANY.arn}`, body: "Nuberry is an AMFI-registered Mutual Fund Distributor. We help you invest in mutual funds; we don't manage the underlying funds." },
+  { label: "We don't hold your money", title: 'Your investment sits with the relevant financial institutions.', body: "Your SIP is invested into mutual fund schemes and held through the relevant AMC and registrar, in your child's name. Nuberry acts as the distributor." },
+  { label: 'Transparent by design', title: "Know what you're investing in. Know how we earn.", body: 'There are no hidden subscription charges for parents. Nuberry earns a trail commission from the AMC when you invest through us.' },
+]
+const journey = [
+  { label: 'Today', title: "Investing for a child's future.", body: "Nuberry starts with mutual fund investing: a way for parents to build long-term wealth in their child's name." },
+  { label: 'Together', title: "A child who can see what's being built.", body: 'Nuberry gives children an age-appropriate way to understand and take part in their financial journey.' },
+  { label: 'Over time', title: 'A financial foundation that moves with them.', body: 'Nuberry will expand beyond a single investment toward the broader financial foundation a child needs as they grow.' },
+]
+const pad = (i: number) => String(i + 1).padStart(2, '0')
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  url: `${SITE_URL}/about/`,
+  about: { '@id': `${SITE_URL}/#organization` },
+  mainEntity: {
+    '@type': 'Person',
+    name: FOUNDER.name,
+    jobTitle: FOUNDER.role,
+    worksFor: { '@id': `${SITE_URL}/#organization` },
+    sameAs: [FOUNDER.linkedin],
+  },
+}]
+---
+<Base title="About Nuberry: Why We Exist" description={description} active="about" jsonLd={jsonLd}>
+  <section class="hero wrap about-hero">
+    <div class="hero__copy">
+      <span class="eyebrow">Why Nuberry exists</span>
+      <h1 class="display">Every child should grow up with something of their own. <span class="accent">And know what to do with it.</span></h1>
+      <p class="lede">{description}</p>
+    </div>
+    <div class="hero__art">
+      <div class="hero__disc" aria-hidden="true"></div>
+      <Phone class="phone--short" label="Illustrative parent app card: an investment held in the child's name, managed by the parent as guardian">
+        <div class="mock-topbar"><span class="mock-topbar__title">Aarav's investment</span></div>
+        <div class="nb-card">
+          <span class="nb-eyebrow">Held in the name of</span>
+          <div class="mock-kv mock-kv--plain"><b class="mock-card__title">Aarav</b><span class="nb-chip">Guardian · You</span></div>
+        </div>
+        <section class="nb-portfolio mock-portfolio">
+          <div class="nb-portfolio__label">Invested so far</div>
+          <div class="nb-portfolio__amount">₹1,84,000</div>
+          <div class="nb-portfolio__meta">College fund · 2038</div>
+        </section>
+        <section class="nb-goal">
+          <div class="nb-goal__head"><span class="nb-goal__title">Horizon</span><span class="nb-goal__meta">Until Aarav turns 18</span></div>
+          <div class="nb-goal__track"><div class="nb-goal__fill" style="width: 62%"></div></div>
+          <span class="nb-goal__progress">62% of the target invested</span>
+        </section>
+      </Phone>
+    </div>
+  </section>
+
+  <section class="band band--mist reveal">
+    <div class="wrap">
+      <span class="eyebrow">The gap</span>
+      <h2 class="h2 about-narrow">We're building for a part of investing most products weren't designed around: <span class="accent">the child.</span></h2>
+      <div class="pair">
+        <article class="tile">
+          <span class="num-label">01 · Ownership</span>
+          <h3>The money is for them. Their investment should be too.</h3>
+          <p>Parents build wealth for their child's future, but the investment experience itself is usually designed around the adult, not the person it is ultimately meant for.</p>
+        </article>
+        <article class="tile">
+          <span class="num-label">02 · Continuity</span>
+          <h3>Wealth shouldn't suddenly become their responsibility at 18.</h3>
+          <p>The investment should become understandable to the child gradually, not arrive as a portfolio they're simply handed the day they turn 18.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band reveal">
+    <div class="wrap">
+      <span class="eyebrow">What we're building</span>
+      <h2 class="h2">An investment built around the child.</h2>
+      <p class="lede">Parents build the financial foundation. Children grow into it.</p>
+      <div class="pair">
+        {sides.map((s) => (
+          <div class="side">
+            <span class="eyebrow eyebrow--icon"><Icon name={s.icon} />{s.eyebrow}</span>
+            <h3 class="h3">{s.title}</h3>
+            <p class="side__body">{s.body}</p>
+            <dl class="caps">
+              {s.caps.map(([t, d]) => <div><dt>{t}</dt><dd>{d}</dd></div>)}
+            </dl>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--jamun reveal">
+    <div class="wrap">
+      <span class="eyebrow">Our investment philosophy</span>
+      <h2 class="h2">What we believe an investment for a child should be.</h2>
+      <p class="lede">The principles we use when deciding what Nuberry should, and shouldn't, build.</p>
+      <ol class="principles">
+        {principles.map((p, i) => (
+          <li>
+            <span class="principles__key"><span class="steps-3__n">{pad(i)}</span>{p.label}</span>
+            <h3>{p.title}</h3>
+            <p>{p.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band reveal">
+    <div class="wrap">
+      <span class="eyebrow">The person behind Nuberry</span>
+      <h2 class="h2 about-narrow">It started with a simple question: how do I invest for my daughter?</h2>
+      <div class="founder">
+        <figure class="founder__card">
+          <img class="founder__photo" src={FOUNDER.photo} width="640" height="800" alt={`${FOUNDER.name}, ${FOUNDER.role} of Nuberry`} loading="lazy" />
+          <figcaption>
+            <b>{FOUNDER.name}</b>
+            <span>{FOUNDER.role}</span>
+            <a href={FOUNDER.linkedin} target="_blank" rel="noopener noreferrer" class="text-link">LinkedIn<Icon name="arrow-up-right" /></a>
+          </figcaption>
+        </figure>
+        <div class="founder__story">
+          <div>
+            <span class="num-label">01 · The problem</span>
+            <p>When my daughter was one, I started looking for a way to invest in mutual funds for her, and couldn't find a simple way to do it. If I was looking for this, how were other parents doing it? And why hadn't anyone built a product around children?</p>
+          </div>
+          <div>
+            <span class="num-label">02 · The insight</span>
+            <p>The more I explored, the clearer it became that minors weren't being treated as a segment in their own right. Where children were supported at all, it was a feature added to an adult product, not a product designed around the child.</p>
+            <p class="founder__beat">That's where Nuberry began.</p>
+          </div>
+          <div>
+            <span class="num-label">03 · Why Nuberry, why me</span>
+            <p>I've spent the last 10 years building and growing products across banking and financial services, building them from the ground up, taking them to market, and working across both the product and business sides.</p>
+            <p class="founder__pull">But the most important qualification is simpler: I've lived the problem myself.</p>
+            <p>By the time a child turns 18, they shouldn't just have money in their name. They should understand what it means, how to manage it, and how to make it work for them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--mist reveal">
+    <div class="wrap">
+      <span class="eyebrow">Built for trust</span>
+      <h2 class="h2 about-narrow">Built for a child's future. Built on financial infrastructure you can trust.</h2>
+      <p class="lede">Nuberry is built on regulated financial infrastructure, with clarity about where your money goes, who holds it and what Nuberry does.</p>
+      <div class="tiles tiles--3">
+        {trust.map((t, i) => (
+          <article class="tile">
+            <span class="num-label">{pad(i)} · {t.label}</span>
+            <h3>{t.title}</h3>
+            <p>{t.body}</p>
+          </article>
+        ))}
+      </div>
+      <div class="trust-links">
+        <a class="text-link" href={AMFI_REGISTRATION_URL ?? undefined} data-todo={AMFI_REGISTRATION_URL ? undefined : 'url-missing'}>AMFI registration<Icon name="arrow-up-right" /></a>
+        <a class="text-link" href={DISCLOSURES_URL ?? undefined} data-todo={DISCLOSURES_URL ? undefined : 'url-missing'}>Disclosures<Icon name="arrow-right" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band reveal">
+    <div class="wrap">
+      <span class="eyebrow">The journey ahead</span>
+      <h2 class="h2">Built today. Designed for the journey ahead.</h2>
+      <p class="lede">Nuberry starts with investing for a child's future, and is building toward a broader financial experience around the child as they grow.</p>
+      <ol class="tiles tiles--3 journey">
+        {journey.map((t, i) => (
+          <li class="tile">
+            <span class="num-label">{pad(i)} · {t.label}</span>
+            <h3>{t.title}</h3>
+            <p>{t.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band band--brand reveal">
+    <div class="wrap cta-band">
+      <span class="eyebrow">{TAGLINE}</span>
+      <h2 class="h2">We want every child to turn 18 with two things.</h2>
+      <p class="mission"><span>Wealth to their name.</span> <span>Wisdom to multiply it.</span></p>
+      <a href="/#waitlist" class="nb-btn nb-btn--action nb-btn--lg">Join the waitlist<Icon name="arrow-right" /></a>
+      <p class="mission__micro">We're building the financial foundation for their future, one child at a time.</p>
+    </div>
+  </section>
+</Base>

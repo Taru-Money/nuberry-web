@@ -1,0 +1,22 @@
+---
+// Posts to the waitlist API through src/lib/client.js. `source` tells the
+// backend which page the sign-up came from.
+import Icon from './Icon.astro'
+interface Props { source: string; compact?: boolean; placeholder?: string; onBrand?: boolean }
+const { source, compact = false, placeholder = 'you@example.com', onBrand = false } = Astro.props
+const id = `wl-${source.replace(/[^a-z0-9]/gi, '-')}`
+// On the raspberry band the button is jamun with a sunshine label, never raspberry on raspberry.
+const btn = onBrand ? 'nb-btn--action' : 'nb-btn--primary'
+---
+<div class:list={['waitlist', compact && 'waitlist--compact', onBrand && 'waitlist--on-brand']}>
+  <form class="waitlist__form" data-waitlist={source} novalidate>
+    <label class="nb-sr" for={id}>Email address</label>
+    <input class="nb-input" id={id} type="email" name="email" autocomplete="email" placeholder={placeholder} required />
+    {compact ? (
+      <button type="submit" class:list={['nb-btn', btn, 'waitlist__btn--icon']} aria-label="Join the waitlist"><Icon name="arrow-right" /></button>
+    ) : (
+      <button type="submit" class:list={['nb-btn', btn]}>Join the waitlist</button>
+    )}
+  </form>
+  <p class="waitlist__msg" data-waitlist-msg role="status" aria-live="polite" hidden></p>
+</div>

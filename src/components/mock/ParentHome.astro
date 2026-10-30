@@ -1,0 +1,32 @@
+---
+import Phone from './Phone.astro'
+import Icon from '../Icon.astro'
+---
+<Phone label="Illustrative parent app home screen: Aarav's portfolio, his college goal and his monthly SIP">
+  <div class="mock-topbar">
+    <span class="mock-topbar__title">Aarav's portfolio</span>
+    <span class="nb-avatar nb-avatar--sm">AK</span>
+  </div>
+  <section class="nb-portfolio mock-portfolio">
+    <div class="nb-portfolio__label">In Aarav's name</div>
+    <div class="nb-portfolio__amount">₹1,98,400</div>
+    <div class="nb-portfolio__meta">Current value</div>
+    <dl class="nb-portfolio__stats"><div><dt>Invested</dt><dd>₹1,84,000</dd></div><div><dt>Since</dt><dd>Mar 2024</dd></div></dl>
+    <hr class="nb-portfolio__divider" />
+    <div class="nb-portfolio__row"><span class="nb-btn nb-btn--action nb-btn--sm">Top up</span><span class="nb-btn nb-btn--on-brand nb-btn--sm">Full view</span></div>
+  </section>
+  <section class="nb-goal">
+    <div class="nb-goal__head"><span class="nb-goal__title">College fund</span><span class="nb-goal__meta">Goal year 2038</span></div>
+    <div class="nb-goal__track"><div class="nb-goal__fill" style="width: 62%"></div></div>
+    <span class="nb-goal__progress">62% of your target invested</span>
+  </section>
+  <div class="mock-row">
+    <span class="mock-row__icon"><Icon name="repeat" /></span>
+    <span class="mock-row__body"><b>SIP ₹5,000 every 5th</b><span>Next on 5 Nov</span></span>
+  </div>
+  <nav slot="nav" class="nb-nav mock-nav">
+    <span class="nb-nav__item" aria-current="page"><Icon name="house" />Home</span>
+    <span class="nb-nav__item"><Icon name="trending-up" />Invest</span>
+    <span class="nb-nav__item"><Icon name="chart-pie" />Portfolio</span>
+  </nav>
+</Phone>

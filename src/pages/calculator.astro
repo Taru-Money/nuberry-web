@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro'
+import MilestoneCalculator from '../islands/MilestoneCalculator.jsx'
+import { SITE_URL, BRAND, COMPANY, RISK_DISCLAIMER } from '../lib/site.js'
+
+const description =
+  'See what a monthly SIP could be worth by the time your child turns 18, or work out how much to invest to reach a target, plus what waiting costs. No signup needed.'
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Child SIP Calculator',
+  url: `${SITE_URL}/calculator/`,
+  description,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Web',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  provider: { '@id': `${SITE_URL}/#organization` },
+}]
+---
+<Base
+  title="Child SIP Calculator: What Your Monthly SIP Adds Up To | Nuberry"
+  description={description}
+  ogTitle="Child SIP calculator | Nuberry"
+  active="calculator"
+  jsonLd={jsonLd}
+>
+  <section class="wrap page-head">
+    <span class="eyebrow">Tools</span>
+    <h1 class="display">Run the numbers</h1>
+    <p class="lede">Two calculators. No signup needed.</p>
+    <nav class="tool-tabs" aria-label="Calculators">
+      <a href="/calculator/" aria-current="page">Milestone calculator</a>
+      <a href="/tax-calculator/">Tax calculator</a>
+    </nav>
+    <p class="tool-desc">What a monthly SIP could add up to by the time your child turns 18, and what waiting costs.</p>
+  </section>
+
+  <section class="wrap calc-wrap">
+    <MilestoneCalculator client:load />
+    <div class="assume-note">
+      <b>How this is worked out</b>
+      <p>Contributions are taken at the start of each month and compounded monthly at the annual rate you set, until your child turns 18. A step-up, if you set one, is applied once every twelve months.</p>
+      <ul>
+        <li>The rate you choose is an assumption, not a forecast. Past performance does not indicate future returns, and equity funds can and do lose money.</li>
+        <li>Figures are before expense ratio, exit load, stamp duty and tax, so a real portfolio would finish lower.</li>
+        <li>Figures are in today's rupees at face value and are not adjusted for inflation. What ₹25 lakh buys in eighteen years will be considerably less than what it buys today.</li>
+        <li>This is an illustration, not advice, not a recommendation of any scheme, and not a projection of what you will actually receive.</li>
+      </ul>
+      <p class="assume-note__reg">{BRAND} is a brand of {COMPANY.legalName}, an AMFI-registered mutual fund distributor (ARN {COMPANY.arn}). {RISK_DISCLAIMER}</p>
+    </div>
+  </section>
+</Base>
