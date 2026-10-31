@@ -11,7 +11,7 @@ import '../styles/components.css'
 import '../styles/site.css'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { SITE_URL, BRAND, COMPANY, ANALYTICS } from '../lib/site.js'
+import { SITE_URL, BRAND, COMPANY, ANALYTICS, SOCIAL_LINKS } from '../lib/site.js'
 
 interface Props {
   title: string
@@ -38,6 +38,7 @@ const orgLd = {
   legalName: COMPANY.legalName,
   url: SITE_URL,
   logo: `${SITE_URL}/brand/nuberry-icon-dark.png`,
+  sameAs: SOCIAL_LINKS.map((s) => s.url).filter(Boolean),
 }
 const analyticsConfig = JSON.stringify(ANALYTICS)
 ---
