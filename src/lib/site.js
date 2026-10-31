@@ -9,7 +9,7 @@ export const COMPANY = {
   legalName: 'NextGenOS Financial Services Private Limited',
   arn: '367667',
   cin: 'U66190MH2026PTC472911',
-  address: 'A-1304 Romell Diva, Jamuna Bldg, Chincholi Bunder, Malad West, Mumbai 400064, Maharashtra',
+  address: 'Malad West, Mumbai 400064, Maharashtra',
   shortAddress: 'Malad West, Mumbai 400064',
 }
 
@@ -32,9 +32,9 @@ export const FOUNDER = {
 export const AMFI_REGISTRATION_URL = null
 export const DISCLOSURES_URL = null
 export const SOCIAL_LINKS = [
-  { label: 'Instagram', icon: 'instagram', url: null },
-  { label: 'LinkedIn', icon: 'linkedin', url: null },
-  { label: 'Facebook', icon: 'facebook', url: null },
+  { label: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/nuberry.in' },
+  { label: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/company/nuberry-in' },
+  { label: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/nuberry.in' },
 ]
 
 // Ads and pixel IDs carried over from taru.money. They only load on the

@@ -1,4 +1,6 @@
-export const homeFaqs = [
+// Set hidden: true to take a question off the page (and out of the FAQ
+// structured data) without deleting it.
+const allFaqs = [
   {
     q: 'Who owns the investment?',
     a: "Your child. The folio is in their name from the first instalment. It isn't held for them or promised to them.",
@@ -14,6 +16,7 @@ export const homeFaqs = [
   {
     q: 'Can grandparents contribute?',
     a: "Yes. Grandparents can contribute directly to your child's folio without needing an account of their own.",
+    hidden: true,
   },
   {
     q: 'Can I change or stop the SIP?',
@@ -32,3 +35,5 @@ export const homeFaqs = [
     a: "While your child is a minor, gains are added to your income and taxed at your slab. After 18, gains are taxed in their hands at their own slab, which for most young adults is lower.",
   },
 ]
+
+export const homeFaqs = allFaqs.filter((f) => !f.hidden)

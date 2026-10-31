@@ -24,6 +24,18 @@ for (const menu of document.querySelectorAll('.site-menu')) {
   })
 }
 
+// Exclusive accordions: opening one <details name="x"> closes its siblings.
+// Modern browsers do this natively from the name attribute; this covers
+// the ones that don't.
+for (const item of document.querySelectorAll('details[name]')) {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return
+    for (const other of document.querySelectorAll(`details[name="${item.getAttribute('name')}"]`)) {
+      if (other !== item && other.open) other.removeAttribute('open')
+    }
+  })
+}
+
 // Waitlist forms. Any <form data-waitlist="source"> posts to the backend.
 const isValidEmail = (v) => {
   const parts = v.trim().split('@')
