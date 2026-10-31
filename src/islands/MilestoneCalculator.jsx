@@ -145,7 +145,7 @@ export default function MilestoneCalculator() {
       if (!res.ok) {
         setFormError(data.error || 'Something went wrong. Please try again.')
       } else {
-        window.nbTrackLead?.()
+        window.nbTrackLead?.('calculator')
         setSubmitted(true)
         setEmail('')
       }

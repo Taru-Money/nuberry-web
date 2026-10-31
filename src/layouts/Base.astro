@@ -88,6 +88,10 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
       // Ads and pixel load only on the production host, never on previews or localhost.
       (function () {
         var cfg = JSON.parse(analyticsConfig)
+        // nbTrack(name, params): a GA4 event. nbTrackLead(source): a waitlist sign-up,
+        // sent to GA4 as generate_lead and to Ads and Meta as a conversion.
+        // Both are no-ops off the production host.
+        window.nbTrack = function () {}
         window.nbTrackLead = function () {}
         if (cfg.productionHosts.indexOf(location.hostname) === -1) return
         var s = document.createElement('script')
@@ -98,10 +102,16 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
         window.gtag = function () { dataLayer.push(arguments) }
         gtag('js', new Date())
         gtag('config', cfg.googleAdsId)
+        if (cfg.ga4Id) gtag('config', cfg.ga4Id)
+        window.nbTrack = function (name, params) {
+          if (!cfg.ga4Id) return
+          try { gtag('event', name, Object.assign({ send_to: cfg.ga4Id }, params || {})) } catch (e) {}
+        }
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js')
         fbq('init', cfg.metaPixelId)
         fbq('track', 'PageView')
-        window.nbTrackLead = function () {
+        window.nbTrackLead = function (source) {
+          window.nbTrack('generate_lead', { lead_source: source || 'unknown' })
           try { fbq('track', 'Lead') } catch (e) {}
           try { gtag('event', 'conversion', { send_to: cfg.googleAdsLeadConversion }) } catch (e) {}
         }

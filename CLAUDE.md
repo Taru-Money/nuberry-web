@@ -78,7 +78,17 @@ Forms post `{ email, source }` to `${BACKEND_URL}/api/waitlist` (the existing Re
 
 ## Analytics
 
-Google Ads and the Meta pixel load only when `location.hostname` is `nuberry.in`, so local builds and Netlify previews never fire events. A successful waitlist sign-up calls `window.nbTrackLead()`.
+Google Ads, GA4 and the Meta pixel load only when `location.hostname` is `nuberry.in`, so local builds and Netlify previews never fire events. IDs live in `ANALYTICS` in `src/lib/site.js`; GA4 is skipped while `ga4Id` is null.
+
+GA4 events (send them through `window.nbTrack(name, params)`, never call `gtag` directly):
+
+| Event | When | Params |
+| --- | --- | --- |
+| `generate_lead` | Waitlist sign-up succeeds, via `window.nbTrackLead(source)`, which also fires the Ads conversion and Meta `Lead` | `lead_source`: `landing`, `calculator` or `article:<slug>` |
+| `calculator_used` | First interaction with a calculator, once per page view | `calculator`: `milestone` or `tax` |
+| `share` | Share button on an article | `content_type`, `item_id`, `method` |
+
+Page views, scrolls and outbound clicks come from GA4's enhanced measurement. Never send email addresses or any personal data in event params.
 
 ## Adding a blog post
 

@@ -71,7 +71,7 @@ for (const form of document.querySelectorAll('form[data-waitlist]')) {
       if (!res.ok) {
         say(data.error || 'Something went wrong. Please try again.', 'error')
       } else {
-        window.nbTrackLead?.()
+        window.nbTrackLead?.(form.dataset.waitlist)
         form.hidden = true
         say("You're on the list. We'll email you the day it opens.", 'ok')
       }
@@ -89,6 +89,7 @@ for (const form of document.querySelectorAll('form[data-waitlist]')) {
 for (const btn of document.querySelectorAll('[data-share]')) {
   btn.addEventListener('click', async () => {
     const url = window.location.href
+    window.nbTrack?.('share', { content_type: 'article', item_id: location.pathname, method: navigator.share ? 'native' : 'copy_link' })
     if (navigator.share) {
       navigator.share({ title: document.title, url }).catch(() => {})
     } else if (navigator.clipboard) {
@@ -117,4 +118,17 @@ if (reveal.length && 'IntersectionObserver' in window && !matchMedia('(prefers-r
       io.observe(el)
     }
   })
+}
+
+// GA4: one calculator_used event per page view, on the first real interaction.
+const calcName = { '/calculator/': 'milestone', '/tax-calculator/': 'tax' }[location.pathname]
+if (calcName) {
+  let sent = false
+  const onUse = (e) => {
+    if (sent || !e.target.closest('.calc__fields, .tc-left-panel')) return
+    sent = true
+    window.nbTrack?.('calculator_used', { calculator: calcName })
+  }
+  document.addEventListener('input', onUse)
+  document.addEventListener('click', onUse)
 }

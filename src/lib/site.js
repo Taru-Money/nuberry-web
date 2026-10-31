@@ -44,6 +44,8 @@ export const ANALYTICS = {
   googleAdsId: 'AW-18172166013',
   googleAdsLeadConversion: 'AW-18172166013/aC8FCKyqn7YcEP3-lNlD',
   metaPixelId: '3145039679024176',
+  // GA4 web stream for nuberry.in, e.g. 'G-ABC123XYZ'. Null skips GA4 entirely.
+  ga4Id: null,
 }
 
 export const RISK_DISCLAIMER =
