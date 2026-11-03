@@ -1,5 +1,144 @@
 export const blogs = [
   {
+    id: 7,
+    slug: 'mutual-funds-for-your-child',
+    datePublished: '2026-11-03T18:00:00+05:30',
+    title: 'Mutual funds for your child: the complete guide for Indian parents',
+    subtitle: 'Who can open a minor folio, what it needs, who pays, how it is taxed, and what changes at 18. Checked against SEBI, AMFI and income tax rules as of November 2026.',
+    topic: 'Complete guide',
+    readingTime: '10 min',
+    metaDescription: "How a mutual fund for a minor works in India: who can open one, documents, whose bank account pays, tax and clubbing, and what changes when your child turns 18.",
+    waitlist: {
+      title: 'Want this done for you, in your child\'s name?',
+      text: 'Nuberry opens minor folios and runs the SIP for you, and gives your child their own view of it. Join the waitlist and we\'ll tell you the day it opens.',
+    },
+    body: [
+      { type: 'paragraph', text: "Yes, you can invest in a mutual fund in your child's name in India. The child is the only holder of the folio, you run it as their guardian until they turn 18, and since June 2023 you can pay for it from your own bank account." },
+      { type: 'paragraph', text: "That's the short answer. The rest of this guide covers what most parents only find out halfway through: the paperwork, where money can come back to, how the tax actually works, and the day the folio freezes on your child's 18th birthday. I went through all of it for my daughter. This is what I wish one page had told me." },
+      {
+        type: 'key_facts', title: 'Key facts',
+        items: [
+          '**Sole holder:** the child is the only holder. No joint holders are allowed on a minor folio.',
+          '**Guardian:** a parent (natural guardian) or a court-appointed guardian runs the folio until the child turns 18.',
+          "**Paying in:** from the child's account, your account, or a joint account of the two ([SEBI, May 2023](https://www.sebi.gov.in/legal/circulars/may-2023/investment-in-units-of-mutual-funds-in-the-name-of-minor-through-guardian_71148.html)).",
+          "**Paying out:** redemptions go only to the child's own verified bank account, which can be held jointly with you.",
+          "**Tax:** until 18, the child's gains are added to the income of the parent who earns more (Section 99 of the Income-tax Act, 2025, earlier Section 64(1A)).",
+          '**At 18:** SIPs stop and the folio is frozen until the status is changed from minor to major.',
+        ],
+      },
+
+      { type: 'heading', text: 'Can a minor invest in mutual funds in India?' },
+      { type: 'paragraph', text: 'Yes. Any child under 18 can hold mutual fund units, from the day they are born. A minor mutual fund account works like any other folio, with one difference: the child owns the units, but a guardian makes every decision and signs every form until the child becomes a major.' },
+      { type: 'paragraph', text: "This is not a special product. It's the same equity, hybrid and debt funds adults invest in, registered in a different name. Any fund house will open one, directly or through a distributor." },
+
+      { type: 'heading', text: 'Who can open a minor folio, and who controls it?' },
+      { type: 'paragraph', text: "Only a guardian can open it. That's either a natural guardian (the child's mother or father) or a guardian appointed by a court. Grandparents, uncles and family friends can't open a folio in the child's name unless a court has appointed them." },
+      { type: 'bullet_list', items: [
+        '**The child is the first and only holder.** You cannot add yourself as a joint holder, and you cannot add the child as a joint holder on your folio.',
+        '**The guardian operates it.** You choose the funds, start and stop SIPs, and sign redemption requests.',
+        "**The money is the child's.** Even though you run it, it is legally their asset. Treat it that way: this is not a savings pot you can borrow from.",
+      ]},
+
+      { type: 'heading', text: 'What documents do you need to open one?' },
+      { type: 'paragraph', text: 'Less than most parents expect. Your child does not need a PAN or their own KYC to open the folio. You need:' },
+      { type: 'bullet_list', items: [
+        "**Proof of the child's date of birth:** a birth certificate, passport or school certificate.",
+        '**Proof of your relationship to the child:** usually the same birth certificate or passport, since it names the parents. A court-appointed guardian needs the court order.',
+        '**Your own KYC:** your PAN and completed mutual fund KYC. If you already invest in mutual funds, this is probably done.',
+        '**A bank account for SIP payments:** yours, the child\'s, or a joint one.',
+      ]},
+      { type: 'paragraph', text: 'Some fund houses ask for slightly different paperwork, so check their form before you start. The step-by-step version, with where people get stuck, is in [How to open a mutual fund in your child\'s name](/blog/how-to-open-minor-mutual-fund/).' },
+
+      { type: 'heading', text: 'Whose bank account pays in, and where does the money come back?' },
+      { type: 'paragraph', text: "This is the rule that trips people up, because it isn't symmetrical. Until June 2023, you had to pay from the child's own bank account. SEBI relaxed that, but only for money going in." },
+      { type: 'table', text: true, headers: ['Money', 'Which bank account'], rows: [
+        ['SIPs and lump sums going in', "The child's account, the parent or guardian's account, or a joint account of the child and the parent"],
+        ['Redemptions coming out', "Only the child's own verified bank account (it can be held jointly with the parent)"],
+      ], caption: 'Source: SEBI circular SEBI/HO/IMD/POD-II/CIR/P/2023/0069, 12 May 2023, in force from 15 June 2023.' },
+      { type: 'paragraph', text: "In practice: you can start today with no account in your child's name. But open one well before you need to take money out, because the fund house must verify it first, and a redemption can't be paid to you." },
+
+      { type: 'heading', text: 'How do you open one?' },
+      { type: 'step', number: 1, title: 'Finish your own KYC', text: 'Check your status on any KRA website. If it is not done, online KYC with PAN and Aadhaar takes about fifteen minutes.' },
+      { type: 'step', number: 2, title: 'Choose where to invest', text: 'Directly with each fund house (a separate login for each), or through an AMFI-registered distributor or platform that handles minor folios across fund houses.' },
+      { type: 'step', number: 3, title: 'Open the folio in the child\'s name', text: "Select the minor option, enter the child's name and date of birth, state your relationship, and upload the date-of-birth and relationship proof." },
+      { type: 'step', number: 4, title: 'Set up the SIP', text: 'Pick the amount, the date and the paying bank account, and approve the mandate. It then runs every month on its own.' },
+      { type: 'step', number: 5, title: 'Add the child\'s bank account later', text: 'Register and verify an account in the child\'s name (alone or joint with you) before you ever need to redeem.' },
+
+      { type: 'heading', text: 'What kind of fund do parents usually use?' },
+      { type: 'paragraph', text: "This guide doesn't recommend schemes. What it can do is explain how fund categories line up with time, because the time to your goal matters more than anything else." },
+      { type: 'table', text: true, headers: ['Time to the goal', 'Categories parents commonly look at', 'Why'], rows: [
+        ['10 years or more', 'Equity: index funds, flexi cap, large and mid cap', 'Long enough to sit through market falls, which equity funds do have'],
+        ['5 to 10 years', 'Hybrid funds, or equity moving gradually towards debt', 'Less swing in value as the date gets closer'],
+        ['Under 5 years', 'Debt funds and other lower-risk options', 'Protecting what has been built matters more than adding to it'],
+      ]},
+      { type: 'paragraph', text: "What about funds with \"children's\" in the name? In February 2026 SEBI discontinued the solution-oriented category, which included children's funds, and introduced life cycle funds with a target year. It later let fund houses keep some children's funds ([Upstox, May 2026](https://upstox.com/learning-center/mutual-funds/your-child-s-mutual-fund-has-changed/article-1629/)). Any fund can be held in a minor folio, so a label isn't required. If you hold one, check its current status with the fund house." },
+
+      { type: 'heading', text: 'What could a monthly SIP add up to?' },
+      { type: 'paragraph', text: '₹5,000 a month, started when your child is 2 and kept going until they turn 18. That is 192 instalments and ₹9.6 lakh paid in. Here is the same SIP at three assumed returns, and what starting five years later looks like.' },
+      { type: 'table', headers: ['Assumed return a year', 'Age 2 to 18 (₹9.6 lakh paid in)', 'Age 7 to 18 (₹6.6 lakh paid in)'], rows: [
+        ['8%', '₹19.5 lakh', '₹10.6 lakh'],
+        ['10%', '₹23.7 lakh', '₹12.0 lakh'],
+        ['12%', '₹29.1 lakh', '₹13.7 lakh'],
+      ], caption: 'Value at 18 of ₹5,000 a month.' },
+      { type: 'assume', title: 'How these are worked out', text: 'Monthly SIP paid at the start of each month, returns compounded monthly at the stated annual rate, before tax and fund expenses. These rates are assumptions, not promises. Equity funds have returned more and less than this over long periods, and can lose money. Figures are illustrative only. Try your own numbers in the [SIP calculator](/calculator/).' },
+      { type: 'paragraph', text: 'The right-hand column is the one to look at. Five fewer years of the same ₹5,000 means ₹3 lakh less paid in, but between ₹8.9 lakh and ₹15.4 lakh less at 18, depending on the rate. The last years of compounding do the most work, and you only get them by starting early.' },
+
+      { type: 'heading', text: "How is a mutual fund in your child's name taxed?" },
+      { type: 'paragraph', text: "Until your child turns 18, their investment income is treated as yours. This is called clubbing, and it's the part most articles get wrong or leave out." },
+      { type: 'bullet_list', items: [
+        "**Whose return it goes in:** the child's capital gains and dividends are added to the income of the parent whose total income is higher. That parent pays the tax at their own rates (Section 99 of the Income-tax Act, 2025, which replaced Section 64(1A) from 1 April 2026).",
+        '**A small exemption:** ₹1,500 a year per child is exempt from clubbing.',
+        "**Exceptions:** income a child earns from their own work, skill or talent is not clubbed, and nor is the income of a child with a specified disability.",
+        '**In the year they turn 18:** income up to their birthday is clubbed; after that it is taxed in their own name.',
+      ]},
+      { type: 'paragraph', text: 'The capital gains rates themselves are the same as for adults. Budget 2026 did not change them.' },
+      { type: 'table', text: true, headers: ['Fund type', 'Held 12 months or less', 'Held longer than 12 months'], rows: [
+        ['Equity funds (65% or more in Indian equity)', '20%', '12.5% on gains above ₹1.25 lakh a year'],
+        ['Debt funds bought on or after 1 April 2023', 'Your slab rate', 'Your slab rate'],
+      ], caption: 'Rates for FY 2026-27, before surcharge and cess. Tax rules change; confirm with a tax professional before acting.' },
+      { type: 'paragraph', text: 'See what this means with your own numbers in the [tax calculator](/tax-calculator/).' },
+
+      { type: 'heading', text: 'What happens when your child turns 18?' },
+      { type: 'paragraph', text: 'The folio does not quietly carry on. On the 18th birthday:' },
+      { type: 'bullet_list', items: [
+        'Every SIP, STP and SWP on the folio stops, even if the mandate was set up to run longer.',
+        'You can no longer transact on it as guardian, and no new transactions are allowed until the status changes.',
+        'Dividend payouts, if any, continue to the registered bank account.',
+      ]},
+      { type: 'paragraph', text: 'To unfreeze it, your child, now an adult, needs a PAN, their own KYC and a bank account in their own name. They then submit a change of status form (often called the MAM form) with a cancelled cheque, a nomination form and fresh SIP mandates if they want to continue. Fund houses send a notice before the birthday, but start on the PAN and KYC a few months ahead. More on that day in [The day your child turns 18](/blog/the-day-your-child-turns-18/).' },
+      { type: 'paragraph', text: 'After this, the money is fully theirs. You no longer have any say in what they do with it. For most parents that is the point, but it is worth deciding early how and when you will talk to your child about it.' },
+
+      { type: 'heading', text: 'What most guides get wrong' },
+      { type: 'subheading', text: "\"Invest in your child's name to save tax\"" },
+      { type: 'paragraph', text: "Not while they're a minor. Clubbing puts the gains straight back into your return, so there is no tax saving before 18. Worse, if you redeem during those years, the child's gains share your single ₹1.25 lakh equity exemption with your own investments. The tax case only starts at 18, when your child files in their own name with their own exemption every year. A corpus built over 16 years can often be withdrawn gradually after 18 with much less tax than if it sat in your name. That is a real benefit, but it is a reason to plan the exit, not a reason to invest." },
+      { type: 'subheading', text: '"First, open a bank account for your child"' },
+      { type: 'paragraph', text: "Older guides still say this. Since June 2023 you can start without one and pay from your own account. You only need the child's account for money coming out, so the honest advice is: start now, open the account before you need it." },
+      { type: 'subheading', text: '"Earmarking your own fund is the same thing"' },
+      { type: 'paragraph', text: "It isn't. Money you've labelled as the child's but kept in your name is money you can, and usually will, dip into. I did, for a car. A folio in the child's name makes every withdrawal a deliberate step paid into their account, which is exactly why it survives 18 years." },
+
+      { type: 'heading', text: 'Frequently asked questions' },
+      { type: 'faq', items: [
+        { q: 'Does my child need a PAN to invest in mutual funds?', a: "Not to open the folio. The guardian's PAN and KYC are used. Your child needs their own PAN and KYC when they turn 18, to change the folio's status from minor to major." },
+        { q: 'Can I invest from my own bank account?', a: "Yes. Since 15 June 2023, investments in a minor's name can be paid from the parent's or guardian's account, the child's account, or a joint account. Redemptions are paid only to the child's verified account." },
+        { q: 'Can grandparents invest in a mutual fund for a grandchild?', a: "They can't open a folio in the child's name unless a court has appointed them guardian. A parent opens it as guardian. The payment rules allow money from the parent or guardian's account, the child's account, or their joint account, so check with the fund house before money comes from anyone else's account." },
+        { q: 'Can a minor mutual fund account have a joint holder?', a: 'No. The child must be the sole holder. The guardian operates the folio but is not a joint holder.' },
+        { q: 'Who pays tax on mutual fund gains in a child\'s name?', a: "Until 18, the parent with the higher income, because the child's income is clubbed with theirs, after a ₹1,500 a year exemption per child. From 18, the child pays tax on their own income." },
+        { q: 'What happens to the SIP when my child turns 18?', a: 'It stops on their 18th birthday and the folio is frozen until the status is changed to major with the new adult\'s PAN, KYC and bank account. They can then register fresh SIPs.' },
+      ]},
+
+      { type: 'heading', text: 'Sources' },
+      { type: 'sources', items: [
+        { label: 'SEBI: Investment in units of mutual funds in the name of minor through guardian (12 May 2023)', url: 'https://www.sebi.gov.in/legal/circulars/may-2023/investment-in-units-of-mutual-funds-in-the-name-of-minor-through-guardian_71148.html' },
+        { label: 'SEBI: Investment in the name of minor through guardian and transmission of units (24 December 2019)', url: 'https://www.sebi.gov.in/legal/circulars/dec-2019/circular-on-investment-in-units-of-mutual-funds-in-the-name-of-minor-through-guardian-and-ease-of-process-for-transmission-of-units_45457.html' },
+        { label: 'AMFI: Minor attaining majority', url: 'https://amfiindia.com/investor-corner/investor-center/Minor_attaining_Majority.html' },
+        { label: 'Mutual Funds Sahi Hai (AMFI): Changing investor status from minor to major', url: 'https://www.mutualfundssahihai.com/en/what-process-changing-investor-status-minor-major' },
+        { label: 'PPFAS Mutual Fund: Investments made on behalf of minors', url: 'https://amc.ppfas.com/faqs/investments-made-on-behalf-of-minors/index.php' },
+        { label: 'Clubbing of income under the Income-tax Act, 2025 (Sections 97 to 101)', url: 'https://drspv.in/knowledge-bank/income-tax/ch-17-clubbing-income-sec60-65/' },
+        { label: "Upstox: Your child's mutual fund has changed (May 2026)", url: 'https://upstox.com/learning-center/mutual-funds/your-child-s-mutual-fund-has-changed/article-1629/' },
+      ]},
+    ],
+  },
+  {
     id: 1,
     slug: 'invest-in-childs-name',
     datePublished: '2026-06-10T23:41:53+05:30',

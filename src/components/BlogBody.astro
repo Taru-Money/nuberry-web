@@ -1,11 +1,16 @@
 ---
 // Renders the block format used in src/data/blogs.js. Consecutive 'step'
-// blocks share one numbered list.
+// blocks share one numbered list. Inline text supports **bold** and
+// [links](url) to https:// pages or internal /paths/.
 interface Props { body: any[] }
 const { body } = Astro.props
 const inline = (t: string) =>
   t.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string)
    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+   .replace(/\[([^\]]+)\]\(((?:https:\/\/|\/)[^)\s]*)\)/g, (_m, text, url) =>
+     url.startsWith('/')
+       ? `<a href="${url}">${text}</a>`
+       : `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`)
 
 const groups: any[] = []
 for (const b of body) {
@@ -19,12 +24,28 @@ for (const b of body) {
   switch (b.type) {
     case 'paragraph': return <p set:html={inline(b.text)} />
     case 'heading': return <h2>{b.text}</h2>
+    case 'subheading': return <h3>{b.text}</h3>
+    case 'key_facts': return (
+      <aside class="key-facts" aria-label={b.title}>
+        <b>{b.title}</b>
+        <ul>{b.items.map((i: string) => <li set:html={inline(i)} />)}</ul>
+      </aside>
+    )
+    case 'faq': return (
+      <div class="faq">{b.items.map((f: any) => <div><h3>{f.q}</h3><p set:html={inline(f.a)} /></div>)}</div>
+    )
+    case 'sources': return (
+      <ul class="sources">{b.items.map((s: any) => (
+        <li><a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>{s.note && <span> {s.note}</span>}</li>
+      ))}</ul>
+    )
     case 'pull_quote': return <blockquote class="pull">{b.text}</blockquote>
     case 'bullet_list': return <ul>{b.items.map((i: string) => <li set:html={inline(i)} />)}</ul>
     case 'table': return (
-      <div class="table-scroll"><table class="figures">
+      <div class="table-scroll"><table class={b.text ? "figures figures--text" : "figures"}>
+        {b.caption && <caption>{b.caption}</caption>}
         <thead><tr>{b.headers.map((h: string) => <th scope="col">{h}</th>)}</tr></thead>
-        <tbody>{b.rows.map((r: string[]) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+        <tbody>{b.rows.map((r: string[]) => <tr>{r.map((c) => <td set:html={inline(c)} />)}</tr>)}</tbody>
       </table></div>
     )
     case 'assume': return <div class="assume"><b>{b.title}</b><p set:html={inline(b.text)} /></div>
