@@ -38,8 +38,8 @@ for (const file of pages) {
   // Compliance: every page carries the distributor line, ARN and risk disclaimer.
   if (!html.includes('ARN: 367667') && !html.includes('ARN 367667')) fail(rel, 'missing ARN')
   if (!html.includes('subject to market risks')) fail(rel, 'missing market risk disclaimer')
-  // Old brand must not leak (the contact inbox is the one allowed exception).
-  const leaks = html.replace(/taru@taru\.money/g, '').match(/\bTaru\b|taru\.money/gi)
+  // Old brand must not leak, including the old taru@taru.money inbox.
+  const leaks = html.match(/\bTaru\b|taru\.money/gi)
   if (leaks) fail(rel, `old brand mentioned: ${[...new Set(leaks)].join(', ')}`)
 
   for (const m of html.matchAll(/href="(\/[^"#?]*)/g)) {

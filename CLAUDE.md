@@ -25,7 +25,7 @@ npm run preview
 node scripts/build-brand-images.mjs   # only after a logo change
 ```
 
-`npm run build` fails if any page is missing a title, description, canonical, og:image, exactly one h1, the ARN, or the market-risk disclaimer, if any internal link is broken, or if the word "Taru" or "taru.money" appears (the contact inbox taru@taru.money is the one exception). Fix the page, never the check.
+`npm run build` fails if any page is missing a title, description, canonical, og:image, exactly one h1, the ARN, or the market-risk disclaimer, if any internal link is broken, or if the word "Taru" or "taru.money" appears anywhere, including the old taru@taru.money inbox. Fix the page, never the check.
 
 ## Design system: never hard-code a value
 

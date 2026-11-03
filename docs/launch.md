@@ -20,7 +20,7 @@ Do these in order. Steps 1 to 3 can happen today. Steps 5 and 6 only once the si
 
 ## 3. Email on nuberry.in
 
-The site still shows `taru@taru.money` (in `src/lib/site.js` and the privacy policy) because it is the inbox that works today.
+Done: the site's contact email is `akshay@nuberry.in` (`CONTACT_EMAIL` in `src/lib/site.js`). The privacy policy's grievance contact is `help@nuberry.in`.
 
 1. Set up a mailbox on nuberry.in (Google Workspace or Zoho).
 2. Add its MX, SPF, DKIM and DMARC records at GoDaddy. Without SPF, DKIM and DMARC, mail from the new domain lands in spam.
