@@ -13,9 +13,9 @@ export const COMPANY = {
   shortAddress: 'Malad West, Mumbai 400064',
 }
 
-// Still the live inbox. Switch to an @nuberry.in address once its mailbox
-// (with SPF, DKIM and DMARC) is set up, and update src/legal/*.md with it.
-export const CONTACT_EMAIL = 'taru@taru.money'
+// Public contact inbox shown in the footer and on the editorial policy.
+// The privacy policy's grievance contact is separate (help@nuberry.in).
+export const CONTACT_EMAIL = 'akshay@nuberry.in'
 
 // Waitlist API (the existing Render backend). Its CORS allow-list must
 // include https://nuberry.in and https://www.nuberry.in, or every form fails.

@@ -32,6 +32,21 @@ const jsonLd = [{
   author: { '@type': 'Person', '@id': PERSON_ID, name: FOUNDER.name, url: `${SITE_URL}${FOUNDER.path}` },
   publisher: { '@id': ORG_ID },
 }]
+// Articles with an FAQ block also get FAQPage markup. Google rarely shows it
+// as a rich result now, but AI answer engines read it.
+const faqItems = blog.body.filter((b: any) => b.type === 'faq').flatMap((b: any) => b.items)
+const plain = (t: string) => t.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+if (faqItems.length) jsonLd.push({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((f: any) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: plain(f.a) },
+  })),
+} as any)
+// Optional per-article waitlist copy, so the ask matches the page.
+const cta = blog.waitlist || { title: 'The hardest part is starting', text: "Join the waitlist and we'll tell you the day it opens." }
 ---
 <Base title={`${blog.title} | Nuberry`} description={blog.metaDescription} ogType="article" active="blog" jsonLd={jsonLd}
   breadcrumbs={[{ name: 'Learn', path: '/blog/' }, { name: blog.title, path: `/blog/${blog.slug}/` }]}>
@@ -63,8 +78,8 @@ const jsonLd = [{
       <span class="post-card__go">Read it<Icon name="arrow-right" /></span>
     </a>
     <section class="article__waitlist">
-      <h2 class="h3">The hardest part is starting</h2>
-      <p>Join the waitlist and we'll tell you the day it opens.</p>
+      <h2 class="h3">{cta.title}</h2>
+      <p>{cta.text}</p>
       <WaitlistForm source={`article:${blog.slug}`} />
     </section>
   </article>

@@ -541,3 +541,16 @@ button.tc-row-toggle:focus-visible { outline: 2px solid var(--focus); outline-of
   .author { grid-template-columns: 200px 1fr; }
   .author__photo { width: 200px; }
 }
+
+/* Article blocks: key facts, FAQ, sources */
+.key-facts { padding: var(--space-5); border-radius: var(--radius-lg); background: var(--surface-subtle); font-size: 16px; line-height: 1.55; }
+.key-facts b { display: block; margin-bottom: var(--space-2); color: var(--heading); font-family: var(--font-display); font-size: 19px; }
+.key-facts ul { margin: 0; }
+.faq { display: flex; flex-direction: column; gap: var(--space-5); }
+.faq h3 { margin-top: 0 !important; }
+.faq p { margin-top: var(--space-2); }
+.sources { font-size: 15px; }
+.sources span { color: var(--text-muted); }
+.prose a { color: var(--brand-text); }
+.figures caption { caption-side: bottom; text-align: left; padding-top: var(--space-2); font-size: var(--type-caption-size); color: var(--text-muted); }
+.figures--text td:last-child, .figures--text th:last-child { text-align: left; font-variant-numeric: normal; }
