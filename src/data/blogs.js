@@ -216,36 +216,94 @@ export const blogs = [
     id: 4,
     slug: 'how-to-open-minor-mutual-fund',
     datePublished: '2026-06-10T23:41:53+05:30',
-    title: "How to Open a Mutual Fund in Your Child's Name",
-    subtitle: 'The documents, the order to do them in, and where people get stuck.',
+    dateModified: '2026-11-03T15:00:00+05:30',
+    title: "How to open a mutual fund in your child's name: documents and steps",
+    subtitle: 'The documents you need, the order to do things in, and where people get stuck.',
     topic: 'How it works',
-    readingTime: '2 min',
-    metaDescription: 'Step-by-step guide to opening a minor mutual fund account in India. Documents needed, KYC process, platform selection, and how to start a SIP.',
-    ctaVariant: 'blog4',
+    readingTime: '5 min',
+    metaDescription: "Documents required to invest in a mutual fund for a minor in India, guardian KYC, which bank account to use, and the five steps to open the folio.",
+    waitlist: {
+      title: 'Rather not do the paperwork yourself?',
+      text: "Nuberry is building a simpler way to invest in your child's name. Join the waitlist and we'll tell you the day it opens.",
+    },
     body: [
-      { type: 'paragraph', text: 'This is the guide that would have saved me an afternoon. In order, with nothing padded out.' },
+      { type: 'paragraph', text: "To open a mutual fund in your child's name you need three things: proof of your child's date of birth, proof that you are their parent or guardian, and your own completed KYC. Your child does not need a PAN, their own KYC or a bank account to start." },
+      { type: 'paragraph', text: "This is the guide that would have saved me an afternoon. The documents first, then the steps in order, then the places people get stuck. For the bigger picture (tax, fund types, what happens at 18), read [Mutual funds for your child: the complete guide](/blog/mutual-funds-for-your-child/)." },
+      {
+        type: 'key_facts', title: 'Key facts',
+        items: [
+          "**Child's PAN:** not needed to open the folio. It is needed at 18.",
+          "**KYC:** only the parent or guardian's. Your child does their own KYC at 18.",
+          "**One document can do two jobs:** a birth certificate or passport proves both the date of birth and that you are the parent.",
+          "**Paying in:** from your account, the child's account, or a joint account of the two.",
+          "**Paying out:** only to a bank account in the child's name (it can be joint with you), so open one before you need to redeem.",
+        ],
+      },
+
+      { type: 'heading', text: 'What documents are required for a minor mutual fund investment?' },
+      { type: 'table', text: true, headers: ['What you need', 'Documents that work', 'Notes'], rows: [
+        ["Child's date of birth", 'Birth certificate, passport, school leaving certificate, or a mark sheet that shows the date of birth', 'The birth certificate is the one almost everyone uses'],
+        ['Your relationship to the child', 'Birth certificate or passport naming the parents. A court order for a court-appointed guardian', 'Usually the same document as above'],
+        ['Your identity and KYC', 'Your PAN, plus completed mutual fund KYC (done once, valid at every fund house)', 'Aadhaar is the quickest route for online KYC'],
+        ['A bank account to pay from', "Yours, your child's, or a joint account of the two", 'Allowed since 15 June 2023'],
+        ["A bank account for redemptions", "An account in your child's name, alone or joint with you", 'Not needed to start. Needed before any money comes out'],
+      ], caption: 'Fund houses and platforms sometimes ask for slightly different documents. Check their form before you start.' },
+      { type: 'paragraph', text: "What you don't need: the child's PAN, the child's Aadhaar for KYC, a separate guardian form, or a minor bank account on day one." },
+
+      { type: 'heading', text: 'What does guardian KYC involve?' },
+      { type: 'paragraph', text: "Mutual fund KYC is a one-time check of the investor's identity and address, recorded with a KYC registration agency (KRA) and accepted by every fund house. For a minor's folio, it's the guardian's KYC that counts." },
+      { type: 'bullet_list', items: [
+        "**Already invest in mutual funds?** Your KYC is almost certainly done. Check your status on any KRA website using your PAN.",
+        "**Never invested?** Online KYC with your PAN and Aadhaar, a photo and a signature takes about fifteen minutes on most platforms.",
+        "**Status anything other than \"validated\"?** Fix it before you apply. An incomplete or on-hold KYC is one of the most common reasons a new folio is rejected.",
+      ]},
+
+      { type: 'heading', text: 'How do you open the folio, step by step?' },
       {
         type: 'step', number: 1, title: 'Gather the documents',
-        text: "Your child's birth certificate, your PAN, your Aadhaar, and your bank account number and IFSC. Keep proof of your relationship to the child handy — some fund houses ask for it.",
+        text: "Your child's birth certificate (or passport), your PAN, and the details of the bank account the SIP will be paid from. Scan or photograph them clearly. Most rejections are unreadable uploads.",
       },
       {
-        type: 'step', number: 2, title: 'Check whether your KYC is done',
-        text: "If you've invested in a mutual fund before, it probably is. You can check on the KRA websites. If it isn't, doing it online takes about fifteen minutes — PAN, Aadhaar, a selfie, done.",
+        type: 'step', number: 2, title: 'Check your KYC',
+        text: "Look up your status on a KRA website. If it isn't done, complete it online before anything else. Nothing moves until it's validated.",
       },
       {
         type: 'step', number: 3, title: 'Choose where to do it',
-        text: 'Directly with an AMC, or through a distributor platform. Going direct means a separate login for every fund house. A platform gives you one place for all of them. Nuberry, Kuvera and Groww all do this.',
+        text: 'Directly with a fund house, or through an AMFI-registered distributor or platform. Going direct means a separate login for every fund house. A platform puts all of them in one place. Check that it supports minor folios before you sign up, because not all do.',
       },
       {
         type: 'step', number: 4, title: 'Open the minor folio',
-        text: "Select the minor option, enter your child's name and date of birth, confirm your relationship as guardian, and link the bank account the SIP will run from.",
+        text: "Select the minor option, enter your child's name and date of birth exactly as on the birth certificate, state your relationship as guardian, and upload the proof.",
       },
       {
         type: 'step', number: 5, title: 'Pick a fund and start the SIP',
-        text: 'Choose your monthly amount and SIP date, then confirm the bank mandate. After that it runs on its own every month.',
+        text: 'Choose the monthly amount and SIP date, then approve the bank mandate. After that it runs on its own every month. Add your child\'s bank account to the folio whenever you open one.',
       },
       { type: 'pull_quote', text: "Set it up once. Let it run. Check in once a year. That's the whole job." },
-      { type: 'paragraph', text: "Markets will go up and down, and that's normal. The one thing worth knowing in advance: stopping the SIP during a fall is the most common mistake, and it's the point at which the same money buys the most units." },
+
+      { type: 'heading', text: 'Where do people get stuck?' },
+      { type: 'bullet_list', items: [
+        "**Name mismatch.** The child's name on the folio must match the birth certificate exactly. A nickname or a missing middle name is the most common reason for a rejected application.",
+        "**Birth certificate not ready.** Some municipal certificates take weeks. A passport works too, if your child has one.",
+        "**Waiting to open a bank account first.** Older guides say you must. Since June 2023 you don't. Start now and open the account before you need to redeem.",
+        "**Stopping the SIP during a market fall.** The most common mistake, and it's the point at which the same money buys the most units.",
+      ]},
+
+      { type: 'heading', text: 'Frequently asked questions' },
+      { type: 'faq', items: [
+        { q: 'Is a PAN card required for a minor to invest in mutual funds?', a: "No. The guardian's PAN and KYC are used to open the folio. Your child needs a PAN and their own KYC when they turn 18 and the folio changes from minor to major." },
+        { q: 'Can I use my own bank account for my child\'s SIP?', a: "Yes. Since 15 June 2023, SIPs and lump sums for a minor's folio can be paid from the parent or guardian's account, the child's account, or a joint account. Redemptions are paid only to an account in the child's name." },
+        { q: 'Do I need a separate KYC for my child?', a: 'Not until they turn 18. Before that, only the guardian\'s KYC is required.' },
+        { q: 'Can both parents be on the folio?', a: 'No. A minor folio has one holder, the child, and one guardian who operates it. Joint holders are not allowed.' },
+      ]},
+
+      { type: 'heading', text: 'Sources' },
+      { type: 'sources', items: [
+        { label: 'SEBI: Investment in units of mutual funds in the name of minor through guardian (12 May 2023)', url: 'https://www.sebi.gov.in/legal/circulars/may-2023/investment-in-units-of-mutual-funds-in-the-name-of-minor-through-guardian_71148.html' },
+        { label: 'SEBI: Investment in the name of minor through guardian and transmission of units (24 December 2019)', url: 'https://www.sebi.gov.in/legal/circulars/dec-2019/circular-on-investment-in-units-of-mutual-funds-in-the-name-of-minor-through-guardian-and-ease-of-process-for-transmission-of-units_45457.html' },
+        { label: 'PPFAS Mutual Fund: Investments made on behalf of minors', url: 'https://amc.ppfas.com/faqs/investments-made-on-behalf-of-minors/index.php' },
+        { label: 'Zerodha Fund House: Invest in your child\'s name without a minor bank account (August 2026)', url: 'https://www.zerodhafundhouse.com/blog/invest-in-your-childs-name-without-a-minor-bank-account/' },
+      ]},
     ],
   },
   {
