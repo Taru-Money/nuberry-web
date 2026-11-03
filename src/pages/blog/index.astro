@@ -14,7 +14,7 @@ const jsonLd = [{
   blogPost: blogs.map((b) => ({ '@type': 'BlogPosting', headline: b.title, url: `${SITE_URL}/blog/${b.slug}/` })),
 }]
 ---
-<Base title="Learn: Investing for Your Child's Future | Nuberry" description={description} active="blog" jsonLd={jsonLd}>
+<Base title="Learn: Investing for Your Child's Future | Nuberry" description={description} active="blog" jsonLd={jsonLd} breadcrumbs={[{ name: 'Learn', path: '/blog/' }]}>
   <section class="wrap page-head">
     <span class="eyebrow">Learn</span>
     <h1 class="display">For parents who think ahead</h1>

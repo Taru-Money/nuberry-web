@@ -549,6 +549,7 @@ export default function TaxCalculator() {
                       <input
                         type="number"
                         className="tc-number-input"
+                        aria-label="Monthly SIP amount in rupees"
                         value={monthly}
                         min={500}
                         max={100000}
@@ -560,6 +561,7 @@ export default function TaxCalculator() {
                   <input
                     type="range"
                     className="tc-slider"
+                    aria-label="Monthly SIP amount"
                     style={{ '--fill': sliderFill(monthly, 500, 100000) }}
                     min={500}
                     max={100000}
@@ -582,6 +584,7 @@ export default function TaxCalculator() {
                   <input
                     type="range"
                     className="tc-slider"
+                    aria-label="Child's age"
                     style={{ '--fill': sliderFill(childAge, 0, 17) }}
                     min={0}
                     max={17}
@@ -605,6 +608,7 @@ export default function TaxCalculator() {
                   <input
                     type="range"
                     className="tc-slider"
+                    aria-label="Assumed annual return"
                     style={{ '--fill': sliderFill(returnRate, 8, 18) }}
                     min={8}
                     max={18}
@@ -1075,7 +1079,7 @@ export default function TaxCalculator() {
 
               {/* ── CTA block ── */}
               <div className="tc-cta-block">
-                <h3 className="tc-cta-block__heading">Start building it in their name</h3>
+                <h2 className="tc-cta-block__heading">Start building it in their name</h2>
                 <a href="/#waitlist" className="nb-btn nb-btn--primary tc-cta-block__btn">Join the waitlist</a>
                 {NON_MF_TYPES.has(assetClass) && (
                   <p className="tc-cta-block__coming-soon">

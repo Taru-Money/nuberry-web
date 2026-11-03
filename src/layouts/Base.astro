@@ -9,9 +9,17 @@ import '@fontsource/figtree/latin-700.css'
 import '../styles/tokens.css'
 import '../styles/components.css'
 import '../styles/site.css'
+// Every Figtree weight (all used above the fold) and the h1 weight are
+// preloaded, so text doesn't reflow when they arrive. That reflow was a
+// layout shift of 0.15 to 0.19 on long articles.
+import figtree400 from '@fontsource/figtree/files/figtree-latin-400-normal.woff2?url'
+import figtree500 from '@fontsource/figtree/files/figtree-latin-500-normal.woff2?url'
+import figtree600 from '@fontsource/figtree/files/figtree-latin-600-normal.woff2?url'
+import figtree700 from '@fontsource/figtree/files/figtree-latin-700-normal.woff2?url'
+import baloo800 from '@fontsource/baloo-2/files/baloo-2-latin-800-normal.woff2?url'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { SITE_URL, BRAND, COMPANY, ANALYTICS, SOCIAL_LINKS } from '../lib/site.js'
+import { SITE_URL, BRAND, COMPANY, ANALYTICS, SOCIAL_LINKS, ORG_ID, PERSON_ID } from '../lib/site.js'
 
 interface Props {
   title: string
@@ -22,10 +30,13 @@ interface Props {
   jsonLd?: object[]
   active?: 'calculator' | 'blog' | 'about'
   noindex?: boolean
+  // Trail below Home, e.g. [{ name: 'Learn', path: '/blog/' }]. Home is added
+  // automatically and the last item is the current page. Leave out on the home page.
+  breadcrumbs?: { name: string; path: string }[]
 }
 const {
   title, description, ogTitle = title, ogDescription = description,
-  ogType = 'website', jsonLd = [], active, noindex = false,
+  ogType = 'website', jsonLd = [], active, noindex = false, breadcrumbs = [],
 } = Astro.props
 
 const canonical = new URL(Astro.url.pathname, SITE_URL).href
@@ -33,13 +44,32 @@ const ogImage = `${SITE_URL}/og-image.png`
 const orgLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': `${SITE_URL}/#organization`,
+  '@id': ORG_ID,
   name: BRAND,
   legalName: COMPANY.legalName,
   url: SITE_URL,
   logo: `${SITE_URL}/brand/nuberry-icon-dark.png`,
+  description: `AMFI-registered mutual fund distributor (ARN ${COMPANY.arn}) helping Indian parents invest in their child's name.`,
+  identifier: [
+    { '@type': 'PropertyValue', propertyID: 'AMFI ARN', value: COMPANY.arn },
+    { '@type': 'PropertyValue', propertyID: 'CIN', value: COMPANY.cin },
+  ],
+  address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressRegion: 'Maharashtra', postalCode: '400064', addressCountry: 'IN' },
+  founder: { '@id': PERSON_ID },
   sameAs: SOCIAL_LINKS.map((s) => s.url).filter(Boolean),
 }
+const breadcrumbLd = breadcrumbs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [{ name: 'Home', path: '/' }, ...breadcrumbs].map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: c.name,
+        item: new URL(c.path, SITE_URL).href,
+      })),
+    }
+  : null
 const analyticsConfig = JSON.stringify(ANALYTICS)
 ---
 <!doctype html>
@@ -61,6 +91,10 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
     <link rel="canonical" href={canonical} />
     {noindex ? <meta name="robots" content="noindex" /> : <meta name="robots" content="index, follow" />}
     <meta name="theme-color" content="#fffcf5" />
+    {[figtree400, figtree500, figtree600, figtree700].map((href) => (
+      <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />
+    ))}
+    <link rel="preload" href={baloo800} as="font" type="font/woff2" crossorigin />
 
     <meta property="og:site_name" content={BRAND} />
     <meta property="og:title" content={ogTitle} />
@@ -82,6 +116,7 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
 
 
     <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+    {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
     {jsonLd.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
 
     <script is:inline define:vars={{ analyticsConfig }}>

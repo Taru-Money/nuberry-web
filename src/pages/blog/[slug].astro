@@ -4,7 +4,7 @@ import Icon from '../../components/Icon.astro'
 import BlogBody from '../../components/BlogBody.astro'
 import WaitlistForm from '../../components/WaitlistForm.astro'
 import { blogs } from '../../data/blogs.js'
-import { SITE_URL, BRAND, COMPANY, RISK_DISCLAIMER } from '../../lib/site.js'
+import { SITE_URL, BRAND, COMPANY, RISK_DISCLAIMER, FOUNDER, ORG_ID, PERSON_ID, EDITORIAL_POLICY_PATH } from '../../lib/site.js'
 
 export function getStaticPaths() {
   return blogs.map((blog, i) => ({
@@ -14,6 +14,10 @@ export function getStaticPaths() {
 }
 const { blog, next } = Astro.props
 const url = `${SITE_URL}/blog/${blog.slug}/`
+const modified = blog.dateModified || blog.datePublished
+const fmt = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Kolkata' })
+const updatedLabel = modified !== blog.datePublished ? `Updated ${fmt(modified)}` : fmt(blog.datePublished)
 const jsonLd = [{
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -23,19 +27,14 @@ const jsonLd = [{
   mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   image: `${SITE_URL}/og-image.png`,
   datePublished: blog.datePublished,
-  dateModified: blog.dateModified || blog.datePublished,
-  author: { '@type': 'Organization', name: BRAND, url: SITE_URL },
-  publisher: { '@id': `${SITE_URL}/#organization` },
-}, {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Learn', item: `${SITE_URL}/blog/` },
-    { '@type': 'ListItem', position: 2, name: blog.title, item: url },
-  ],
+  dateModified: modified,
+  inLanguage: 'en-IN',
+  author: { '@type': 'Person', '@id': PERSON_ID, name: FOUNDER.name, url: `${SITE_URL}${FOUNDER.path}` },
+  publisher: { '@id': ORG_ID },
 }]
 ---
-<Base title={`${blog.title} | Nuberry`} description={blog.metaDescription} ogType="article" active="blog" jsonLd={jsonLd}>
+<Base title={`${blog.title} | Nuberry`} description={blog.metaDescription} ogType="article" active="blog" jsonLd={jsonLd}
+  breadcrumbs={[{ name: 'Learn', path: '/blog/' }, { name: blog.title, path: `/blog/${blog.slug}/` }]}>
   <article class="wrap article">
     <a href="/blog/" class="back"><Icon name="arrow-left" />All articles</a>
     <header class="article__head">
@@ -43,6 +42,8 @@ const jsonLd = [{
       <h1 class="display article__title">{blog.title}</h1>
       <p class="lede">{blog.subtitle}</p>
       <div class="byline">
+        <span>By <a href={FOUNDER.path} rel="author">{FOUNDER.name}</a></span>
+        <time datetime={modified}>{updatedLabel}</time>
         <span>{blog.readingTime} read</span>
         <button type="button" class="nb-btn nb-btn--text" data-share><Icon name="share-2" /><span>Share</span></button>
       </div>
@@ -53,7 +54,7 @@ const jsonLd = [{
     <p class="article__disclaimer">
       {BRAND} is an AMFI-registered mutual fund distributor (ARN {COMPANY.arn}). Nothing here is personalised investment
       advice or a recommendation to buy any particular scheme. Figures are illustrative and based on the assumptions stated
-      above. {RISK_DISCLAIMER}
+      above. {RISK_DISCLAIMER} How we write and check these guides: <a href={EDITORIAL_POLICY_PATH}>editorial policy</a>.
     </p>
     <a href={`/blog/${next.slug}/`} class="next-article">
       <span class="eyebrow">Next article</span>
