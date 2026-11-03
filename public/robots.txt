@@ -1,4 +1,36 @@
+# Search engines and AI assistants are welcome to crawl and cite this site.
+# Every group below allows everything. They are listed by name so the policy
+# is explicit, and so a future "Disallow" for one bot doesn't block the rest.
+
 User-agent: *
+Allow: /
+
+# Search
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: DuckDuckBot
+User-agent: YandexBot
+Allow: /
+
+# AI search and answers (these drive citations in ChatGPT, Claude, Perplexity,
+# Gemini and Copilot)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: MistralAI-User
+Allow: /
+
+# AI model training
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://nuberry.in/sitemap-index.xml

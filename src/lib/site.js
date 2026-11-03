@@ -26,7 +26,18 @@ export const FOUNDER = {
   role: 'Founder & CEO',
   linkedin: 'https://www.linkedin.com/in/akshaykumar91/',
   photo: '/brand/akshay-kumar.jpg',
+  // Author page. Every article is written by the founder, so this is the byline.
+  path: '/author/akshay-kumar/',
+  // Past employers shown on the author page and in Person schema. Keep to
+  // what is on his LinkedIn.
+  experience: ['HDFC', 'IndusInd', 'InCred', 'Tyke'],
 }
+
+// Stable JSON-LD ids, so every page points at the same entities.
+export const ORG_ID = `${SITE_URL}/#organization`
+export const PERSON_ID = `${SITE_URL}${FOUNDER.path}#person`
+
+export const EDITORIAL_POLICY_PATH = '/editorial-policy/'
 
 // Null renders as a placeholder with no href. Fill in, never guess.
 export const AMFI_REGISTRATION_URL = null

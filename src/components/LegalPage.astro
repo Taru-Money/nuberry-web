@@ -6,7 +6,7 @@ const { title, heading, description, markdown } = Astro.props
 // The page supplies the one h1, so a leading h1 in the markdown is dropped.
 const html = marked.parse(markdown.replace(/^# .*\n+/, ''), { async: false }) as string
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} breadcrumbs={[{ name: heading, path: Astro.url.pathname }]}>
   <section class="wrap page-head">
     <span class="eyebrow">Legal</span>
     <h1 class="display">{heading}</h1>

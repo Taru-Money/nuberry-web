@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro'
+import Icon from '../../components/Icon.astro'
+import { blogs } from '../../data/blogs.js'
+import { SITE_URL, COMPANY, FOUNDER, ORG_ID, PERSON_ID, EDITORIAL_POLICY_PATH } from '../../lib/site.js'
+
+const url = `${SITE_URL}${FOUNDER.path}`
+const description =
+  `${FOUNDER.name} is the founder of Nuberry, an AMFI-registered mutual fund distributor. He writes Nuberry's guides on investing in your child's name.`
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url,
+  mainEntity: {
+    '@type': 'Person',
+    '@id': PERSON_ID,
+    name: FOUNDER.name,
+    url,
+    image: `${SITE_URL}${FOUNDER.photo}`,
+    jobTitle: FOUNDER.role,
+    worksFor: { '@id': ORG_ID },
+    description: `Founder of Nuberry. Around 10 years in Indian banking and financial services product and growth roles, at ${FOUNDER.experience.join(', ')}.`,
+    knowsAbout: ['Mutual funds', 'Minor mutual fund accounts', 'Investing for children in India', 'Systematic investment plans'],
+    sameAs: [FOUNDER.linkedin],
+  },
+}]
+---
+<Base
+  title={`${FOUNDER.name}, Founder of Nuberry | Nuberry`}
+  description={description}
+  ogType="website"
+  jsonLd={jsonLd}
+  breadcrumbs={[{ name: FOUNDER.name, path: FOUNDER.path }]}
+>
+  <section class="wrap page-head author">
+    <img class="author__photo" src={FOUNDER.photo} width="640" height="800" alt={`${FOUNDER.name}, ${FOUNDER.role} of Nuberry`} />
+    <div>
+      <span class="eyebrow">Author</span>
+      <h1 class="display">{FOUNDER.name}</h1>
+      <p class="lede">{FOUNDER.role}, Nuberry</p>
+      <a href={FOUNDER.linkedin} target="_blank" rel="noopener noreferrer" class="text-link">LinkedIn<Icon name="arrow-up-right" /></a>
+    </div>
+  </section>
+
+  <section class="wrap prose author__bio">
+    <p>
+      Akshay started Nuberry after trying to invest in mutual funds for his daughter and finding no simple way to do it in
+      her name. Every guide on this site comes from that question: what does a parent actually need to know, and do, to
+      build something that belongs to their child?
+    </p>
+    <p>
+      Before Nuberry he spent around 10 years building and growing products in Indian banking and financial services, at
+      {FOUNDER.experience.slice(0, -1).join(', ')} and {FOUNDER.experience.at(-1)}, across both product and business roles.
+    </p>
+    <h2>What he writes about</h2>
+    <ul>
+      <li>Opening and running a mutual fund folio in a minor's name</li>
+      <li>What SIP numbers look like over a child's first 18 years, with the assumptions stated</li>
+      <li>Tax, documents and what changes when a child turns 18</li>
+    </ul>
+    <h2>Disclosure</h2>
+    <p>
+      Akshay is the founder of Nuberry, a brand of {COMPANY.legalName}, an AMFI-registered mutual fund distributor
+      (ARN {COMPANY.arn}). Nuberry earns a trail commission from fund houses when parents invest through it. His articles
+      explain how things work. They are not personalised investment advice or a recommendation of any scheme.
+      Read how we write and check our guides in our <a href={EDITORIAL_POLICY_PATH}>editorial policy</a>.
+    </p>
+  </section>
+
+  <section class="wrap author__posts">
+    <h2 class="h3">Articles by {FOUNDER.name}</h2>
+    <div class="posts">
+      {blogs.map((b) => (
+        <a href={`/blog/${b.slug}/`} class="post-card">
+          <span class="post-card__top">
+            {b.topic && <span class="tag">{b.topic}</span>}
+            <span class="post-card__read">{b.readingTime} read</span>
+          </span>
+          <h3 class="post-card__title">{b.title}</h3>
+          <p>{b.subtitle}</p>
+          <span class="post-card__go">Read<Icon name="arrow-right" /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
