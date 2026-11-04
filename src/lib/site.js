@@ -14,7 +14,7 @@ export const COMPANY = {
 }
 
 // Public contact inbox shown in the footer and on the editorial policy.
-// The privacy policy's grievance contact is separate (help@nuberry.in).
+// The privacy policy's grievance contact uses the same inbox.
 export const CONTACT_EMAIL = 'akshay@nuberry.in'
 
 // Waitlist API (the existing Render backend). Its CORS allow-list must
