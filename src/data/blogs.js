@@ -141,8 +141,7 @@ export const blogs = [
   {
     id: 8,
     slug: 'sukanya-samriddhi-vs-mutual-funds',
-    // AKSHAY: set to the real go-live date when this merges.
-    datePublished: '2026-11-10T09:00:00+05:30',
+    datePublished: '2026-11-04T16:00:00+05:30',
     title: 'Sukanya Samriddhi vs mutual funds: which is better for your daughter?',
     subtitle: 'Rates, lock-ins, tax under the new regime, and what each could add up to by the time she is 18 and 21. Checked against the scheme rules and the Oct to Dec 2026 rate.',
     topic: 'Comparison',
@@ -159,7 +158,7 @@ export const blogs = [
       {
         type: 'key_facts', title: 'Key facts',
         items: [
-          '**SSY rate:** 8.2% a year for October to December 2026, unchanged since January 2024 ([National Savings Institute](https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=179)). The government resets it every quarter.',
+          '**SSY rate:** 8.2% a year. It has been 8.2% every quarter since January 2024 ([National Savings Institute](https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=179)), and the government kept it there for October to December 2026. It is reset every quarter.',
           "**Who can open SSY:** a parent or legal guardian, for a girl under 10. One account per girl, two per family (more only for twins or triplets).",
           '**SSY deposits:** ₹250 to ₹1.5 lakh a financial year, paid for 15 years. The account matures 21 years after it was opened.',
           '**Getting SSY money out:** up to 50% for her education once she turns 18 or passes Class 10. Full closure early only for marriage after 18, or on compassionate grounds.',
@@ -179,7 +178,7 @@ export const blogs = [
         ['Tax on deposits', 'Deduction up to ₹1.5 lakh, old regime only, shared with EPF, PPF and others', 'None, except ELSS in the old regime'],
         ['Tax on the return', 'None', 'Capital gains tax. Clubbed with a parent until 18'],
         ['Who runs it', 'Guardian until 18, then her', 'Guardian until 18, then her'],
-      ], caption: 'Sources: Sukanya Samriddhi Account Scheme, 2019; National Savings Institute (Ministry of Finance) interest rates for October to December 2026.' },
+      ], caption: 'Sources: Sukanya Samriddhi Account Scheme, 2019; National Savings Institute rate history to September 2026; Ministry of Finance announcement of 30 September 2026 for October to December 2026.' },
 
       { type: 'heading', text: 'What could ₹5,000 a month add up to in each?' },
       { type: 'paragraph', text: 'Say your daughter is 1. You put ₹5,000 a month into each for 15 years, which is ₹9 lakh paid in. SSY then stops taking deposits and keeps earning until it matures when she is 22. To compare fairly, the mutual fund SIP also stops after 15 years and the money stays invested for the same 21 years.' },
@@ -237,9 +236,8 @@ export const blogs = [
       { type: 'heading', text: 'Sources' },
       { type: 'sources', items: [
         { label: 'India Post: Sukanya Samriddhi Account Scheme, 2019 (scheme text)', url: 'https://www.indiapost.gov.in/VAS/DOP_PDFFiles/Savings%20Bank/Sukanya%20Samriddhi%20Account%20Scheme%202019%20English.pdf' },
-        { label: 'National Savings Institute, Ministry of Finance: small savings interest rates', url: 'https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=179' },
-        { label: 'Upstox: SSY interest rate for October to December 2026', url: 'https://upstox.com/news/personal-finance/investing/sukanya-samriddhi-yojana-ssy-account-interest-rate-october-december-2026/article-201150/' },
-        { label: 'Stable Investor: Sukanya Samriddhi interest rate history', url: 'https://stableinvestor.com/2019/06/sukanya-samriddhi-yojana-interest-rates.html' },
+        { label: 'National Savings Institute (Ministry of Finance): SSY interest rate since inception, to September 2026', url: 'https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=179' },
+        { label: 'Upstox: SSY rate kept at 8.2% for October to December 2026 (announced 30 September 2026)', url: 'https://upstox.com/news/personal-finance/investing/sukanya-samriddhi-yojana-ssy-account-interest-rate-october-december-2026/article-201150/' },
         { label: 'Section 123, Income-tax Act, 2025 and Schedule XV (deductions, earlier 80C)', url: 'https://easevalue.com/income-tax-act-2025/section-123' },
         { label: 'ClearTax: Sukanya Samriddhi Yojana rules and tax benefits', url: 'https://cleartax.in/s/sukanya-samriddhi-yojana' },
         { label: 'SEBI: Investment in units of mutual funds in the name of minor through guardian (12 May 2023)', url: 'https://www.sebi.gov.in/legal/circulars/may-2023/investment-in-units-of-mutual-funds-in-the-name-of-minor-through-guardian_71148.html' },
