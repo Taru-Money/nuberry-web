@@ -1,4 +1,4 @@
-**Last Updated: 30-10-2026**
+**Last Updated: 04-11-2026**
 
 This Privacy Policy ("Policy") describes how **NEXTGENOS FINANCIAL SERVICES PRIVATE LIMITED** ("Company", "Nuberry", "we", "us" or "our") collects, processes, uses, stores and protects personal data when you visit, access, use or register on our website, mobile applications available on iOS and Android, WhatsApp or other communication channels used by us, and other digital interfaces operated by us (collectively, the "**Platform"),** and when you use the products, services and features made available through the Platform.
 
@@ -138,7 +138,7 @@ In accordance with applicable data protection laws, the name and contact details
 **Designation: Grievance Officer**  
 **Company: NEXTGENOS FINANCIAL SERVICES PRIVATE LIMITED**  
 **Address: A-1304 Romell Diva Jamuna Bldg, Chincholi Bunder, Malad West, Mumbai – 400064, Maharashtra, India**  
-**Email: help@nuberry.in**
+**Email: akshay@nuberry.in**
 
 You may contact the Grievance Officer for concerns or grievances relating to the processing of your personal data or your rights under applicable data protection laws. We will acknowledge your grievance within the period prescribed under applicable law and will address or resolve the grievance within the applicable statutory timeline.
 
