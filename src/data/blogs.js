@@ -139,6 +139,113 @@ export const blogs = [
     ],
   },
   {
+    id: 8,
+    slug: 'sukanya-samriddhi-vs-mutual-funds',
+    // AKSHAY: set to the real go-live date when this merges.
+    datePublished: '2026-11-10T09:00:00+05:30',
+    title: 'Sukanya Samriddhi vs mutual funds: which is better for your daughter?',
+    subtitle: 'Rates, lock-ins, tax under the new regime, and what each could add up to by the time she is 18 and 21. Checked against the scheme rules and the Oct to Dec 2026 rate.',
+    topic: 'Comparison',
+    readingTime: '8 min',
+    metaDescription: 'Sukanya Samriddhi vs mutual funds for your daughter: 8.2% tax-free vs market-linked returns, lock-ins, new tax regime rules and a worked ₹5,000 a month example.',
+    waitlist: {
+      title: 'Doing the mutual fund half in her name?',
+      text: "Nuberry opens a minor folio in your daughter's name and runs the SIP for you, and gives her a view of it she can follow as she gets older. Join the waitlist and we'll tell you the day it opens.",
+    },
+    body: [
+      // AKSHAY: rewrite these two paragraphs in your own voice.
+      { type: 'paragraph', text: 'Neither is better on every count. Sukanya Samriddhi (SSY) pays a government-set, tax-free 8.2% a year right now and locks most of the money until your daughter is 21. An equity mutual fund has no fixed rate, can fall in value, is taxed, and lets you take the money out whenever it is needed.' },
+      { type: 'paragraph', text: "So the useful question isn't which one wins. It's what the money is for, and when. This page puts the two side by side with today's rules, runs the same ₹5,000 a month through both, and shows where each one quietly costs you. A disclosure first: Nuberry distributes mutual funds and earns a commission from fund houses on them. We don't offer SSY and earn nothing on it." },
+      {
+        type: 'key_facts', title: 'Key facts',
+        items: [
+          '**SSY rate:** 8.2% a year for October to December 2026, unchanged since January 2024. The government resets it every quarter.',
+          "**Who can open SSY:** a parent or legal guardian, for a girl under 10. One account per girl, two per family (more only for twins or triplets).",
+          '**SSY deposits:** ₹250 to ₹1.5 lakh a financial year, paid for 15 years. The account matures 21 years after it was opened.',
+          '**Getting SSY money out:** up to 50% for her education once she turns 18 or passes Class 10. Full closure early only for marriage after 18, or on compassionate grounds.',
+          '**SSY tax:** interest and maturity are tax-free. Deposits are deductible under Section 123 of the Income-tax Act, 2025 (earlier 80C), but only in the old tax regime.',
+          "**Mutual funds:** any child, no upper limit, no lock-in (except ELSS, 3 years). Returns are market-linked and gains are taxed, clubbed with a parent's income until 18.",
+        ],
+      },
+
+      { type: 'heading', text: "What's the actual difference between SSY and a mutual fund?" },
+      { type: 'paragraph', text: 'SSY is a small savings scheme run by the government through post offices and banks. A mutual fund pools money into shares, bonds or both, and its value moves with those markets. Everything else follows from that.' },
+      { type: 'table', text: true, headers: ['', 'Sukanya Samriddhi', 'Equity mutual fund in her name'], rows: [
+        ['Return', '8.2% a year (Oct to Dec 2026), reset every quarter', 'Market-linked. No fixed rate, and can be negative'],
+        ['Who it is for', 'Girls under 10 at opening', 'Any child, any age'],
+        ['How much', '₹250 to ₹1.5 lakh a year', 'From ₹100 to ₹500 a month in most funds, no upper limit'],
+        ['How long you pay', '15 years from opening', 'As long as you choose'],
+        ['When the money is free', 'At 21 years from opening. 50% earlier for education after 18', 'Any time (ELSS: after 3 years)'],
+        ['Tax on deposits', 'Deduction up to ₹1.5 lakh, old regime only, shared with EPF, PPF and others', 'None, except ELSS in the old regime'],
+        ['Tax on the return', 'None', 'Capital gains tax. Clubbed with a parent until 18'],
+        ['Who runs it', 'Guardian until 18, then her', 'Guardian until 18, then her'],
+      ], caption: 'Sources: Sukanya Samriddhi Account Scheme, 2019; Ministry of Finance rate announcement for Q3 FY 2026-27.' },
+
+      { type: 'heading', text: 'What could ₹5,000 a month add up to in each?' },
+      { type: 'paragraph', text: 'Say your daughter is 1. You put ₹5,000 a month into each for 15 years, which is ₹9 lakh paid in. SSY then stops taking deposits and keeps earning until it matures when she is 22. To compare fairly, the mutual fund SIP also stops after 15 years and the money stays invested for the same 21 years.' },
+      { type: 'table', headers: ['Assumed return a year', 'Around her 18th birthday', 'At 21 years (age 22)'], rows: [
+        ['SSY at 7.5%', '₹18.8 lakh', '₹25.2 lakh'],
+        ['SSY at 8.2% (current)', '₹20.2 lakh', '₹27.7 lakh'],
+        ['Equity fund at 8%', '₹20.4 lakh', '₹28.1 lakh (₹25.9 lakh after tax)'],
+        ['Equity fund at 10%', '₹25.5 lakh', '₹38.0 lakh (₹34.5 lakh after tax)'],
+        ['Equity fund at 12%', '₹32.0 lakh', '₹51.6 lakh (₹46.5 lakh after tax)'],
+      ], caption: 'Value of ₹5,000 a month for 15 years, ₹9 lakh paid in. SSY is tax-free; fund values are before tax except where shown.' },
+      { type: 'assume', title: 'How these are worked out', text: 'Deposits at the start of each month. SSY interest worked out monthly and added once a year, as the scheme rules say; 7.5% shows what a lower future rate would do, since the rate changes every quarter. Fund returns compounded monthly at the stated rate, before fund expenses. "After tax" assumes the whole fund is redeemed in her name in one year after she turns 18, at 12.5% on equity gains above ₹1.25 lakh, with no other gains that year. These rates are assumptions, not promises. Equity funds have returned more and less than this over long periods, and can lose money. Try your own numbers in the [SIP calculator](/calculator/).' },
+      { type: 'paragraph', text: 'Read the 8% row next to the 8.2% row. If equity only delivers 8%, SSY comes out ahead after tax, with no risk taken. The fund only pulls clearly ahead if it returns around 10% or more over two decades. Nobody can tell you in advance which row you will land in.' },
+      { type: 'paragraph', text: 'Now read the middle column again. Around her 18th birthday the SSY balance is about ₹20 lakh, but she can only take out half of it, and only for education. The fund is all available.' },
+
+      { type: 'heading', text: 'When can your daughter actually use the money?' },
+      { type: 'paragraph', text: 'This is the difference most parents underestimate. SSY decides the purpose for you.' },
+      { type: 'bullet_list', items: [
+        "**Before 18:** SSY money can't be touched except on compassionate grounds, such as a life-threatening illness, and not in the first five years. A mutual fund can be redeemed any time, though the money must be paid to her own bank account.",
+        '**From 18 or Class 10, whichever is earlier:** SSY allows up to 50% of the last year-end balance for her education, against proof of admission or fees. Anything else waits.',
+        '**Marriage after 18:** SSY can be closed fully, from one month before to three months after the wedding.',
+        '**At 21 years from opening:** SSY matures and the whole balance is hers.',
+      ]},
+      { type: 'paragraph', text: 'If she wants the money at 19 for anything other than college or marriage (a business, a laptop for freelance work, a gap year, a deposit on a flat), half of the SSY balance has to wait until the account matures. A mutual fund has no such rule. That flexibility cuts both ways: it is also easier for you to dip into.' },
+
+      { type: 'heading', text: 'How is each one taxed?' },
+      { type: 'subheading', text: 'SSY' },
+      { type: 'paragraph', text: 'The interest and the maturity amount are fully tax-free. The deposit deduction is the part that has changed. Under the Income-tax Act, 2025, it sits in Section 123 (the old 80C) and only applies if you file under the old regime. The new regime is now the default, and it has no Section 123 deduction. Even in the old regime, the ₹1.5 lakh limit is shared with EPF, PPF, life insurance premiums, ELSS, tuition fees and home loan principal, so many salaried parents have used it up before SSY.' },
+      { type: 'subheading', text: 'Mutual funds' },
+      { type: 'paragraph', text: "Until she is 18, any gains you take are clubbed with the income of the parent who earns more and taxed at that parent's rates, after a ₹1,500 a year exemption. After 18 the gains are hers. For equity funds that means 20% on units held 12 months or less, and 12.5% above ₹1.25 lakh of gains a year on units held longer. Because she gets that ₹1.25 lakh limit every year, withdrawing gradually after 18 can cut the tax well below the one-year figure in the table. The full picture is in our [mutual funds for your child guide](/blog/mutual-funds-for-your-child/), and you can test numbers in the [tax calculator](/tax-calculator/)." },
+      { type: 'paragraph', text: 'Tax rules change. Confirm how they apply to you with a tax professional before acting.' },
+
+      { type: 'heading', text: 'Can you do both?' },
+      { type: 'paragraph', text: "Yes, and many parents do. A common pattern is to put a fixed amount into SSY for the part of the goal that has a known date and purpose, usually higher education, and to run a SIP alongside it for the part that needs to stay flexible. The two don't interfere: SSY sits in her account at a post office or bank, the fund sits in a folio in her name. How to split it depends on your own income, tax regime and what else you hold, so this page won't give you a ratio." },
+      { type: 'paragraph', text: "A few practical limits to know before you decide: SSY has to be opened before she turns 10, so the option closes early. Missing the ₹250 minimum in a year puts the account in default until you pay ₹50 for each missed year plus the missed deposits. And SSY only works for daughters. If you have a son too, his money has to go somewhere else, which matters if you want to treat both children the same way." },
+
+      // AKSHAY: this section is where your own view goes. Rewrite it in your voice.
+      { type: 'heading', text: 'What most guides get wrong' },
+      { type: 'subheading', text: '"SSY gives you 8.2% for 21 years"' },
+      { type: 'paragraph', text: 'It gives you 8.2% this quarter. The rate is reset every three months and applies to the whole balance, old deposits included. Between April 2020 and March 2023 it was 7.6%. Back in 2015-16 it was 9.2%. Over 21 years you will almost certainly see several different rates, which is why the table above shows 7.5% as well. Sovereign-backed, yes. Fixed, no.' },
+      { type: 'subheading', text: '"SSY saves you tax every year"' },
+      { type: 'paragraph', text: 'Only in the old regime, and only if the ₹1.5 lakh limit is not already full. A parent on the new regime, which is now the default, gets no deduction at all for SSY deposits. The tax-free interest is still a real advantage. The deduction is the part most guides still treat as automatic.' },
+      { type: 'subheading', text: '"Compare 8.2% with the 12% a SIP gives"' },
+      { type: 'paragraph', text: "A SIP doesn't give 12%. Some funds have returned that over some long periods, and others haven't. The honest comparison is a tax-free, government-set rate against a range of possible outcomes after tax. At 8% the fund loses. At 12% it wins clearly. The bigger difference between the two isn't the return at all. It's who decides what the money can be used for, and when." },
+
+      { type: 'heading', text: 'Frequently asked questions' },
+      { type: 'faq', items: [
+        { q: 'Is Sukanya Samriddhi better than a SIP for a girl child?', a: 'Neither is better on every count. SSY pays a tax-free, government-set rate (8.2% for October to December 2026) but locks most of the money until 21 years from opening. An equity SIP can return more or less, is taxed, and has no lock-in. Many parents use both for different parts of the goal.' },
+        { q: 'What is the Sukanya Samriddhi interest rate now?', a: '8.2% a year for October to December 2026. It has been 8.2% since January 2024. The government announces the rate every quarter, so check the latest before you invest.' },
+        { q: 'Can I claim an SSY deduction under the new tax regime?', a: 'No. The deduction for SSY deposits is under Section 123 of the Income-tax Act, 2025 (earlier 80C), which is available only in the old regime. SSY interest and maturity are tax-free under both.' },
+        { q: 'Can I withdraw from SSY before my daughter turns 21?', a: 'Up to 50% of the previous year-end balance for her education, once she turns 18 or passes Class 10. The account can be closed fully for her marriage after 18, or on compassionate grounds after five years. Otherwise the money stays until maturity.' },
+        { q: 'What happens to SSY and a mutual fund when she turns 18?', a: "She takes over both. For SSY, she submits her documents at the post office or bank and operates the account herself. For a mutual fund, SIPs stop and the folio is frozen until she changes its status from minor to major with her own PAN, KYC and bank account. More in [The day your child turns 18](/blog/the-day-your-child-turns-18/)." },
+        { q: 'Can I open both for the same daughter?', a: 'Yes. There is no rule against holding an SSY account and a mutual fund folio in the same child\'s name. The folio is opened by you as guardian, the same way as for any minor, as described in [How to open a mutual fund in your child\'s name](/blog/how-to-open-minor-mutual-fund/).' },
+      ]},
+
+      { type: 'heading', text: 'Sources' },
+      { type: 'sources', items: [
+        { label: 'India Post: Sukanya Samriddhi Account Scheme, 2019 (scheme text)', url: 'https://www.indiapost.gov.in/VAS/DOP_PDFFiles/Savings%20Bank/Sukanya%20Samriddhi%20Account%20Scheme%202019%20English.pdf' },
+        { label: 'Upstox: SSY interest rate for October to December 2026', url: 'https://upstox.com/news/personal-finance/investing/sukanya-samriddhi-yojana-ssy-account-interest-rate-october-december-2026/article-201150/' },
+        { label: 'Stable Investor: Sukanya Samriddhi interest rate history', url: 'https://stableinvestor.com/2019/06/sukanya-samriddhi-yojana-interest-rates.html' },
+        { label: 'Section 123, Income-tax Act, 2025 and Schedule XV (deductions, earlier 80C)', url: 'https://easevalue.com/income-tax-act-2025/section-123' },
+        { label: 'ClearTax: Sukanya Samriddhi Yojana rules and tax benefits', url: 'https://cleartax.in/s/sukanya-samriddhi-yojana' },
+        { label: 'SEBI: Investment in units of mutual funds in the name of minor through guardian (12 May 2023)', url: 'https://www.sebi.gov.in/legal/circulars/may-2023/investment-in-units-of-mutual-funds-in-the-name-of-minor-through-guardian_71148.html' },
+      ]},
+    ],
+  },
+  {
     id: 1,
     slug: 'invest-in-childs-name',
     datePublished: '2026-06-10T23:41:53+05:30',
