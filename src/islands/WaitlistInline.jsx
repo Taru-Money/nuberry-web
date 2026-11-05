@@ -1,5 +1,6 @@
-// The waitlist email box for React islands (the tax calculator). Same markup
+// The waitlist email box for React islands (both calculators). Same markup
 // and classes as src/components/WaitlistForm.astro, so it looks identical.
+// onBrand: on a raspberry surface the button is jamun (nb-btn--action).
 import { useState } from 'react'
 import { BACKEND_URL } from '../lib/site.js'
 
@@ -8,7 +9,7 @@ const isValidEmail = (v) => {
   return parts.length === 2 && parts[0].length > 0 && parts[1].includes('.') && parts[1].length > 3
 }
 
-export function WaitlistInline({ source, id }) {
+export function WaitlistInline({ source, id, onBrand = false }) {
   const [email, setEmail] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
@@ -40,13 +41,13 @@ export function WaitlistInline({ source, id }) {
   }
 
   return (
-    <div className="waitlist">
+    <div className={onBrand ? 'waitlist waitlist--on-brand' : 'waitlist'}>
       {!done && (
         <form className="waitlist__form" onSubmit={handleSubmit} noValidate>
           <label className="nb-sr" htmlFor={id}>Email address</label>
           <input className="nb-input" id={id} type="email" name="email" autoComplete="email" placeholder="you@example.com"
             value={email} onChange={(e) => { setEmail(e.target.value); setError('') }} disabled={submitting} />
-          <button type="submit" className="nb-btn nb-btn--primary" disabled={submitting} aria-busy={submitting || undefined}>
+          <button type="submit" className={`nb-btn ${onBrand ? 'nb-btn--action' : 'nb-btn--primary'}`} disabled={submitting} aria-busy={submitting || undefined}>
             {submitting ? 'Adding you' : 'Join the waitlist'}
           </button>
         </form>
