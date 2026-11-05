@@ -19,7 +19,7 @@ import figtree700 from '@fontsource/figtree/files/figtree-latin-700-normal.woff2
 import baloo800 from '@fontsource/baloo-2/files/baloo-2-latin-800-normal.woff2?url'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { SITE_URL, BRAND, COMPANY, ANALYTICS, SOCIAL_LINKS, ORG_ID, PERSON_ID } from '../lib/site.js'
+import { SITE_URL, BRAND, COMPANY, ANALYTICS, SOCIAL_LINKS, ORG_ID, PERSON_ID, CONTACT_EMAIL, FOUNDER } from '../lib/site.js'
 
 interface Props {
   title: string
@@ -33,23 +33,35 @@ interface Props {
   // Trail below Home, e.g. [{ name: 'Learn', path: '/blog/' }]. Home is added
   // automatically and the last item is the current page. Leave out on the home page.
   breadcrumbs?: { name: string; path: string }[]
+  // Articles only: ISO dates for article:published_time / modified_time.
+  article?: { published: string; modified: string }
 }
 const {
   title, description, ogTitle = title, ogDescription = description,
-  ogType = 'website', jsonLd = [], active, noindex = false, breadcrumbs = [],
+  ogType = 'website', jsonLd = [], active, noindex = false, breadcrumbs = [], article,
 } = Astro.props
 
 const canonical = new URL(Astro.url.pathname, SITE_URL).href
 const ogImage = `${SITE_URL}/og-image.png`
+const ogImageAlt = `${BRAND}: Paisa bhi. Samajh bhi.`
 const orgLd = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': ['Organization', 'FinancialService'],
   '@id': ORG_ID,
   name: BRAND,
   legalName: COMPANY.legalName,
   url: SITE_URL,
-  logo: `${SITE_URL}/brand/nuberry-icon-dark.png`,
+  logo: { '@type': 'ImageObject', url: `${SITE_URL}/brand/nuberry-icon-dark.png`, width: 512, height: 512 },
+  image: ogImage,
   description: `AMFI-registered mutual fund distributor (ARN ${COMPANY.arn}) helping Indian parents invest in their child's name.`,
+  areaServed: { '@type': 'Country', name: 'India' },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: CONTACT_EMAIL,
+    areaServed: 'IN',
+    availableLanguage: ['en', 'hi'],
+  },
   identifier: [
     { '@type': 'PropertyValue', propertyID: 'AMFI ARN', value: COMPANY.arn },
     { '@type': 'PropertyValue', propertyID: 'CIN', value: COMPANY.cin },
@@ -104,11 +116,17 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    {article && <meta property="article:published_time" content={article.published} />}
+    {article && <meta property="article:modified_time" content={article.modified} />}
+    {article && <meta property="article:author" content={`${SITE_URL}${FOUNDER.path}`} />}
+    {article && <meta name="author" content={FOUNDER.name} />}
     <meta property="og:locale" content="en_IN" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
@@ -120,7 +138,10 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
     {jsonLd.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
 
     <script is:inline define:vars={{ analyticsConfig }}>
-      // Ads and pixel load only on the production host, never on previews or localhost.
+      // Ads, GA4 and the Meta pixel load only on the production host, never on previews or localhost.
+      // Calls are queued straight away (gtag via dataLayer, fbq via its stub), but the vendor
+      // scripts are fetched only on the first interaction or 3.5s after load, so they never
+      // compete with the page itself. Nothing is lost: queued calls run when the scripts arrive.
       (function () {
         var cfg = JSON.parse(analyticsConfig)
         // nbTrack(name, params): a GA4 event. nbTrackLead(source): a waitlist sign-up,
@@ -129,10 +150,6 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
         window.nbTrack = function () {}
         window.nbTrackLead = function () {}
         if (cfg.productionHosts.indexOf(location.hostname) === -1) return
-        var s = document.createElement('script')
-        s.async = true
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + cfg.googleAdsId
-        document.head.appendChild(s)
         window.dataLayer = window.dataLayer || []
         window.gtag = function () { dataLayer.push(arguments) }
         gtag('js', new Date())
@@ -142,7 +159,10 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
           if (!cfg.ga4Id) return
           try { gtag('event', name, Object.assign({ send_to: cfg.ga4Id }, params || {})) } catch (e) {}
         }
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js')
+        // Meta pixel stub (the standard snippet, minus the script tag it inserts).
+        var n = window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }
+        if (!window._fbq) window._fbq = n
+        n.push = n; n.loaded = true; n.version = '2.0'; n.queue = []
         fbq('init', cfg.metaPixelId)
         fbq('track', 'PageView')
         window.nbTrackLead = function (source) {
@@ -150,6 +170,23 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
           try { fbq('track', 'Lead') } catch (e) {}
           try { gtag('event', 'conversion', { send_to: cfg.googleAdsLeadConversion }) } catch (e) {}
         }
+        var loaded = false
+        var events = ['pointerdown', 'keydown', 'scroll', 'touchstart']
+        function add(src) {
+          var s = document.createElement('script')
+          s.async = true
+          s.src = src
+          document.head.appendChild(s)
+        }
+        function load() {
+          if (loaded) return
+          loaded = true
+          events.forEach(function (e) { removeEventListener(e, load, { passive: true }) })
+          add('https://www.googletagmanager.com/gtag/js?id=' + cfg.googleAdsId)
+          add('https://connect.facebook.net/en_US/fbevents.js')
+        }
+        events.forEach(function (e) { addEventListener(e, load, { once: true, passive: true }) })
+        addEventListener('load', function () { setTimeout(load, 3500) })
       })()
     </script>
   </head>

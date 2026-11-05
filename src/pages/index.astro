@@ -6,12 +6,22 @@ import ParentHome from '../components/mock/ParentHome.astro'
 import ParentGoal from '../components/mock/ParentGoal.astro'
 import ChildToday from '../components/mock/ChildToday.astro'
 import { homeFaqs } from '../data/faqs.js'
-import { SITE_URL, COMPANY, TAGLINE } from '../lib/site.js'
+import { getBlogBySlug } from '../data/blogs.js'
+import { SITE_URL, COMPANY, TAGLINE, ORG_ID } from '../lib/site.js'
 
 const description =
   "Nuberry helps Indian parents invest in mutual funds in their child's name, and gives the child an app to understand what that money means."
 const jsonLd = [
-  { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Nuberry', url: SITE_URL },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    name: 'Nuberry',
+    url: `${SITE_URL}/`,
+    description: "Invest in mutual funds in your child's name. Guides and calculators for Indian parents.",
+    inLanguage: 'en-IN',
+    publisher: { '@id': ORG_ID },
+  },
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -22,6 +32,13 @@ const jsonLd = [
     })),
   },
 ]
+// The long guides, linked from the homepage so search engines (and parents) find them.
+const guides = [
+  'mutual-funds-for-your-child',
+  'how-to-open-minor-mutual-fund',
+  'tax-on-investments-in-childs-name-clubbing',
+  'sukanya-samriddhi-vs-mutual-funds',
+].map(getBlogBySlug)
 const why = [
   { n: '01', t: 'Their name', d: "The investment is made in your child's name." },
   { n: '02', t: 'Their future', d: "A dedicated investment for the future you're helping them build." },
@@ -47,7 +64,7 @@ const different = [
       <p class="lede">Open a mutual fund folio in your child's name. You manage it until they turn 18.</p>
       <div class="hero__cta">
         <a href="#waitlist" class="nb-btn nb-btn--primary nb-btn--lg">Join the waitlist<Icon name="arrow-right" /></a>
-        <a href="/calculator/" class="nb-btn nb-btn--secondary nb-btn--lg">Run the numbers</a>
+        <a href="/calculator/" class="nb-btn nb-btn--secondary nb-btn--lg">Try the SIP calculator</a>
       </div>
       <p class="hero__note">Going live soon. Waitlist members get access first.</p>
       <p class="trust"><Icon name="shield-check" />AMFI-registered Mutual Fund Distributor · ARN {COMPANY.arn}</p>
@@ -125,6 +142,29 @@ const different = [
     </div>
   </section>
 
+  <section class="band reveal" id="guides">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">Guides for parents investing in a child's name</h2>
+        <p class="lede">Documents, tax, and what changes at 18, checked against SEBI, AMFI and income tax rules.</p>
+      </div>
+      <div class="posts">
+        {guides.map((g) => (
+          <a href={`/blog/${g.slug}/`} class="post-card">
+            <span class="post-card__top">
+              {g.topic && <span class="tag">{g.topic}</span>}
+              <span class="post-card__read">{g.readingTime} read</span>
+            </span>
+            <h3>{g.title}</h3>
+            <p>{g.subtitle}</p>
+            <span class="post-card__go">Read the guide<Icon name="arrow-right" /></span>
+          </a>
+        ))}
+      </div>
+      <p class="section-more"><a class="text-link" href="/blog/">All guides<Icon name="arrow-right" /></a></p>
+    </div>
+  </section>
+
   <section class="band reveal" id="clarity">
     <div class="wrap clarity">
       <div class="clarity__intro">
@@ -141,7 +181,7 @@ const different = [
           <span class="tile__icon"><Icon name="receipt-indian-rupee" /></span>
           <div>
             <h3>Free for parents</h3>
-            <p>No subscription and no account fee. We earn a trail commission from the AMC, paid out of the fund's expense ratio rather than added to what you invest.</p>
+            <p>No subscription and no account fee. You invest in the regular plan of a scheme, and the fund house pays us a trail commission out of its expense ratio. Direct plans have no commission and a lower expense ratio. <a href="/disclosures/">Our disclosures</a></p>
           </div>
         </div>
       </div>

@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro'
+import {
+  SITE_URL, COMPANY, CONTACT_EMAIL, ORG_ID, DISCLOSURES_URL, GRIEVANCE_PATH, AMFI_REGISTRATION_URL,
+  EDITORIAL_POLICY_PATH, RISK_DISCLAIMER,
+} from '../lib/site.js'
+
+const description =
+  'Who Nuberry is, what we are registered for, how we are paid by fund houses, the direct plan alternative, and what we do not do.'
+// Change this date whenever the disclosures change.
+const lastUpdated = '2026-11-06'
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Disclosures',
+  url: `${SITE_URL}${DISCLOSURES_URL}`,
+  dateModified: lastUpdated,
+  about: { '@id': ORG_ID },
+  publisher: { '@id': ORG_ID },
+}]
+---
+<Base
+  title="Disclosures: Registration, Commissions and Conflicts | Nuberry"
+  description={description}
+  jsonLd={jsonLd}
+  breadcrumbs={[{ name: 'Disclosures', path: DISCLOSURES_URL }]}
+>
+  <section class="wrap page-head">
+    <span class="eyebrow">How we work</span>
+    <h1 class="display">Disclosures</h1>
+    <p class="lede">Who we are, what we are registered to do, and how we are paid.</p>
+  </section>
+
+  <section class="wrap legal">
+    <div class="prose">
+      <p><time datetime={lastUpdated}>Last updated 6 November 2026</time></p>
+
+      <h2>Who we are</h2>
+      <p>
+        Nuberry is a brand of {COMPANY.legalName} (CIN {COMPANY.cin}), registered office {COMPANY.address}. We are a
+        mutual fund distributor registered with the Association of Mutual Funds in India (AMFI) under ARN {COMPANY.arn}.
+        You can check our registration by searching for ARN {COMPANY.arn} on
+        <a href={AMFI_REGISTRATION_URL} target="_blank" rel="noopener noreferrer">AMFI's distributor search</a>.
+      </p>
+
+      <h2>What we do, and what we don't</h2>
+      <ul>
+        <li>We help parents open and run mutual fund folios in their child's name, and carry out the transactions they ask for.</li>
+        <li>We are a distributor, not a SEBI-registered investment adviser. We don't give personalised investment advice, and nothing on this site is a recommendation to buy any scheme.</li>
+        <li>We never hold your money. Payments go from your bank to the fund house, and units are held in your child's name with the fund house and its registrar.</li>
+        <li>We don't offer rewards, cashback, gifts or vouchers for investing or for inviting others.</li>
+        <li>We don't guarantee returns. {RISK_DISCLAIMER}</li>
+      </ul>
+
+      <h2>How we are paid</h2>
+      <p>
+        Parents pay Nuberry no subscription or account fee. We are paid by fund houses, as a trail commission on the money
+        invested through us. Investments made through a distributor go into the <strong>regular plan</strong> of a scheme.
+      </p>
+      <p>
+        Every scheme also has a <strong>direct plan</strong>, which has no distributor commission and so a lower expense
+        ratio. The difference in expense ratio is the cost of using a distributor. Over many years it reduces your returns
+        compared with the direct plan of the same scheme. You can invest in direct plans yourself, with the fund house or
+        through a platform that offers them.
+      </p>
+      <p>
+        Commission rates differ between fund houses and schemes. Before you invest through us, we will tell you the
+        commission we receive on the schemes you choose, as AMFI's code of conduct for distributors requires. You can ask
+        us for these figures at any time at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+      </p>
+
+      <h2>Conflicts of interest</h2>
+      <p>
+        Because we are paid by fund houses, we could earn more from some schemes than others. We don't rank or pick schemes
+        in our guides, we don't accept payment to mention a product, and our calculators work the same for every fund. How
+        we write and check our guides is set out in our <a href={EDITORIAL_POLICY_PATH}>editorial policy</a>.
+      </p>
+
+      <h2>Complaints</h2>
+      <p>
+        If something has gone wrong, our <a href={GRIEVANCE_PATH}>investor grievance page</a> sets out who to contact, how
+        long we take to respond, and how to escalate to the fund house, SEBI SCORES and SMART ODR.
+      </p>
+    </div>
+  </section>
+</Base>

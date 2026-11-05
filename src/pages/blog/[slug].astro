@@ -48,7 +48,8 @@ if (faqItems.length) jsonLd.push({
 // Optional per-article waitlist copy, so the ask matches the page.
 const cta = blog.waitlist || { title: 'The hardest part is starting', text: "Join the waitlist and we'll tell you the day it opens." }
 ---
-<Base title={`${blog.title} | Nuberry`} description={blog.metaDescription} ogType="article" active="blog" jsonLd={jsonLd}
+<Base title={blog.seoTitle || `${blog.title} | Nuberry`} description={blog.metaDescription} ogType="article" active="blog" jsonLd={jsonLd}
+  article={{ published: blog.datePublished, modified }}
   breadcrumbs={[{ name: 'Learn', path: '/blog/' }, { name: blog.title, path: `/blog/${blog.slug}/` }]}>
   <article class="wrap article">
     <a href="/blog/" class="back"><Icon name="arrow-left" />All articles</a>

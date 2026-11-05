@@ -78,7 +78,7 @@ Forms post `{ email, source }` to `${BACKEND_URL}/api/waitlist` (the existing Re
 
 ## Analytics
 
-Google Ads, GA4 and the Meta pixel load only when `location.hostname` is `nuberry.in`, so local builds and Netlify previews never fire events. IDs live in `ANALYTICS` in `src/lib/site.js`; GA4 is skipped while `ga4Id` is null.
+Google Ads, GA4 and the Meta pixel load only when `location.hostname` is `nuberry.in`, so local builds and Netlify previews never fire events. Calls are queued at once, but the vendor scripts are fetched only on the first interaction (pointer, key, scroll, touch) or 3.5s after `load`, whichever comes first, so they never compete with the page. IDs live in `ANALYTICS` in `src/lib/site.js`; GA4 is skipped while `ga4Id` is null.
 
 GA4 events (send them through `window.nbTrack(name, params)`, never call `gtag` directly):
 
@@ -92,4 +92,4 @@ Page views, scrolls and outbound clicks come from GA4's enhanced measurement. Ne
 
 ## Adding a blog post
 
-Add an object to `src/data/blogs.js` with a unique `slug`, `datePublished`, `title`, `subtitle`, `topic`, `readingTime`, `metaDescription` (under 170 characters) and `body` blocks (`paragraph`, `heading`, `pull_quote`, `bullet_list`, `table`, `assume`, `callout`, `step`). The page, sitemap entry and JSON-LD are generated.
+Add an object to `src/data/blogs.js` with a unique `slug`, `datePublished`, `title`, `subtitle`, `topic`, `readingTime`, `metaDescription` (under 170 characters) an optional `seoTitle` (the full `<title>`, used when `title | Nuberry` would run past about 65 characters) and `body` blocks (`paragraph`, `heading`, `pull_quote`, `bullet_list`, `table`, `assume`, `callout`, `step`). The page, sitemap entry and JSON-LD are generated.

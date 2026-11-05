@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro'
+import {
+  SITE_URL, COMPANY, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, FOUNDER, ORG_ID, GRIEVANCE_PATH,
+  DISCLOSURES_URL, SEBI_SCORES_URL, SMART_ODR_URL,
+} from '../lib/site.js'
+
+const description =
+  'How to raise a complaint with Nuberry, how long we take to respond, and how to escalate to the fund house, SEBI SCORES and SMART ODR.'
+// Change this date whenever the process changes.
+const lastUpdated = '2026-11-06'
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Investor grievance redressal',
+  url: `${SITE_URL}${GRIEVANCE_PATH}`,
+  dateModified: lastUpdated,
+  about: { '@id': ORG_ID },
+  publisher: { '@id': ORG_ID },
+}]
+---
+<Base
+  title="Investor Grievance Redressal: How to Complain | Nuberry"
+  description={description}
+  jsonLd={jsonLd}
+  breadcrumbs={[{ name: 'Investor grievances', path: GRIEVANCE_PATH }]}
+>
+  <section class="wrap page-head">
+    <span class="eyebrow">How we work</span>
+    <h1 class="display">Investor grievance redressal</h1>
+    <p class="lede">Who to contact if something goes wrong, how long we take, and where to go if you're not satisfied.</p>
+  </section>
+
+  <section class="wrap legal">
+    <div class="prose">
+      <p><time datetime={lastUpdated}>Last updated 6 November 2026</time></p>
+
+      <h2>Level 1: contact Nuberry</h2>
+      <p>
+        Our grievance officer is {FOUNDER.name}, {FOUNDER.role}. Write to
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> or call <a href={`tel:${CONTACT_PHONE_TEL}`}>{CONTACT_PHONE}</a>
+        (Monday to Friday, 10am to 6pm). Please include your name, your child's name as on the folio, the folio number if
+        you have it, and what went wrong.
+      </p>
+      <ul>
+        <li>We acknowledge every complaint within 2 working days.</li>
+        <li>We aim to resolve it within 21 days of receiving it, and tell you the outcome in writing.</li>
+      </ul>
+
+      <h2>Level 2: the fund house</h2>
+      <p>
+        If your complaint is about a transaction, a statement, a redemption or the folio itself, you can also write to the
+        investor service desk of the fund house (AMC) that manages the scheme. Its contact details are on your account
+        statement and on the fund house's website. Fund houses are responsible for the distributors who sell their schemes.
+      </p>
+
+      <h2>Level 3: SEBI SCORES</h2>
+      <p>
+        If you are not satisfied with the response, or have not had one within 21 days, you can lodge a complaint against
+        the fund house on <a href={SEBI_SCORES_URL} target="_blank" rel="noopener noreferrer">SEBI SCORES</a>, the
+        regulator's online complaints system.
+      </p>
+
+      <h2>Level 4: SMART ODR</h2>
+      <p>
+        If a complaint is still unresolved, you can start online conciliation and arbitration through the
+        <a href={SMART_ODR_URL} target="_blank" rel="noopener noreferrer">SMART ODR portal</a>, set up by SEBI for disputes
+        with market participants.
+      </p>
+
+      <h2>About us</h2>
+      <p>
+        Nuberry is a brand of {COMPANY.legalName} (CIN {COMPANY.cin}), an AMFI-registered mutual fund distributor, ARN
+        {COMPANY.arn}. Registered office: {COMPANY.address}. How we are paid and what we do is set out in our
+        <a href={DISCLOSURES_URL}>disclosures</a>.
+      </p>
+    </div>
+  </section>
+</Base>
