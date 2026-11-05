@@ -1,0 +1,17 @@
+---
+// One waitlist pop-up on every page. Any link to /#waitlist or #waitlist
+// opens it (see src/lib/client.js), unless the page has its own #waitlist
+// section, in which case the link scrolls there as normal. Without
+// JavaScript the links still go to the homepage form.
+// The form's source is set to `popup:<path>` when it opens.
+import Icon from './Icon.astro'
+import WaitlistForm from './WaitlistForm.astro'
+---
+<dialog class="wl-dialog" id="waitlist-dialog" aria-labelledby="wl-dialog-title">
+  <button type="button" class="nb-iconbtn wl-dialog__close" data-wl-close aria-label="Close">
+    <Icon name="x" />
+  </button>
+  <h2 class="h3" id="wl-dialog-title">Join the waitlist</h2>
+  <p class="wl-dialog__text">Nuberry is going live soon. Leave your email and we'll tell you the day it opens. Waitlist members get access first.</p>
+  <WaitlistForm source="popup" />
+</dialog>

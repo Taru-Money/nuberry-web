@@ -84,7 +84,7 @@ GA4 events (send them through `window.nbTrack(name, params)`, never call `gtag` 
 
 | Event | When | Params |
 | --- | --- | --- |
-| `generate_lead` | Waitlist sign-up succeeds, via `window.nbTrackLead(source)`, which also fires the Ads conversion and Meta `Lead` | `lead_source`: `landing`, `calculator` or `article:<slug>` |
+| `generate_lead` | Waitlist sign-up succeeds, via `window.nbTrackLead(source)`, which also fires the Ads conversion and Meta `Lead` | `lead_source`: `landing`, `calculator`, `article:<slug>` or `popup:<path>` (the site-wide pop-up, `src/components/WaitlistDialog.astro`) |
 | `calculator_used` | First interaction with a calculator, once per page view | `calculator`: `milestone` or `tax` |
 | `share` | Share button on an article | `content_type`, `item_id`, `method` |
 

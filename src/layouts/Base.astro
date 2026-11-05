@@ -19,6 +19,7 @@ import figtree700 from '@fontsource/figtree/files/figtree-latin-700-normal.woff2
 import baloo800 from '@fontsource/baloo-2/files/baloo-2-latin-800-normal.woff2?url'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import WaitlistDialog from '../components/WaitlistDialog.astro'
 import { SITE_URL, BRAND, COMPANY, ANALYTICS, SOCIAL_LINKS, ORG_ID, PERSON_ID, CONTACT_EMAIL, FOUNDER } from '../lib/site.js'
 
 interface Props {
@@ -197,6 +198,7 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
       <slot />
     </main>
     <Footer />
+    <WaitlistDialog />
     <script>
       import '../lib/client.js'
     </script>

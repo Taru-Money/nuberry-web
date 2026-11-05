@@ -35,8 +35,6 @@ const jsonLd = [
 // The long guides, linked from the homepage so search engines (and parents) find them.
 const guides = [
   'mutual-funds-for-your-child',
-  'how-to-open-minor-mutual-fund',
-  'tax-on-investments-in-childs-name-clubbing',
   'sukanya-samriddhi-vs-mutual-funds',
 ].map(getBlogBySlug)
 const why = [
@@ -142,6 +140,37 @@ const different = [
     </div>
   </section>
 
+  <section class="band reveal" id="clarity">
+    <div class="wrap clarity">
+      <div class="clarity__intro">
+        <h2 class="h2">Your child's money deserves clear answers</h2>
+        <p class="lede">A few things worth knowing before you invest in a minor's name.</p>
+        <div class="fact">
+          <span class="tile__icon"><Icon name="lock" /></span>
+          <div>
+            <h3>Nuberry never holds your money</h3>
+            <p>Your SIP goes from your bank to the AMC. The folio sits with the AMC and its registrar, in your child's name. If Nuberry shut down tomorrow, the investments wouldn't be affected.</p>
+          </div>
+        </div>
+        <div class="fact">
+          <span class="tile__icon"><Icon name="receipt-indian-rupee" /></span>
+          <div>
+            <h3>Free for parents</h3>
+            <p>No subscription and no account fee. We earn a trail commission from the fund house, paid out of the fund's expense ratio. <a href="/disclosures/">How we are paid</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="faq">
+        {homeFaqs.map((f) => (
+          <details class="nb-acc" name="home-faq">
+            <summary>{f.q}<Icon name="chevron-down" /></summary>
+            <div class="nb-acc__body">{f.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="band reveal" id="guides">
     <div class="wrap">
       <div class="section-head">
@@ -162,37 +191,6 @@ const different = [
         ))}
       </div>
       <p class="section-more"><a class="text-link" href="/blog/">All guides<Icon name="arrow-right" /></a></p>
-    </div>
-  </section>
-
-  <section class="band reveal" id="clarity">
-    <div class="wrap clarity">
-      <div class="clarity__intro">
-        <h2 class="h2">Your child's money deserves clear answers</h2>
-        <p class="lede">A few things worth knowing before you invest in a minor's name.</p>
-        <div class="fact">
-          <span class="tile__icon"><Icon name="lock" /></span>
-          <div>
-            <h3>Nuberry never holds your money</h3>
-            <p>Your SIP goes from your bank to the AMC. The folio sits with the AMC and its registrar, in your child's name. If Nuberry shut down tomorrow, the investments wouldn't be affected.</p>
-          </div>
-        </div>
-        <div class="fact">
-          <span class="tile__icon"><Icon name="receipt-indian-rupee" /></span>
-          <div>
-            <h3>Free for parents</h3>
-            <p>No subscription and no account fee. You invest in the regular plan of a scheme, and the fund house pays us a trail commission out of its expense ratio. Direct plans have no commission and a lower expense ratio. <a href="/disclosures/">Our disclosures</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="faq">
-        {homeFaqs.map((f) => (
-          <details class="nb-acc" name="home-faq">
-            <summary>{f.q}<Icon name="chevron-down" /></summary>
-            <div class="nb-acc__body">{f.a}</div>
-          </details>
-        ))}
-      </div>
     </div>
   </section>
 
