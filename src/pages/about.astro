@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro'
 import Icon from '../components/Icon.astro'
+import WaitlistForm from '../components/WaitlistForm.astro'
 import Phone from '../components/mock/Phone.astro'
 import { COMPANY, FOUNDER, AMFI_REGISTRATION_URL, DISCLOSURES_URL, GRIEVANCE_PATH, SITE_URL, TAGLINE, ORG_ID, PERSON_ID, EDITORIAL_POLICY_PATH } from '../lib/site.js'
 
@@ -59,7 +60,7 @@ const jsonLd = [{
   mentions: { '@id': PERSON_ID },
 }]
 ---
-<Base title="About Nuberry: Why We Exist" description={description} active="about" jsonLd={jsonLd} breadcrumbs={[{ name: 'About', path: '/about/' }]}>
+<Base title="About Nuberry: Why We Exist" description={description} active="about" ownWaitlist jsonLd={jsonLd} breadcrumbs={[{ name: 'About', path: '/about/' }]}>
   <section class="hero wrap about-hero">
     <div class="hero__copy">
       <span class="eyebrow">Why Nuberry exists</span>
@@ -219,12 +220,12 @@ const jsonLd = [{
     </div>
   </section>
 
-  <section class="band band--brand reveal">
+  <section class="band band--brand reveal" id="waitlist">
     <div class="wrap cta-band">
       <span class="eyebrow">{TAGLINE}</span>
       <h2 class="h2">We want every child to turn 18 with two things.</h2>
       <p class="mission"><span>Wealth to their name.</span> <span>Wisdom to multiply it.</span></p>
-      <a href="/#waitlist" class="nb-btn nb-btn--action nb-btn--lg">Join the waitlist<Icon name="arrow-right" /></a>
+      <WaitlistForm source="about" onBrand />
       <p class="mission__micro">We're building the financial foundation for their future, one child at a time.</p>
     </div>
   </section>

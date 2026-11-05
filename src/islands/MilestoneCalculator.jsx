@@ -253,7 +253,7 @@ export default function MilestoneCalculator() {
             <div className="delay__row"><span>Not enough years left to compare</span></div>
           )}
         </div>
-        <div className="calc__cta">
+        <div className="calc__cta" id="waitlist">
           {submitted ? (
             <p className="calc__msg" role="status">You're on the list. We'll email you the day it opens.</p>
           ) : (

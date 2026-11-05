@@ -4,8 +4,8 @@ import Icon from './Icon.astro'
 
 interface Props { active?: 'calculator' | 'blog' | 'about' }
 const { active } = Astro.props
-const isHome = Astro.url.pathname === '/'
-const waitlistHref = isHome ? '#waitlist' : '/#waitlist'
+// Every page has its own waitlist box with id="waitlist" (see WaitlistBand.astro).
+const waitlistHref = '#waitlist'
 const links = [
   { href: '/calculator/', label: 'Tools', key: 'calculator' },
   { href: '/blog/', label: 'Learn', key: 'blog' },
@@ -38,7 +38,6 @@ const links = [
           {links.map((l) => (
             <a href={l.href} aria-current={active === l.key ? 'page' : undefined}>{l.label}</a>
           ))}
-          <a href="/tax-calculator/">Tax calculator</a>
           <a href={waitlistHref} class="nb-btn nb-btn--primary nb-btn--block">Join the waitlist</a>
         </div>
       </details>

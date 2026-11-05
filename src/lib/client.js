@@ -85,25 +85,19 @@ for (const form of document.querySelectorAll('form[data-waitlist]')) {
   })
 }
 
-// Waitlist pop-up. A "Join the waitlist" link (to /#waitlist or #waitlist)
-// scrolls to this page's own #waitlist section if it has one; everywhere else
-// it opens the pop-up, so nobody has to leave the page they're on to sign up.
-const dialog = document.getElementById('waitlist-dialog')
-if (dialog && typeof dialog.showModal === 'function') {
-  const form = dialog.querySelector('form[data-waitlist]')
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href="/#waitlist"], a[href="#waitlist"]')
-    if (!link || document.getElementById('waitlist')) return
-    e.preventDefault()
-    link.closest('.site-menu')?.removeAttribute('open')
-    form.dataset.waitlist = `popup:${location.pathname}`
-    dialog.showModal()
-    if (!form.hidden) form.querySelector('input')?.focus()
-  })
-  dialog.querySelector('[data-wl-close]')?.addEventListener('click', () => dialog.close())
-  // A click on the backdrop (outside the panel) closes it too.
-  dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close() })
-}
+// "Join the waitlist" links all point at this page's own #waitlist box.
+// Scroll to it and put the cursor in the email field, so it's one step:
+// type, then press the button. Without JS the anchor still jumps there.
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href="#waitlist"]')
+  const target = document.getElementById('waitlist')
+  if (!link || !target) return
+  e.preventDefault()
+  link.closest('.site-menu')?.removeAttribute('open')
+  target.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  history.replaceState(null, '', '#waitlist')
+  target.querySelector('input[type="email"]')?.focus({ preventScroll: true })
+})
 
 // Share button on articles.
 for (const btn of document.querySelectorAll('[data-share]')) {

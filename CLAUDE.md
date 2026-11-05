@@ -56,7 +56,7 @@ When the design system changes, re-export `tokens.json` and `components.css` int
 - Never promise returns. Never put "grow", "grew", "guaranteed" or "ripen" next to a figure. Returns in calculators are always "assumed", with the assumptions spelled out on the page.
 - No referral rewards, cashback, gifts or vouchers for investing or inviting (AMFI code for distributors).
 - Every page keeps the footer: brand of NextGenOS, ARN, CIN, registered office, market-risk disclaimer, "app screens are illustrative".
-- The product is not live yet. Every CTA goes to the waitlist (`/#waitlist`), never to a signup page.
+- The product is not live yet. Every CTA goes to the page's own waitlist box (`#waitlist`), never to a signup page.
 - Legal pages render `src/legal/*.md`. Don't edit legal text without sign-off.
 
 ## Where things live
@@ -74,6 +74,8 @@ When the design system changes, re-export `tokens.json` and `components.css` int
 
 ## Waitlist
 
+Every page has its own email box with `id="waitlist"`, and every "Join the waitlist" link is `#waitlist`: it scrolls there and focuses the email field, never sends people to another page. Pages with their own form (home, articles, About, both calculators) pass `ownWaitlist` to `Base`; every other page gets `src/components/WaitlistBand.astro` at the bottom. Never add a "Join the waitlist" button without an email box on the same page.
+
 Forms post `{ email, source }` to `${BACKEND_URL}/api/waitlist` (the existing Render backend in `taru-mvp`). That backend's CORS allow-list must include `https://nuberry.in` and `https://www.nuberry.in`. If forms fail with "Could not connect", check CORS first.
 
 ## Analytics
@@ -84,7 +86,7 @@ GA4 events (send them through `window.nbTrack(name, params)`, never call `gtag` 
 
 | Event | When | Params |
 | --- | --- | --- |
-| `generate_lead` | Waitlist sign-up succeeds, via `window.nbTrackLead(source)`, which also fires the Ads conversion and Meta `Lead` | `lead_source`: `landing`, `calculator`, `article:<slug>` or `popup:<path>` (the site-wide pop-up, `src/components/WaitlistDialog.astro`) |
+| `generate_lead` | Waitlist sign-up succeeds, via `window.nbTrackLead(source)`, which also fires the Ads conversion and Meta `Lead` | `lead_source`: `landing`, `calculator`, `article:<slug>`, `about`, `tax-calculator` or `page:<path>` (the band Base.astro adds to pages without their own form) |
 | `calculator_used` | First interaction with a calculator, once per page view | `calculator`: `milestone` or `tax` |
 | `share` | Share button on an article | `content_type`, `item_id`, `method` |
 

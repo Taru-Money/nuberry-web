@@ -49,7 +49,7 @@ if (faqItems.length) jsonLd.push({
 const cta = blog.waitlist || { title: 'The hardest part is starting', text: "Join the waitlist and we'll tell you the day it opens." }
 ---
 <Base title={blog.seoTitle || `${blog.title} | Nuberry`} description={blog.metaDescription} ogType="article" active="blog" jsonLd={jsonLd}
-  article={{ published: blog.datePublished, modified }}
+  article={{ published: blog.datePublished, modified }} ownWaitlist
   breadcrumbs={[{ name: 'Learn', path: '/blog/' }, { name: blog.title, path: `/blog/${blog.slug}/` }]}>
   <article class="wrap article">
     <a href="/blog/" class="back"><Icon name="arrow-left" />All articles</a>
@@ -78,7 +78,7 @@ const cta = blog.waitlist || { title: 'The hardest part is starting', text: "Joi
       <span>{next.subtitle}</span>
       <span class="post-card__go">Read it<Icon name="arrow-right" /></span>
     </a>
-    <section class="article__waitlist">
+    <section class="article__waitlist" id="waitlist">
       <h2 class="h3">{cta.title}</h2>
       <p>{cta.text}</p>
       <WaitlistForm source={`article:${blog.slug}`} />

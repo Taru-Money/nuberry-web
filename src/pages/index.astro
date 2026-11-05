@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro'
 import Icon from '../components/Icon.astro'
-import WaitlistForm from '../components/WaitlistForm.astro'
+import WaitlistBand from '../components/WaitlistBand.astro'
 import ParentHome from '../components/mock/ParentHome.astro'
 import ParentGoal from '../components/mock/ParentGoal.astro'
 import ChildToday from '../components/mock/ChildToday.astro'
@@ -54,6 +54,7 @@ const different = [
   description={description}
   ogTitle="Nuberry: invest for your child's future, in their name"
   jsonLd={jsonLd}
+  ownWaitlist
 >
   <section class="hero wrap">
     <div class="hero__copy">
@@ -194,12 +195,5 @@ const different = [
     </div>
   </section>
 
-  <section class="band band--brand reveal" id="waitlist">
-    <div class="wrap cta-band">
-      <span class="eyebrow">{TAGLINE}</span>
-      <h2 class="h2">The hardest part is starting</h2>
-      <p class="lede">Join the waitlist and we'll tell you the day it opens.</p>
-      <WaitlistForm source="landing" onBrand />
-    </div>
-  </section>
+  <WaitlistBand source="landing" />
 </Base>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Icon } from './icons.jsx'
+import { WaitlistInline } from './WaitlistInline.jsx'
 
 /* Ported from taru.money/tax-calculator. Tax logic is unchanged; only the
    markup chrome, brand copy and icons changed. */
@@ -1089,9 +1090,9 @@ export default function TaxCalculator() {
               </div>
 
               {/* ── CTA block ── */}
-              <div className="tc-cta-block">
+              <div className="tc-cta-block" id="waitlist">
                 <h2 className="tc-cta-block__heading">Start building it in their name</h2>
-                <a href="/#waitlist" className="nb-btn nb-btn--primary tc-cta-block__btn">Join the waitlist</a>
+                <WaitlistInline source="tax-calculator" id="wl-tax-calculator" />
                 {NON_MF_TYPES.has(assetClass) && (
                   <p className="tc-cta-block__coming-soon">
                     Nuberry starts with mutual funds. Other asset classes are shown for comparison only.

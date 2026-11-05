@@ -19,7 +19,7 @@ import figtree700 from '@fontsource/figtree/files/figtree-latin-700-normal.woff2
 import baloo800 from '@fontsource/baloo-2/files/baloo-2-latin-800-normal.woff2?url'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import WaitlistDialog from '../components/WaitlistDialog.astro'
+import WaitlistBand from '../components/WaitlistBand.astro'
 import { SITE_URL, BRAND, COMPANY, ANALYTICS, SOCIAL_LINKS, ORG_ID, PERSON_ID, CONTACT_EMAIL, FOUNDER } from '../lib/site.js'
 
 interface Props {
@@ -34,12 +34,15 @@ interface Props {
   // Trail below Home, e.g. [{ name: 'Learn', path: '/blog/' }]. Home is added
   // automatically and the last item is the current page. Leave out on the home page.
   breadcrumbs?: { name: string; path: string }[]
+  // True when the page has its own waitlist form with id="waitlist". Otherwise
+  // the waitlist band is added at the bottom of the page.
+  ownWaitlist?: boolean
   // Articles only: ISO dates for article:published_time / modified_time.
   article?: { published: string; modified: string }
 }
 const {
   title, description, ogTitle = title, ogDescription = description,
-  ogType = 'website', jsonLd = [], active, noindex = false, breadcrumbs = [], article,
+  ogType = 'website', jsonLd = [], active, noindex = false, breadcrumbs = [], article, ownWaitlist = false,
 } = Astro.props
 
 const canonical = new URL(Astro.url.pathname, SITE_URL).href
@@ -196,9 +199,9 @@ const analyticsConfig = JSON.stringify(ANALYTICS)
     <Header active={active} />
     <main id="main">
       <slot />
+      {!ownWaitlist && <WaitlistBand source={`page:${Astro.url.pathname}`} />}
     </main>
     <Footer />
-    <WaitlistDialog />
     <script>
       import '../lib/client.js'
     </script>

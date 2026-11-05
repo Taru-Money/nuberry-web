@@ -519,6 +519,7 @@ button.tc-row-toggle:focus-visible { outline: 2px solid var(--focus); outline-of
 .tc-milestone-row--done .nb-icon { color: var(--positive); }
 .tc-milestone-note { font-size: 12px; color: var(--text-muted); }
 .tc-cta-block { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); padding: var(--space-6); border-radius: var(--radius-lg); background: var(--surface-subtle); }
+.tc-cta-block .waitlist { max-width: none; }
 .tc-cta-block__heading { font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1.2; }
 .tc-cta-block__coming-soon, .tc-cta-block__disclaimer { font-size: 13px; color: var(--text-muted); }
 .tc-seo { margin-top: var(--space-8); max-width: 48rem; font-size: 14px; line-height: 1.6; color: var(--text-muted); }
@@ -560,13 +561,3 @@ button.tc-row-toggle:focus-visible { outline: 2px solid var(--focus); outline-of
 .prose a { color: var(--brand-text); }
 .figures caption { caption-side: bottom; text-align: left; padding-top: var(--space-2); font-size: var(--type-caption-size); color: var(--text-muted); }
 .figures--text td:last-child, .figures--text th:last-child { text-align: left; font-variant-numeric: normal; }
-
-/* Waitlist pop-up (src/components/WaitlistDialog.astro). */
-.wl-dialog { width: min(480px, calc(100vw - 32px)); max-width: none; padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--surface); color: var(--text); }
-.wl-dialog::backdrop { background: var(--scrim); }
-.wl-dialog[open] { display: flex; flex-direction: column; gap: var(--space-3); }
-.wl-dialog .h3 { padding-right: var(--space-8); }
-.wl-dialog__text { color: var(--text-muted); }
-.wl-dialog__close { position: absolute; top: var(--space-3); right: var(--space-3); }
-.wl-dialog .waitlist { max-width: none; margin-top: var(--space-2); }
-@media (min-width: 560px) { .wl-dialog .waitlist__form { flex-direction: column; } }
