@@ -1,0 +1,22 @@
+---
+// The raspberry "Join the waitlist" band with its own email box. The home page
+// uses it directly; Base.astro adds it to the bottom of every page that has no
+// waitlist form of its own. It carries id="waitlist", which every
+// "Join the waitlist" link points to.
+import WaitlistForm from './WaitlistForm.astro'
+import { TAGLINE } from '../lib/site.js'
+interface Props { source: string; title?: string; text?: string }
+const {
+  source,
+  title = 'The hardest part is starting',
+  text = "Join the waitlist and we'll tell you the day it opens.",
+} = Astro.props
+---
+<section class="band band--brand reveal" id="waitlist">
+  <div class="wrap cta-band">
+    <span class="eyebrow">{TAGLINE}</span>
+    <h2 class="h2">{title}</h2>
+    <p class="lede">{text}</p>
+    <WaitlistForm source={source} onBrand />
+  </div>
+</section>

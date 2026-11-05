@@ -39,9 +39,14 @@ export const PERSON_ID = `${SITE_URL}${FOUNDER.path}#person`
 
 export const EDITORIAL_POLICY_PATH = '/editorial-policy/'
 
-// Null renders as a placeholder with no href. Fill in, never guess.
-export const AMFI_REGISTRATION_URL = null
+// AMFI's distributor search. Visitors enter ARN 367667 to see our registration.
+export const AMFI_REGISTRATION_URL = 'https://www.amfiindia.com/locate-distributor'
+// Disclosures page removed 6 Nov 2026 for a rewrite. Set to '/disclosures/'
+// again when src/pages/disclosures.astro is back; About links to it when set.
 export const DISCLOSURES_URL = null
+export const GRIEVANCE_PATH = '/grievance/'
+export const SEBI_SCORES_URL = 'https://scores.sebi.gov.in/'
+export const SMART_ODR_URL = 'https://smartodr.in/'
 export const SOCIAL_LINKS = [
   { label: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/nuberry.in' },
   { label: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/company/nuberry-in' },

@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
-import { BACKEND_URL } from '../lib/site.js'
-import { Icon } from './icons.jsx'
+import { WaitlistInline } from './WaitlistInline.jsx'
 
 /* Math carried over unchanged from taru.money's /calculator. Monthly
    compounding, contribution at the start of each month, step-up applied once
@@ -53,10 +52,6 @@ const parseMoney = (v) => {
   return isNaN(n) ? 0 : n
 }
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v))
-const isValidEmail = (value) => {
-  const parts = value.trim().split('@')
-  return parts.length === 2 && parts[0].length > 0 && parts[1].includes('.') && parts[1].length > 3
-}
 const fill = (v, lo, hi) => `${((clamp(v, lo, hi) - lo) / (hi - lo)) * 100}%`
 
 const AGE_MIN = 0, AGE_MAX = 17
@@ -84,10 +79,6 @@ export default function MilestoneCalculator() {
   const [returnRate, setReturnRate] = useState(12)
   const [stepUpPct, setStepUpPct] = useState(0)
 
-  const [email, setEmail] = useState('')
-  const [submitting, setSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
-  const [formError, setFormError] = useState('')
 
   const years = 18 - age
   const months = Math.round(years * 12)
@@ -128,33 +119,6 @@ export default function MilestoneCalculator() {
     }
     return { rows, goal }
   }, [mode, amount, target, years, age, returnRate, stepUpPct])
-
-  async function handleSubmit(e) {
-    e.preventDefault()
-    const trimmed = email.trim().toLowerCase()
-    if (!isValidEmail(trimmed)) return setFormError('Enter a valid email address.')
-    setSubmitting(true)
-    setFormError('')
-    try {
-      const res = await fetch(`${BACKEND_URL}/api/waitlist`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: trimmed, source: 'calculator' }),
-      })
-      const data = await res.json().catch(() => ({}))
-      if (!res.ok) {
-        setFormError(data.error || 'Something went wrong. Please try again.')
-      } else {
-        window.nbTrackLead?.('calculator')
-        setSubmitted(true)
-        setEmail('')
-      }
-    } catch {
-      setFormError('Could not connect. Please try again.')
-    } finally {
-      setSubmitting(false)
-    }
-  }
 
   return (
     <div className="calc">
@@ -253,17 +217,8 @@ export default function MilestoneCalculator() {
             <div className="delay__row"><span>Not enough years left to compare</span></div>
           )}
         </div>
-        <div className="calc__cta">
-          {submitted ? (
-            <p className="calc__msg" role="status">You're on the list. We'll email you the day it opens.</p>
-          ) : (
-            <form className="calc__form" onSubmit={handleSubmit} noValidate>
-              <label className="nb-sr" htmlFor="m-email">Email address</label>
-              <input id="m-email" className="nb-input" type="email" placeholder="Email me when Nuberry opens" autoComplete="email" value={email} onChange={(e) => { setEmail(e.target.value); setFormError('') }} disabled={submitting} />
-              <button type="submit" className="nb-btn nb-btn--action" aria-label="Join the waitlist" disabled={submitting} aria-busy={submitting || undefined}><Icon name="arrow-right" /></button>
-            </form>
-          )}
-          {formError && <p className="calc__msg" role="status">{formError}</p>}
+        <div className="calc__cta" id="waitlist">
+          <WaitlistInline source="calculator" id="wl-calculator" onBrand />
         </div>
       </div>
     </div>

@@ -32,7 +32,7 @@ const allFaqs = [
   },
   {
     q: 'Who pays tax on the returns?',
-    a: "While your child is a minor, gains are added to your income and taxed at your slab. After 18, gains are taxed in their hands at their own slab, which for most young adults is lower.",
+    a: "While your child is a minor, any gains you take are added to the income of the parent who earns more, and taxed at the same capital gains rates as that parent's own investments, so there is no tax saving before 18. Gains taken after 18 are taxed in your child's name, with their own basic exemption and their own ₹1.25 lakh a year exemption on equity gains.",
   },
 ]
 

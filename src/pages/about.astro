@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro'
 import Icon from '../components/Icon.astro'
+import WaitlistForm from '../components/WaitlistForm.astro'
 import Phone from '../components/mock/Phone.astro'
-import { COMPANY, FOUNDER, AMFI_REGISTRATION_URL, DISCLOSURES_URL, SITE_URL, TAGLINE, ORG_ID, PERSON_ID, EDITORIAL_POLICY_PATH } from '../lib/site.js'
+import { COMPANY, FOUNDER, AMFI_REGISTRATION_URL, DISCLOSURES_URL, GRIEVANCE_PATH, SITE_URL, TAGLINE, ORG_ID, PERSON_ID, EDITORIAL_POLICY_PATH } from '../lib/site.js'
 
 const description =
   'Nuberry helps parents build long-term wealth for their children, in their own name, while giving them a meaningful way to understand and grow with it.'
@@ -59,7 +60,7 @@ const jsonLd = [{
   mentions: { '@id': PERSON_ID },
 }]
 ---
-<Base title="About Nuberry: Why We Exist" description={description} active="about" jsonLd={jsonLd} breadcrumbs={[{ name: 'About', path: '/about/' }]}>
+<Base title="About Nuberry: Why We Exist" description={description} active="about" ownWaitlist jsonLd={jsonLd} breadcrumbs={[{ name: 'About', path: '/about/' }]}>
   <section class="hero wrap about-hero">
     <div class="hero__copy">
       <span class="eyebrow">Why Nuberry exists</span>
@@ -194,8 +195,9 @@ const jsonLd = [{
         ))}
       </div>
       <div class="trust-links">
-        <a class="text-link" href={AMFI_REGISTRATION_URL ?? undefined} data-todo={AMFI_REGISTRATION_URL ? undefined : 'url-missing'}>AMFI registration<Icon name="arrow-up-right" /></a>
-        <a class="text-link" href={DISCLOSURES_URL ?? undefined} data-todo={DISCLOSURES_URL ? undefined : 'url-missing'}>Disclosures<Icon name="arrow-right" /></a>
+        <a class="text-link" href={AMFI_REGISTRATION_URL} target="_blank" rel="noopener noreferrer">AMFI registration (search ARN {COMPANY.arn})<Icon name="arrow-up-right" /></a>
+        {DISCLOSURES_URL && <a class="text-link" href={DISCLOSURES_URL}>Disclosures<Icon name="arrow-right" /></a>}
+        <a class="text-link" href={GRIEVANCE_PATH}>Investor grievances<Icon name="arrow-right" /></a>
         <a class="text-link" href={EDITORIAL_POLICY_PATH}>Editorial policy<Icon name="arrow-right" /></a>
       </div>
     </div>
@@ -218,12 +220,12 @@ const jsonLd = [{
     </div>
   </section>
 
-  <section class="band band--brand reveal">
+  <section class="band band--brand reveal" id="waitlist">
     <div class="wrap cta-band">
       <span class="eyebrow">{TAGLINE}</span>
       <h2 class="h2">We want every child to turn 18 with two things.</h2>
       <p class="mission"><span>Wealth to their name.</span> <span>Wisdom to multiply it.</span></p>
-      <a href="/#waitlist" class="nb-btn nb-btn--action nb-btn--lg">Join the waitlist<Icon name="arrow-right" /></a>
+      <WaitlistForm source="about" onBrand />
       <p class="mission__micro">We're building the financial foundation for their future, one child at a time.</p>
     </div>
   </section>
