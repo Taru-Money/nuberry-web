@@ -195,7 +195,7 @@ const jsonLd = [{
       </div>
       <div class="trust-links">
         <a class="text-link" href={AMFI_REGISTRATION_URL} target="_blank" rel="noopener noreferrer">AMFI registration (search ARN {COMPANY.arn})<Icon name="arrow-up-right" /></a>
-        <a class="text-link" href={DISCLOSURES_URL}>Disclosures<Icon name="arrow-right" /></a>
+        {DISCLOSURES_URL && <a class="text-link" href={DISCLOSURES_URL}>Disclosures<Icon name="arrow-right" /></a>}
         <a class="text-link" href={GRIEVANCE_PATH}>Investor grievances<Icon name="arrow-right" /></a>
         <a class="text-link" href={EDITORIAL_POLICY_PATH}>Editorial policy<Icon name="arrow-right" /></a>
       </div>

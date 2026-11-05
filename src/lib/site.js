@@ -39,13 +39,11 @@ export const PERSON_ID = `${SITE_URL}${FOUNDER.path}#person`
 
 export const EDITORIAL_POLICY_PATH = '/editorial-policy/'
 
-// Company phone, shown on the grievance page.
-export const CONTACT_PHONE = '+91 87796 95364'
-export const CONTACT_PHONE_TEL = '+918779695364'
-
 // AMFI's distributor search. Visitors enter ARN 367667 to see our registration.
 export const AMFI_REGISTRATION_URL = 'https://www.amfiindia.com/locate-distributor'
-export const DISCLOSURES_URL = '/disclosures/'
+// Disclosures page removed 6 Nov 2026 for a rewrite. Set to '/disclosures/'
+// again when src/pages/disclosures.astro is back; About links to it when set.
+export const DISCLOSURES_URL = null
 export const GRIEVANCE_PATH = '/grievance/'
 export const SEBI_SCORES_URL = 'https://scores.sebi.gov.in/'
 export const SMART_ODR_URL = 'https://smartodr.in/'

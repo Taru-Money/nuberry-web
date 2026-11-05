@@ -1,8 +1,7 @@
 ---
 import Base from '../layouts/Base.astro'
 import {
-  SITE_URL, COMPANY, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, FOUNDER, ORG_ID, GRIEVANCE_PATH,
-  DISCLOSURES_URL, SEBI_SCORES_URL, SMART_ODR_URL,
+  SITE_URL, COMPANY, CONTACT_EMAIL, FOUNDER, ORG_ID, GRIEVANCE_PATH, SEBI_SCORES_URL, SMART_ODR_URL,
 } from '../lib/site.js'
 
 const description =
@@ -38,8 +37,7 @@ const jsonLd = [{
       <h2>Level 1: contact Nuberry</h2>
       <p>
         Our grievance officer is {FOUNDER.name}, {FOUNDER.role}. Write to
-        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> or call <a href={`tel:${CONTACT_PHONE_TEL}`}>{CONTACT_PHONE}</a>
-        (Monday to Friday, 10am to 6pm). Please include your name, your child's name as on the folio, the folio number if
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Please include your name, your child's name as on the folio, the folio number if
         you have it, and what went wrong.
       </p>
       <ul>
@@ -71,8 +69,7 @@ const jsonLd = [{
       <h2>About us</h2>
       <p>
         Nuberry is a brand of {COMPANY.legalName} (CIN {COMPANY.cin}), an AMFI-registered mutual fund distributor, ARN
-        {COMPANY.arn}. Registered office: {COMPANY.address}. How we are paid and what we do is set out in our
-        <a href={DISCLOSURES_URL}>disclosures</a>.
+        {COMPANY.arn}. Registered office: {COMPANY.address}.
       </p>
     </div>
   </section>
