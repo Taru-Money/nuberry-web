@@ -54,7 +54,7 @@ export const ANALYTICS = {
   productionHosts: ['nuberry.in', 'www.nuberry.in'],
   googleAdsId: 'AW-18172166013',
   googleAdsLeadConversion: 'AW-18172166013/aC8FCKyqn7YcEP3-lNlD',
-  metaPixelId: '3145039679024176',
+  metaPixelId: '1139801311872507',
   // GA4 web stream for nuberry.in, e.g. 'G-ABC123XYZ'. Null skips GA4 entirely.
   ga4Id: 'G-T88DBB4RPH',
 }
