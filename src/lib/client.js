@@ -85,6 +85,20 @@ for (const form of document.querySelectorAll('form[data-waitlist]')) {
   })
 }
 
+// "Join the waitlist" links all point at this page's own #waitlist box.
+// Scroll to it and put the cursor in the email field, so it's one step:
+// type, then press the button. Without JS the anchor still jumps there.
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href="#waitlist"]')
+  const target = document.getElementById('waitlist')
+  if (!link || !target) return
+  e.preventDefault()
+  link.closest('.site-menu')?.removeAttribute('open')
+  target.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  history.replaceState(null, '', '#waitlist')
+  target.querySelector('input[type="email"]')?.focus({ preventScroll: true })
+})
+
 // Share button on articles.
 for (const btn of document.querySelectorAll('[data-share]')) {
   btn.addEventListener('click', async () => {

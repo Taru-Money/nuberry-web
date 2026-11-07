@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Icon } from './icons.jsx'
+import { WaitlistInline } from './WaitlistInline.jsx'
 
 /* Ported from taru.money/tax-calculator. Tax logic is unchanged; only the
    markup chrome, brand copy and icons changed. */
@@ -424,6 +425,7 @@ const EQUITY_TYPES = new Set(['equity_mf', 'hybrid_mf', 'direct_stocks', 'ulip']
 
 function getAssumptions(assetClass) {
   const always = [
+    "Nothing is redeemed before your child turns 18. Gains taken while they're a minor are clubbed with the higher-earning parent's income (Section 99) and get no exemption of their own.",
     'Child has no other income at 18 — their full basic exemption (₹4L, new regime FY26-27) is available.',
     'Returns shown are assumed, not guaranteed — actual returns will vary.',
     'Tax laws are as per current Indian income tax rules and may change.',
@@ -657,10 +659,20 @@ export default function TaxCalculator() {
             {/* ════ RIGHT PANEL — Three zones ════ */}
             <div className="tc-right-panel">
 
+              {/* Clubbing note: the saving only exists for gains taken after 18. */}
+              <div className="nb-note">
+                <Icon name="info" />
+                <div>
+                  <b>Only after 18.</b> While your child is a minor, gains you take are added to your income and taxed
+                  as yours. This assumes the whole corpus is redeemed after their 18th birthday.{' '}
+                  <a href="/blog/tax-on-investments-in-childs-name-clubbing/">How clubbing works</a>
+                </div>
+              </div>
+
               {/* ── ZONE A: Tax saving hero card ── */}
               <div className="tc-corpus-card">
                 <div className="tc-corpus__label">
-                  {results.taxSaving > 0 ? "Tax you save in your child's name" : 'Tax saving'}
+                  {results.taxSaving > 0 ? "Tax saved by redeeming after 18, in your child's name" : 'Tax saving'}
                 </div>
                 <div className="tc-corpus__big">
                   {results.taxSaving > 0 ? fmt(results.taxSaving) : '₹0'}
@@ -1029,7 +1041,7 @@ export default function TaxCalculator() {
 
                 {results.taxSaving > 0 ? (
                   <div className="tc-saving-banner">
-                    Investing in your child&apos;s name saves <strong>{fmt(results.taxSaving)}</strong> in taxes
+                    Redeeming after 18 in your child&apos;s name saves <strong>{fmt(results.taxSaving)}</strong> in taxes
                   </div>
                 ) : (
                   <div className="tc-no-saving-banner">
@@ -1078,9 +1090,9 @@ export default function TaxCalculator() {
               </div>
 
               {/* ── CTA block ── */}
-              <div className="tc-cta-block">
+              <div className="tc-cta-block" id="waitlist">
                 <h2 className="tc-cta-block__heading">Start building it in their name</h2>
-                <a href="/#waitlist" className="nb-btn nb-btn--primary tc-cta-block__btn">Join the waitlist</a>
+                <WaitlistInline source="tax-calculator" id="wl-tax-calculator" />
                 {NON_MF_TYPES.has(assetClass) && (
                   <p className="tc-cta-block__coming-soon">
                     Nuberry starts with mutual funds. Other asset classes are shown for comparison only.

@@ -4,7 +4,7 @@ import TaxCalculator from '../islands/TaxCalculator.jsx'
 import { SITE_URL } from '../lib/site.js'
 
 const description =
-  "Calculate how much tax you could save by investing in your child's name instead of your own. Compare equity MF, debt MF, digital gold and more. Free, no signup needed."
+  "Compare the tax on a corpus redeemed after 18 in your child's name with the same corpus in yours. Equity and debt funds, gold, FDs. Free, no signup."
 const jsonLd = [{
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
@@ -19,18 +19,19 @@ const jsonLd = [{
 }]
 ---
 <Base
-  title="Child Investment Tax Calculator: Save Tax by Investing in Your Child's Name | Nuberry"
+  title="Child Investment Tax Calculator: Your Name vs Theirs | Nuberry"
   description={description}
-  ogTitle="How much tax you save by investing in your child's name"
-  ogDescription="See the corpus, the tax bill, and how much you keep by investing in your child's name. Live, with your numbers."
+  ogTitle="Child investment tax calculator: your name vs theirs"
+  ogDescription="The tax on a corpus redeemed after 18 in your child's name, next to the same corpus in yours. Live, with your numbers."
   active="calculator"
+  ownWaitlist
   jsonLd={jsonLd}
   breadcrumbs={[{ name: 'Tax calculator', path: '/tax-calculator/' }]}
 >
   <section class="wrap page-head">
     <span class="eyebrow">Tools</span>
-    <h1 class="display">The investment that works hardest is the one in your child's name.</h1>
-    <p class="lede">See the corpus, the tax bill, and how much you keep by investing in your child's name. Live, with your numbers.</p>
+    <h1 class="display">Child investment tax calculator</h1>
+    <p class="lede">The tax on a corpus redeemed after your child turns 18, in their name, next to the same corpus in yours. Live, with your numbers.</p>
     <nav class="tool-tabs" aria-label="Calculators">
       <a href="/calculator/">Milestone calculator</a>
       <a href="/tax-calculator/" aria-current="page">Tax calculator</a>
@@ -39,10 +40,13 @@ const jsonLd = [{
   <section class="wrap calc-wrap">
     <TaxCalculator client:load />
     <p class="tc-seo">
-      Investing in your child's name can reduce the tax on capital gains. Under current Indian income tax rules, a child
-      with no other income has their own ₹4 lakh basic exemption plus a ₹1.25 lakh LTCG exemption under Section 198
-      (erstwhile Section 112A), which are not available when the same investment is held in a parent's name. This
-      calculator shows the difference across asset classes.
+      There is no tax saving while your child is a minor. Under Section 99 of the Income-tax Act, 2025 (earlier Section
+      64(1A)), any gains taken before 18 are added to the income of the parent who earns more and taxed like that
+      parent's own gains, after a ₹1,500 a year exemption per child. The saving comes later: gains taken after 18 are
+      your child's own income, so a child with no other income has their own ₹4 lakh basic exemption plus the ₹1.25 lakh
+      a year LTCG exemption under Section 198 (earlier 112A). This calculator assumes the whole corpus is redeemed after
+      your child turns 18 and shows the difference across asset classes. How clubbing works, with examples:
+      <a href="/blog/tax-on-investments-in-childs-name-clubbing/">Tax on investments in your child's name: clubbing explained</a>.
     </p>
   </section>
 </Base>
