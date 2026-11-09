@@ -599,22 +599,131 @@ export const blogs = [
     id: 6,
     slug: 'the-day-your-child-turns-18',
     datePublished: '2026-06-10T23:41:53+05:30',
-    title: 'The Day Your Child Turns 18',
-    subtitle: 'Two versions of the same morning. One involves a conversation about a loan.',
-    topic: 'Getting started',
-    readingTime: '2 min',
-    metaDescription: "What does it feel like when your child turns 18 and finds wealth in their name? The story of two parents — and one simple choice made years earlier.",
+    dateModified: '2026-11-09T18:00:00+05:30',
+    title: 'The day your child turns 18: changing a mutual fund from minor to major',
+    seoTitle: 'Minor to major mutual fund: what happens at 18 | Nuberry',
+    subtitle: 'What happens to the folio on the birthday, what your child needs, the form for each fund house, and the online routes. Checked against SEBI and AMFI rules as of November 2026.',
+    topic: 'How it works',
+    readingTime: '7 min',
+    metaDescription: "What happens to a minor's mutual fund at 18: the frozen folio, stopped SIPs, the documents, the minor to major (MAM) form for each fund house and online options.",
+    waitlist: {
+      title: 'Want a reminder before the birthday?',
+      text: "Nuberry is building a simpler way to invest in your child's name, including a heads-up well before they turn 18. Join the waitlist and we'll tell you the day it opens.",
+    },
     body: [
-      { type: 'paragraph', text: "Picture the day. Your child's eighteenth birthday. You're sitting together — chai, maybe dinner somewhere. And you say: we started investing for you the day you were born. Here's what it looks like now." },
+      // AKSHAY: rewrite these two paragraphs in your own voice.
+      { type: 'paragraph', text: "On your child's 18th birthday, their mutual fund folio is frozen and every SIP on it stops. Nothing can be bought, sold or switched until your child, now an adult, sends the fund house a change of status request with their own PAN, KYC and bank account." },
+      { type: 'paragraph', text: "None of that is hard, but it takes a few weeks, and most of it can be done before the birthday. This page covers what changes on the day, what your child needs, the form for each fund house, and the online routes that skip the paperwork. For the bigger picture (opening the folio, tax, what most guides get wrong), read [Mutual funds for your child: the complete guide](/blog/mutual-funds-for-your-child/)." },
+      {
+        type: 'key_facts', title: 'Key facts',
+        items: [
+          '**On the 18th birthday:** the guardian can no longer operate the folio, and no new transactions are allowed until the status changes.',
+          '**SIPs, STPs and SWPs:** stop from that date. Your child registers fresh ones after the change.',
+          '**Dividends:** still paid or reinvested as usual, because they are not a transaction your child asks for.',
+          "**What your child needs:** their own PAN, their own KYC, a bank account in their own name, and a nomination choice.",
+          '**The form:** a change of status from minor to major (MAM) form, one per fund house, covering up to nine folios. The fund house sends it at least 30 days before the birthday.',
+          '**Tax:** income after the 18th birthday is taxed in your child\'s name, not clubbed with yours.',
+        ],
+      },
+
+      { type: 'heading', text: 'What happens to a mutual fund when a minor turns 18?' },
+      { type: 'paragraph', text: "SEBI and AMFI set the same rules for every fund house. At least 30 days before the birthday, the fund house sends a notice to the folio's registered address with the change of status form. From the birthday itself:" },
+      { type: 'bullet_list', items: [
+        '**The guardian is locked out.** You can no longer redeem, switch or invest on the folio as guardian.',
+        '**The folio is frozen.** No purchase, redemption or switch goes through until the status is changed to major.',
+        '**Systematic plans stop.** A SIP, STP or SWP on a minor folio only runs until the day before the birthday, even if the mandate was signed for longer.',
+        '**Dividends carry on.** A fund on the IDCW option still pays out to the registered bank account, or reinvests.',
+      ]},
+      { type: 'paragraph', text: "Nothing is lost while the folio is frozen. The units stay invested and keep moving with the market. What you lose is the SIP instalments that don't happen, and the ability to redeem if your child needs the money soon after 18, for example for college fees." },
+
+      { type: 'heading', text: 'What documents does your child need?' },
+      { type: 'table', text: true, headers: ['What', 'What works', 'Notes'], rows: [
+        ['PAN', "Your child's own PAN card", "If they already have a minor PAN, they keep the same number. Update the photo and signature instead of applying for a new one"],
+        ['KYC', "KYC in your child's own name, with a KYC registration agency (KRA)", "Your KYC as guardian does not carry over. Online KYC with PAN and Aadhaar is the quickest route"],
+        ['Bank account', "A cancelled cheque with your child's name printed on it, or a recent bank statement or passbook", "Convert the minor account to a regular one, or open a new account in their name"],
+        ['Signature attestation', 'Signed by you as the guardian on record, their bank, a notary, or a Judicial Magistrate First Class', "Needed for the paper form. The guardian's signature is usually the easiest"],
+        ['Nomination', 'A nomination, or a signed choice not to nominate', 'Part of the form'],
+        ['Fresh SIP mandate', 'A new SIP form and bank mandate', 'Only if the SIP should continue'],
+      ], caption: 'Based on AMFI guidelines for change of status from minor to major. Fund houses may ask for small additions, so check their form.' },
+
+      { type: 'heading', text: 'How do you change a mutual fund from minor to major?' },
+      {
+        type: 'step', number: 1, title: 'Sort out the PAN (a few months before)',
+        text: "If your child has no PAN, apply for one. If they have a PAN issued as a minor, update their photo and signature on it. The number stays the same.",
+      },
+      {
+        type: 'step', number: 2, title: 'Get the bank account ready',
+        text: "Most banks convert a minor account to a regular one when the child turns 18, with fresh KYC and a new signature, and some ask for both of you at the branch. If there is no account in your child's name, open one. You need a cheque book with their name printed on it, or a statement.",
+      },
+      {
+        type: 'step', number: 3, title: "Complete your child's own KYC",
+        text: "Your child does KYC as an individual, with their PAN and Aadhaar. Check the name and date of birth match the PAN exactly. A mismatch is the most common reason a request bounces.",
+      },
+      {
+        type: 'step', number: 4, title: 'Submit the change of status',
+        text: 'Online through MFCentral or the registrar, where your folio is eligible, or on paper with the MAM form at the fund house or its registrar (CAMS or KFintech). One form per fund house, listing up to nine folios. The links are in the next section.',
+      },
+      {
+        type: 'step', number: 5, title: 'Restart the SIP',
+        text: "Once the folio shows your child as the holder, they register a new SIP and bank mandate in their own name. Check the nominee too. From here, every decision on the money is theirs.",
+      },
+      { type: 'pull_quote', text: 'Start at 17 and a half. The paperwork waits for no one, but the birthday does not wait for the paperwork.' },
+
+      { type: 'heading', text: 'Where do you get the minor to major form for each fund house?' },
+      { type: 'paragraph', text: "AMFI prescribes one standard change of status form (the MAM form) for every fund house, and many fund houses publish their own copy of it. Use the fund house's version if it has one; otherwise the AMFI form carries the same fields. Send one form to each fund house your child holds, listing every folio with that fund house." },
+      { type: 'table', text: true, headers: ['Fund house', 'Form'], rows: [
+        ['Any fund house', '[AMFI standard MAM form](https://www.amfiindia.com/Themes/Theme1/downloads/MAMForm-forchangeinstatusfromMinortoMajor.pdf)'],
+        ['Nippon India Mutual Fund', '"Change of Status from Minor to Major", on the [Nippon India forms page](https://mf.nipponindiaim.com/investor-services/downloads/forms) under Update Folio Details'],
+        ['HDFC Mutual Fund', '[Request for change in status from Minor to Major](https://files.hdfcfund.com/s3fs-public/2025-06/Request%20for%20change%20in%20status%20from%20Minor%20to%20Major%20100625%20V1%20Editable%20form.pdf)'],
+        ['Bajaj Finserv Mutual Fund', '[Request for change in status from Minor to Major](https://www.bajajamc.com/sites/default/files/2025-09/minor_to_major_form.pdf)'],
+        ['quant Mutual Fund', '[Request for change in status from Minor to Major](https://quantmutual.com/Admin/Pdf/Request_for_change_in_status_from_Minor_to_Major.pdf)'],
+        ['Fund houses serviced by CAMS', '[CAMS minor attaining majority request form](https://www.camsonline.com/Investors/Service-requests/Service-Request-Forms/Minor-attains-Major)'],
+      ], caption: 'Links checked November 2026. Fund houses update their forms, so if a link breaks, search the fund house site for "minor to major".' },
+      { type: 'paragraph', text: "For UTI, Kotak, Mirae Asset, SBI, ICICI Prudential or any fund house not listed, use the AMFI form and submit it at the fund house's branch or its registrar's service centre. Your child's account statement names the registrar. The [AMFI page on minors attaining majority](https://amfiindia.com/investor-corner/investor-center/Minor_attaining_Majority.html) has the full checklist." },
+
+      { type: 'heading', text: 'Can you do it online?' },
+      { type: 'paragraph', text: "Often, yes. **MFCentral**, the common platform run by the two registrars CAMS and KFintech, lists minor to major as a service request across fund houses. It needs your child's KYC done first and works through the guardian's login. **CAMS** also runs its own online request for the funds it services, with OTP checks and an eSign from the guardian, and needs both of you present." },
+      { type: 'paragraph', text: "Online requests depend on the folio's details being complete and matching, so not every folio qualifies. If yours doesn't, the paper form always works." },
+
+      { type: 'heading', text: 'What most guides get wrong' },
+      // AKSHAY: this section is where your own view goes. Rewrite it in your voice.
+      { type: 'subheading', text: '"It happens automatically at 18"' },
+      { type: 'paragraph', text: "It doesn't. The fund house sends a reminder, but nothing changes until your child applies. A folio can sit frozen for years if nobody does. The money is safe, but the SIP isn't running and nobody can take money out." },
+      { type: 'subheading', text: '"Do it after the birthday"' },
+      { type: 'paragraph', text: "The form can only be processed once your child is 18, but everything it needs can be ready before. PAN updates and bank conversions take weeks. Get them done in the months before, and the form is a ten-minute job on the day." },
+      { type: 'subheading', text: '"One form covers all their funds"' },
+      { type: 'paragraph', text: "One form covers all the folios at one fund house, up to nine. If your child holds funds from three fund houses, that is three forms, or three requests online." },
+
+      { type: 'heading', text: "What changes for tax?" },
+      { type: 'paragraph', text: "Income that arises after the 18th birthday is your child's own, not clubbed with yours. For a mutual fund, the gain arises on the date of redemption, so units bought years ago and redeemed after 18 are taxed in your child's name, with their own basic exemption and their own ₹1.25 lakh a year exemption on equity gains. A redemption after 18 has to wait for the status change, which is one more reason to start early. The full detail is in [Tax on investments in your child's name: clubbing explained](/blog/tax-on-investments-in-childs-name-clubbing/). Tax rules change, so check with a tax professional before you redeem." },
+
+      // AKSHAY: the original story, kept. Trim or rewrite as you like.
       { type: 'heading', text: 'Two versions of that day' },
-      { type: 'paragraph', text: "**The first:** a statement in their name. Eighteen years of SIPs that never stopped. A number that can cover college, fund a first attempt at something, or simply mean they don't start adult life owing anyone. It's already theirs. You're handing over a login, not a gift." },
-      { type: 'paragraph', text: '**The second:** the FD you kept renewing. The one you dipped into in 2029 for the renovation, and again in 2031 when something urgent came up. What\'s left covers some of the fees. You loved them exactly as much. The outcome is just different.' },
-      { type: 'heading', text: "What you're actually doing" },
-      { type: 'paragraph', text: "Investing in your child's name, consistently, from early on, sends a message across time. It says someone planned for you — not sentimentally, but with a standing instruction that ran every month for eighteen years without being asked." },
+      { type: 'paragraph', text: "Picture the birthday. You're sitting together, chai or dinner somewhere, and you say: we started investing for you the day you were born. Here's what it looks like now." },
+      { type: 'paragraph', text: "**The first version:** a statement in their name. Eighteen years of SIPs that never stopped. A number that can cover college, fund a first attempt at something, or simply mean they don't start adult life owing anyone. It's already theirs. The change of status form is the last thing you sign as their guardian." },
+      { type: 'paragraph', text: "**The second version:** the FD you kept renewing, dipped into for a renovation one year and something urgent another. What's left covers some of the fees. You loved them exactly as much. The outcome is just different." },
       { type: 'pull_quote', text: 'The message is worth more than the corpus. The corpus is just the proof.' },
-      { type: 'paragraph', text: "You don't need to give your child everything. A start is enough." },
-      { type: 'paragraph', text: "What actually happens to the folio on that birthday (the frozen SIPs, the PAN and KYC, the change of status form) is in [Mutual funds for your child: the complete guide](/blog/mutual-funds-for-your-child/)." },
-      { type: 'callout', title: 'Every Indian child deserves to turn 18 with wealth in their name', text: 'Not a large amount. Just an amount, in their name, that has been growing the whole time.' },
+
+      { type: 'heading', text: 'Frequently asked questions' },
+      { type: 'faq', items: [
+        { q: 'What happens to a minor\'s mutual fund when they turn 18?', a: "The folio is frozen from the 18th birthday. The guardian can no longer operate it, SIPs, STPs and SWPs stop, and no new transactions are allowed until the status is changed from minor to major. Dividends continue to be paid or reinvested." },
+        { q: 'What documents are needed to change a mutual fund from minor to major?', a: "The change of status (MAM) form, a copy of your child's PAN, their KYC acknowledgment, a cancelled cheque with their name printed on it or a recent bank statement, a nomination choice, and the signature attested by the guardian on record, their bank, a notary or a Judicial Magistrate First Class." },
+        { q: 'Is the minor to major form different for each fund house?', a: "AMFI prescribes one standard format and many fund houses publish their own copy. You send one form to each fund house your child holds, listing up to nine folios with that fund house." },
+        { q: 'Can I change a mutual fund from minor to major online?', a: "Often. MFCentral lists it as a service request across fund houses once your child's KYC is done, and CAMS runs an online request with OTP and the guardian's eSign for the funds it services. If a folio isn't eligible online, the paper form works." },
+        { q: 'Does my child need a new PAN at 18?', a: "No. If they were issued a PAN as a minor, the number stays the same. Update the photo and signature on it before the change of status." },
+        { q: 'What happens to the SIP after the status changes?', a: 'It does not restart on its own. Your child registers a new SIP and bank mandate in their own name.' },
+      ]},
+
+      { type: 'heading', text: 'Sources' },
+      { type: 'sources', items: [
+        { label: 'AMFI: Updated guidelines on minor accounts and change of status from minor to major (Best Practices Circular 86, 16 July 2020)', url: 'https://www.amfiindia.com/Themes/Theme1/downloads/circulars/SEBI/CU116-AMFI%20BP%20cir%20No.%2086-16-Jul-2020-%20Updated%20Guidelines%20reg.%20Minors%20Account%20and%20change%20of%20status%20from%20Minor%20to%20Major.pdf' },
+        { label: 'AMFI: Standard MAM form for change in status from minor to major', url: 'https://www.amfiindia.com/Themes/Theme1/downloads/MAMForm-forchangeinstatusfromMinortoMajor.pdf' },
+        { label: 'AMFI: Minor attaining majority', url: 'https://amfiindia.com/investor-corner/investor-center/Minor_attaining_Majority.html' },
+        { label: 'SEBI: Investment in the name of minor through guardian and transmission of units (24 December 2019)', url: 'https://www.sebi.gov.in/legal/circulars/dec-2019/circular-on-investment-in-units-of-mutual-funds-in-the-name-of-minor-through-guardian-and-ease-of-process-for-transmission-of-units_45457.html' },
+        { label: 'HDFC Mutual Fund: Investments made on behalf of minors', url: 'https://www.hdfcfund.com/investor-services/investments-made-behalf-minors' },
+        { label: 'Tata Mutual Fund: How to convert a minor\'s folio to major status', url: 'https://www.tatamutualfund.com/blogs/how-convert-minors-mutual-fund-folio-major-status-step-step-guide' },
+        { label: 'Value Research: How to simplify your fund transactions with MFCentral', url: 'https://www.valueresearchonline.com/stories/50100/how-to-simplify-your-fund-transactions-with-mfcentral/' },
+      ]},
     ],
   },
 ]
