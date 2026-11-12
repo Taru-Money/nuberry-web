@@ -42,7 +42,7 @@ export const blogs = [
       { type: 'sip_chart' },
       { type: 'table', headers: ['Value at 18 of ₹2,16,000 put in', 'Lowest', 'Median', 'Highest'], rows: [
         ['Nifty 50 SIP, after 1% cost and tax', '₹4,98,110', '₹6,78,874', '₹8,44,051'],
-        ['PPF', '₹4,50,742', '₹4,69,336', '₹4,86,167'],
+        ['PPF', '₹4,50,808', '₹4,69,428', '₹4,86,278'],
         ['Fixed deposit, before tax', '₹4,15,821', '₹4,36,988', '₹4,65,913'],
         ['Fixed deposit, after 30% tax', '₹3,37,325', '₹3,48,472', '₹3,65,112'],
       ], caption: '113 windows of ₹1,000 a month for 216 months, started July 1999 to November 2008. Past performance is not an indication of future returns.' },

@@ -19,6 +19,5 @@ Order:
 4. `inflation.py <same dir>`: CPI general vs education figures used in the article.
 5. `export.py <work dir> <repo root>`: writes `src/data/sip18.json` and the download CSVs.
 
-AKSHAY: the PPF rate schedule in `sip18.py` (the `PPF` list) was entered from the
-government notifications by hand. Check each line against the National Savings Institute
-history before relying on it. The FD rates come straight from RBI's file.
+PPF rates in `sip18.py` were checked against the National Savings Institute table
+("Interest rate since inception") in November 2026. FD rates come straight from RBI's file.

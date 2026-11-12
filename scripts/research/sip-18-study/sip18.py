@@ -25,10 +25,11 @@ def add_months(k, n):
     return (t // 12, t % 12 + 1)
 
 # ---- rate schedules (annual %, effective from (y, m)) ----
-# PPF: Govt notifications. Tax-free.
+# PPF: National Savings Institute, "Interest rate since inception" (checked Nov 2026). Tax-free.
+# 11.0% applies from 15 Jan 2000; at monthly steps the whole of January 2000 takes 11.0%.
 PPF = [((1999,1),12.0),((2000,1),11.0),((2001,3),9.5),((2002,3),9.0),((2003,3),8.0),
        ((2011,12),8.6),((2012,4),8.8),((2013,4),8.7),((2016,4),8.1),((2016,10),8.0),
-       ((2017,1),7.9),((2017,7),7.8),((2018,1),7.6),((2018,10),8.0),((2019,7),7.9),
+       ((2017,4),7.9),((2017,7),7.8),((2018,1),7.6),((2018,10),8.0),((2019,7),7.9),
        ((2020,4),7.1)]
 # FD: RBI Handbook "Structure of Interest Rates", five major banks, term deposits
 # 1-3 years, midpoint of range. Value labelled FY Y-(Y+1) is applied Apr Y to Mar Y+1.
