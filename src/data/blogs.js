@@ -1,5 +1,143 @@
 export const blogs = [
   {
+    id: 10,
+    slug: 'sip-from-birth-to-18-what-the-data-shows',
+    datePublished: '2026-11-12T12:00:00+05:30',
+    title: 'SIP from birth to 18: what 27 years of data shows',
+    seoTitle: 'SIP from birth to 18: what 27 years of data shows | Nuberry',
+    subtitle: 'We ran ₹1,000 a month for 18 years through every start month since July 1999, and compared the Nifty 50 with PPF and fixed deposits after costs, tax and inflation.',
+    topic: 'Research',
+    readingTime: '11 min',
+    metaDescription: 'We ran ₹1,000 a month for 18 years through every start month since 1999. What the Nifty 50, PPF and FDs were worth at 18, after costs, tax and inflation.',
+    waitlist: {
+      title: 'Planning for your own child?',
+      text: "Nuberry opens a mutual fund folio in your child's name and runs the SIP for you, with a plan for the years before they turn 18. Join the waitlist and we'll tell you the day it opens.",
+    },
+    body: [
+      // AKSHAY: rewrite these two paragraphs in your own voice.
+      { type: 'paragraph', text: "Every parent who starts saving for a child asks the same thing: what will this actually be worth when they turn 18? Calculators answer with one number built on one assumed rate. We wanted to see what really happened, across every possible start month, using only official data." },
+      { type: 'paragraph', text: "So we took ₹1,000 a month for 18 years and ran it through 113 windows: one starting every month from July 1999 to November 2008, the full span the official Nifty 50 Total Return Index allows. We did the same for PPF and bank fixed deposits, then took off costs, tax and inflation. Four things stood out." },
+      {
+        type: 'key_facts', title: 'What the data shows',
+        items: [
+          '**Equity came out ahead every time, by very different margins.** After costs and tax, ₹2,16,000 put into the Nifty 50 was worth between ₹4,98,110 and ₹8,44,051 at 18. The median was ₹6,78,874.',
+          '**The exit mattered more than the entry.** An SIP started in March 2002 was worth ₹7,09,974. One started a month later was worth ₹5,20,554, because its 18th year ended in the Covid crash of April 2020.',
+          "**For most parents, an FD in their child's name lost buying power.** With interest taxed at 30%, all 113 FDs were worth less than the money put in once inflation is counted. At 20%, 96 of 113 were.",
+          '**Official education inflation was about 5.5% a year, not 10%.** From January 2011 to September 2026, the CPI education index rose about as fast as prices overall. Private higher education is not measured separately and has likely risen faster.',
+        ],
+      },
+
+      { type: 'heading', text: 'If your child is young today' },
+      { type: 'paragraph', text: "None of these results will repeat exactly. What carries over is the pattern. If you are starting for a child born in the last few years, the data points to six things." },
+      { type: 'step', title: 'Plan with the range, not one number', text: "₹1,000 a month ended anywhere between ₹4.98 lakh and ₹8.44 lakh after costs and tax. When you set a target, the lower end is the safer figure to plan around. Our [calculator](/calculator/) lets you try a more cautious assumed rate." },
+      { type: 'step', title: "Don't wait for a better time to start", text: 'The start month barely changed the outcome, because the first instalments are small next to everything that follows. Waiting for a dip mostly costs you months of investing.' },
+      { type: 'step', title: 'For the long stretch, the data favoured equity', text: 'In all 113 windows, a Nifty 50 SIP ended ahead of PPF and fixed deposits after costs and tax. In mutual fund terms, that is an equity fund such as a Nifty 50 index fund or a diversified equity fund. The margin varied a lot: in the worst window it finished only about ₹20,000 ahead of PPF. Equity is for money you will not need for many years.' },
+      { type: 'step', title: 'From around 14 or 15, start moving to safer assets', text: "The biggest swings came from the last few months, when almost all the money is already invested. So don't leave it all in equity until the birthday. Over the final three or four years, move a part each year from equity funds into safer options such as debt mutual funds (liquid or short-duration funds) or fixed deposits. A fall near the end then hits less of the money, and many planners aim to have most of it out of equity by the time it's needed. While your child is a minor, FD interest and debt fund gains are taxed at your slab, a small price for not being caught by a crash." },
+      { type: 'step', title: 'Check your tax slab before using an FD for all 18 years', text: "Interest on an FD in your child's name is taxed at the higher-earning parent's slab. At 20% or 30%, an 18-year FD usually lost buying power. FDs suit the last few years, not the whole stretch. For a steady, tax-free part of a child's savings, PPF held up better (for a daughter, also see [Sukanya Samriddhi](/blog/sukanya-samriddhi-vs-mutual-funds/))." },
+      { type: 'step', title: "Name the education you're saving for", text: 'School-level costs rose about 5.5% a year. A private professional degree or study abroad has likely risen faster, so use a higher rate if that is the goal.' },
+      { type: 'paragraph', text: 'This is general information drawn from past data, not a recommendation for your family. The rest of this article shows the numbers behind each point.' },
+
+      { type: 'heading', text: 'How we measured it' },
+      { type: 'paragraph', text: "Each window invests ₹1,000 on the first trading day of every month for 216 months, then values what has built up the month after the last instalment. We call that the child's 18th birthday. Every option gets the same money on the same dates." },
+      { type: 'table', text: true, headers: ['Option', 'How it is valued'], rows: [
+        ['Nifty 50 SIP', 'Nifty 50 Total Return Index (dividends reinvested), less 1% a year for fund costs. Tax at withdrawal: 12.5% on gains above ₹1.25 lakh'],
+        ['PPF', 'The rate notified by the government for each period, credited each March. Tax-free'],
+        ['Fixed deposit', "RBI's published rate for 1 to 3 year deposits at the five major banks, each financial year. Interest taxed each year at the parent's slab"],
+        ['Inflation', "Labour Bureau CPI for Industrial Workers, the only official consumer price index that goes back to 1999"],
+      ], caption: 'Full method, assumptions and sources are at the end of this article.' },
+      { type: 'assume', title: 'Why an index, not a fund', text: "No fund has run for all 27 years at a cost every parent could get, and naming funds would turn research into a recommendation. The index shows what a low-cost, diversified equity SIP could have done. The 1% yearly cost is a stand-in for fund expenses; many index funds now cost less, many active funds more." },
+
+      { type: 'heading', text: 'Did equity beat PPF and FDs over 18 years?' },
+      { type: 'paragraph', text: "In every one of the 113 windows, yes. But the range is the real finding. The same ₹1,000 a month, put in with the same discipline, ended up worth anything from ₹4.98 lakh to ₹8.44 lakh depending only on when it started." },
+      { type: 'sip_chart' },
+      { type: 'table', headers: ['Value at 18 of ₹2,16,000 put in', 'Lowest', 'Median', 'Highest'], rows: [
+        ['Nifty 50 SIP, after 1% cost and tax', '₹4,98,110', '₹6,78,874', '₹8,44,051'],
+        ['PPF', '₹4,50,808', '₹4,69,428', '₹4,86,278'],
+        ['Fixed deposit, before tax', '₹4,15,821', '₹4,36,988', '₹4,65,913'],
+        ['Fixed deposit, after 30% tax', '₹3,37,325', '₹3,48,472', '₹3,65,112'],
+      ], caption: '113 windows of ₹1,000 a month for 216 months, started July 1999 to November 2008. Past performance is not an indication of future returns.' },
+      { type: 'paragraph', text: "PPF and FDs barely move from window to window. That steadiness is what they are for. Equity's lowest result is the one to look at closely: in the unluckiest window it finished only about ₹20,000 ahead of PPF. Over 18 years equity never fell behind, but it did not always win by much." },
+
+      { type: 'heading', text: 'Why does the month you stop matter so much?' },
+      { type: 'paragraph', text: "Look at the dip in the chart around 2002. An SIP started in March 2002 was valued in March 2020, just before markets fell. One started in April 2002 was valued in April 2020, near the bottom. One month apart, ₹1.89 lakh apart." },
+      { type: 'table', headers: ['SIP started', 'Valued', 'Nifty 50 SIP, after 1% cost'], rows: [
+        ['January 2002', 'January 2020', '₹8,00,351'],
+        ['March 2002', 'March 2020', '₹7,09,974'],
+        ['April 2002', 'April 2020', '₹5,20,554'],
+        ['October 2002', 'October 2020', '₹6,56,701'],
+      ], caption: 'Before tax at withdrawal. All windows put in ₹2,16,000.' },
+      { type: 'paragraph', text: "By the last few years of an 18-year SIP, almost all the money is already invested, so a fall in the final year hits the whole corpus. A bad start month barely matters: the first instalments are small next to everything that comes after." },
+      { type: 'paragraph', text: "This is why many planners move a child's corpus gradually into lower-risk funds over the three or four years before the money is needed, instead of waiting for the birthday. You can't choose when markets fall. You can choose not to need all the money on one date." },
+
+      { type: 'heading', text: 'Did a fixed deposit keep up with inflation?' },
+      { type: 'paragraph', text: "Before tax, just about. After tax, for most parents, no. Interest on an FD in a minor's name is added to the income of the parent who earns more and taxed at their slab ([how clubbing works](/blog/tax-on-investments-in-childs-name-clubbing/)). Over these windows inflation averaged about 6.75% a year, so the ₹2,16,000 put in was worth around ₹4,08,000 in the money of the 18th birthday." },
+      { type: 'table', headers: ["Parent's tax slab", 'FDs that beat inflation', 'Median buying power at 18'], rows: [
+        ['0%', '113 of 113', '1.09x'],
+        ['10%', '75 of 113', '1.00x'],
+        ['20%', '17 of 113', '0.93x'],
+        ['30%', '0 of 113', '0.86x'],
+      ], caption: 'Buying power: value at 18 divided by the instalments restated in money of the same month, using CPI for Industrial Workers. 1.00x means it exactly kept pace.' },
+      { type: 'paragraph', text: "After inflation, the Nifty 50 SIP gave a median of 1.76 times the buying power put in, and PPF 1.15 times. In the worst equity window, the April 2002 one, it was 1.19 times. PPF is tax-free, which is why it holds up where a taxed FD doesn't." },
+      { type: 'callout', title: 'What this does not mean', text: "An FD is not a bad product. It is the right place for money needed within a year or two, and for the last stretch before a goal. The finding is narrower: as the main 18-year savings for a child, an FD taxed at 20% or 30% has usually lost ground to prices." },
+
+      { type: 'heading', text: 'How fast have education costs really risen?' },
+      { type: 'paragraph', text: "Many child-planning calculators assume education costs rise 10% a year or more. The official measure says otherwise. From January 2011 to September 2026, RBI's CPI education index rose about 5.5% a year. The general index rose about 5.5% too." },
+      { type: 'table', headers: ['Period', 'CPI general, a year', 'CPI education, a year'], rows: [
+        ['Jan 2011 to Jan 2016', '7.0%', '7.6%'],
+        ['Jan 2016 to Jan 2021', '4.4%', '4.8%'],
+        ['Jan 2021 to Jan 2026', '5.0%', '4.2%'],
+        ['Jan 2011 to Sep 2026', '5.5%', '5.5%'],
+      ], caption: 'RBI, CPI (Rural + Urban combined). The 2012=100 series is chained to the 2024=100 series at January 2025.' },
+      { type: 'paragraph', text: "Treat this with care. The CPI education index measures what households across India spend on education: school fees, tuition, books and stationery, much of it at government and low-fee schools. It does not tell you what a private engineering degree, an MBA or a year abroad will cost. Those have very likely risen faster, and RBI only began publishing a separate higher-education index in 2025." },
+      { type: 'paragraph', text: "The useful question is which education you are saving for. For school costs, 5% to 6% a year is closer to the record than 10%. For a private professional degree, plan for more. Our [calculator](/calculator/) lets you set your own rate." },
+
+      { type: 'heading', text: 'Look up any start month' },
+      { type: 'paragraph', text: "Pick a start month between July 1999 and November 2008, set the monthly amount and your tax slab, and see what each option was worth 18 years later. These are past results, not projections. If your child is young, use it to see how much the same monthly habit varied, and how much the final year mattered." },
+      { type: 'sip_explorer', id: 'explore' },
+
+      { type: 'heading', text: 'What this study can and cannot tell you' },
+      { type: 'bullet_list', items: [
+        '**It is one history.** The 113 windows overlap heavily and all come from one 27-year stretch of Indian markets. The next 18 years could look very different.',
+        '**It is an index, not your fund.** Real funds differ in costs, holdings and timing, and a regular plan through a distributor costs more than a direct plan.',
+        '**Tax is today\'s rules.** We applied current long-term capital gains tax at withdrawal for every window. After 18 the gain is the child\'s own income, so the real bill can be lower ([the tax side of turning 18](/blog/the-day-your-child-turns-18/)).',
+        '**Inflation is CPI for Industrial Workers.** It is the only official index that reaches back to 1999. It tracks industrial worker households, not every family.',
+      ]},
+
+      {
+        type: 'data_download', id: 'data', source: 'data:sip-18-study',
+        title: 'Get the data',
+        text: "Every window, every option, and the RBI series we used, as CSV files with a README on the method. Free to use with credit to Nuberry and a link to this page.",
+        files: [
+          { path: '/data/sip-18-study/nuberry-18-year-sip-windows.csv', label: '18-year windows (113 rows)', note: 'All four options, before and after tax, plus inflation' },
+          { path: '/data/sip-18-study/nuberry-15-year-sip-windows.csv', label: '15-year windows (149 rows)', note: 'Same method over 15 years' },
+          { path: '/data/sip-18-study/nuberry-10-year-sip-windows.csv', label: '10-year windows (209 rows)', note: 'Same method over 10 years' },
+          { path: '/data/sip-18-study/rbi-five-major-banks-1-3y-deposit-rates.csv', label: 'FD rates used', note: 'RBI, five major banks, 1 to 3 year deposits' },
+          { path: '/data/sip-18-study/rbi-cpi-combined-general-and-education-chained.csv', label: 'CPI general and education', note: 'RBI, January 2011 to September 2026' },
+          { path: '/data/sip-18-study/README.txt', label: 'README and method', note: 'How every column was worked out' },
+        ],
+      },
+
+      { type: 'heading', text: 'Method and sources' },
+      { type: 'paragraph', text: "**Equity.** Official daily values of the Nifty 50 Total Return Index from 30 June 1999 to 11 November 2026. Units are bought at the first trading day's value each month and valued on the first trading day of the month after the 216th instalment. A 1% yearly cost is deducted monthly." },
+      { type: 'paragraph', text: '**PPF.** Government-notified rates for each period, interest worked out monthly and credited each March.' },
+      { type: 'paragraph', text: "**Fixed deposits.** RBI's rate for 1 to 3 year deposits at the five major banks, the midpoint of the published range as at end March, applied to that financial year and compounded quarterly. Months before April 2000 use the 2000-01 rate, where RBI's table starts." },
+      { type: 'paragraph', text: "**Inflation.** Labour Bureau CPI for Industrial Workers, chained across its 1982, 2001 and 2016 base years with the Bureau's linking factors and interpolated monthly. The education comparison uses RBI's CPI combined index." },
+      { type: 'sources', items: [
+        { label: 'NSE Indices: Nifty 50 Total Return Index, historical data', url: 'https://www.niftyindices.com/reports/historical-data' },
+        { label: 'RBI: Handbook of Statistics on the Indian Economy, table "Structure of Interest Rates"', url: 'https://www.rbi.org.in/' },
+        { label: 'RBI: Database on Indian Economy, consumer price index', url: 'https://data.rbi.org.in/' },
+        { label: 'Labour Bureau: Consumer Price Index for Industrial Workers', url: 'https://labourbureau.gov.in/' },
+        { label: 'National Savings Institute: PPF interest rates', url: 'https://www.nsiindia.gov.in/' },
+      ]},
+
+      { type: 'faq', items: [
+        { q: 'What was ₹1,000 a month in a Nifty 50 SIP worth after 18 years?', a: 'Across 113 start months from July 1999 to November 2008, between ₹4,98,110 and ₹8,44,051 after a 1% yearly cost and tax at withdrawal, with a median of ₹6,78,874. ₹2,16,000 was put in each time. Past performance is not an indication of future returns.' },
+        { q: 'Is an FD in my child\'s name a good way to save for 18 years?', a: "Interest on a minor's FD is taxed at the slab of the parent who earns more. In our data, with a 30% slab, every 18-year FD was worth less than the money put in once inflation was counted, and with a 20% slab most were. FDs suit money needed soon, not the main long-term saving." },
+        { q: 'What education inflation should I assume?', a: "RBI's CPI education index rose about 5.5% a year from 2011 to 2026, the same as prices overall. That covers school-level spending across India. Private professional degrees and study abroad have likely risen faster, so plan for more if that is the goal." },
+      ]},
+    ],
+  },
+  {
     id: 9,
     slug: 'tax-on-investments-in-childs-name-clubbing',
     datePublished: '2026-11-06T12:00:00+05:30',

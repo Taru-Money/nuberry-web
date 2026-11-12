@@ -48,6 +48,13 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
+# Research data files are for download, not search results. The article that
+# offers them is the page that should rank.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
 [[headers]]
   for = "/_astro/*"
   [headers.values]

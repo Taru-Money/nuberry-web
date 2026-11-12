@@ -1,0 +1,82 @@
+---
+// Static SVG line chart for the 18-year SIP study: value at 18 by start
+// month, for the Nifty 50 SIP, PPF and an FD after 30% tax. Built at compile
+// time, no JS. Two layouts (wide and phone) so text stays readable; CSS shows
+// one. Colours are the design system's data tokens; FD is also dashed and
+// every line is labelled at its end, so identity never rests on colour alone.
+// Each month has a hit area with a native tooltip.
+import data from '../data/sip18.json'
+
+const C = Object.fromEntries(data.cols.map((c, i) => [c, i]))
+const rows = data.rows.map((r) => {
+  const eqPre = r[C.eq]
+  return { start: r[C.start], eq: eqPre - 0.125 * Math.max(0, eqPre - 216000 - 125000), ppf: r[C.ppf], fd: r[C.fd30] }
+})
+type K = 'eq' | 'ppf' | 'fd'
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December']
+const name = (s: string) => `${MONTHS[+s.slice(5) - 1]} ${s.slice(0, 4)}`
+const lakh = (v: number) => `₹${(v / 100000).toLocaleString('en-IN', { maximumFractionDigits: 2 })} lakh`
+const worstIdx = rows.findIndex((r) => r.start === '2002-04')
+const yMax = 900000
+
+const layouts = [
+  { cls: 'sipc__svg--wide', W: 720, H: 360, m: { top: 16, right: 104, bottom: 40, left: 52 }, yearStep: 2,
+    labels: { eq: 'Nifty 50 SIP', ppf: 'PPF', fd: 'FD, 30% slab' }, note: 'April 2002 start: valued in the Covid crash' },
+  { cls: 'sipc__svg--narrow', W: 360, H: 300, m: { top: 12, right: 44, bottom: 34, left: 40 }, yearStep: 4,
+    labels: { eq: 'Nifty', ppf: 'PPF', fd: 'FD' }, note: 'Apr 2002 start' },
+].map((L) => {
+  const iw = L.W - L.m.left - L.m.right, ih = L.H - L.m.top - L.m.bottom
+  const x = (i: number) => L.m.left + (i / (rows.length - 1)) * iw
+  const y = (v: number) => L.m.top + ih - (v / yMax) * ih
+  const path = (k: K) => rows.map((r, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(r[k]).toFixed(1)}`).join('')
+  const last = rows[rows.length - 1]
+  const ends = (['eq', 'ppf', 'fd'] as K[]).map((k) => ({ k, ly: y(last[k]) })).sort((a, b) => a.ly - b.ly)
+  for (let i = 1; i < ends.length; i++) if (ends[i].ly - ends[i - 1].ly < 15) ends[i].ly = ends[i - 1].ly + 15
+  const years = rows.map((r, i) => ({ yr: +r.start.slice(0, 4), mo: r.start.slice(5), i })).filter((r) => r.mo === '01' && r.yr % L.yearStep === 0)
+  const dot = { x: x(worstIdx), y: y(rows[worstIdx].eq) }
+  // Note sits between the PPF and FD lines, clear of every series.
+  const noteY = y((rows[worstIdx].ppf + rows[worstIdx].fd) / 2) + 4
+  return { ...L, iw, ih, x, y, path, ends, years, dot, noteY }
+})
+const ticks = [0, 200000, 400000, 600000, 800000]
+const aria = `Line chart of 113 SIPs of ₹1,000 a month started July 1999 to November 2008. After costs and tax the Nifty 50 SIP was worth between ${lakh(Math.min(...rows.map((r) => r.eq)))} and ${lakh(Math.max(...rows.map((r) => r.eq)))}; PPF about ${lakh(rows[rows.length - 1].ppf)} to ${lakh(rows[0].ppf)}; an FD after 30% tax about ${lakh(rows[rows.length - 1].fd)} to ${lakh(rows[0].fd)}. ₹2.16 lakh was put in each time.`
+---
+<figure class="sipc">
+  <figcaption class="sipc__title">What ₹1,000 a month for 18 years was worth, by the month it started</figcaption>
+  <ul class="sipc__legend" aria-hidden="true">
+    <li class="sipc__l--eq"><i></i>Nifty 50 SIP</li>
+    <li class="sipc__l--ppf"><i></i>PPF</li>
+    <li class="sipc__l--fd"><i></i>FD, 30% slab</li>
+  </ul>
+  {layouts.map((L) => (
+    <svg class={`sipc__svg ${L.cls}`} viewBox={`0 0 ${L.W} ${L.H}`} role="img" aria-label={aria}>
+      <g class="sipc__grid">
+        {ticks.map((t) => (
+          <g>
+            <line x1={L.m.left} x2={L.m.left + L.iw} y1={L.y(t)} y2={L.y(t)} />
+            <text x={L.m.left - 6} y={L.y(t) + 4} text-anchor="end">{t ? `₹${t / 100000}L` : '₹0'}</text>
+          </g>
+        ))}
+        <line class="sipc__invested" x1={L.m.left} x2={L.m.left + L.iw} y1={L.y(216000)} y2={L.y(216000)} />
+        <text class="sipc__invested-label" x={L.m.left + 6} y={L.y(216000) - 6}>₹2.16L put in</text>
+        {L.years.map((t) => <text x={L.x(t.i)} y={L.H - L.m.bottom + 18} text-anchor="middle">{t.yr}</text>)}
+        <text x={L.m.left + L.iw / 2} y={L.H - 4} text-anchor="middle" class="sipc__axis">Month the SIP started</text>
+      </g>
+      {(['eq', 'ppf', 'fd'] as K[]).map((k) => <path class={`sipc__line sipc__l--${k}`} d={L.path(k)} />)}
+      <g class="sipc__note">
+        <line class="sipc__leader" x1={L.dot.x} y1={L.dot.y + 6} x2={L.dot.x} y2={L.noteY - 11} />
+        <circle class="sipc__dot" cx={L.dot.x} cy={L.dot.y} r="5" />
+        <text x={L.dot.x} y={L.noteY} text-anchor="middle">{L.note}</text>
+      </g>
+      {L.ends.map((s) => <text class="sipc__end" x={L.m.left + L.iw + 6} y={s.ly + 4}>{L.labels[s.k]}</text>)}
+      <g class="sipc__hits">
+        {rows.map((r, i) => (
+          <rect x={L.x(i) - L.iw / rows.length / 2} y={L.m.top} width={L.iw / rows.length} height={L.ih}>
+            <title>{`${name(r.start)} start. Nifty 50 SIP ${lakh(r.eq)}, PPF ${lakh(r.ppf)}, FD after 30% tax ${lakh(r.fd)}`}</title>
+          </rect>
+        ))}
+      </g>
+    </svg>
+  ))}
+  <p class="sipc__src">Nifty 50 SIP after a 1% yearly cost and 12.5% tax on gains above ₹1.25 lakh. Sources: NSE Indices, RBI, Government of India. Past performance is not an indication of future returns.</p>
+</figure>
