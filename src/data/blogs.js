@@ -7,7 +7,7 @@ export const blogs = [
     seoTitle: 'SIP from birth to 18: what 27 years of data shows | Nuberry',
     subtitle: 'We ran ₹1,000 a month for 18 years through every start month since July 1999, and compared the Nifty 50 with PPF and fixed deposits after costs, tax and inflation.',
     topic: 'Research',
-    readingTime: '9 min',
+    readingTime: '11 min',
     metaDescription: 'We ran ₹1,000 a month for 18 years through every start month since 1999. What the Nifty 50, PPF and FDs were worth at 18, after costs, tax and inflation.',
     waitlist: {
       title: 'Planning for your own child?',
@@ -26,6 +26,15 @@ export const blogs = [
           '**Official education inflation was about 5.5% a year, not 10%.** From January 2011 to September 2026, the CPI education index rose about as fast as prices overall. Private higher education is not measured separately and has likely risen faster.',
         ],
       },
+
+      { type: 'heading', text: 'If your child is young today' },
+      { type: 'paragraph', text: "None of these results will repeat exactly. What carries over is the pattern. If you are starting for a child born in the last few years, the data points to five things." },
+      { type: 'step', title: 'Plan with the range, not one number', text: "₹1,000 a month ended anywhere between ₹4.98 lakh and ₹8.44 lakh after costs and tax. When you set a target, the lower end is the safer figure to plan around. Our [calculator](/calculator/) lets you try a more cautious assumed rate." },
+      { type: 'step', title: "Don't wait for a better time to start", text: 'The start month barely changed the outcome, because the first instalments are small next to everything that follows. Waiting for a dip mostly costs you months of investing.' },
+      { type: 'step', title: 'Start planning the exit around 14 or 15', text: "The biggest swings came from the last few months, when almost all the money is already invested. Moving it gradually into lower-risk funds over the final three or four years means a fall near the end hits less of it." },
+      { type: 'step', title: 'Check your tax slab before choosing an FD', text: "Interest on an FD in your child's name is taxed at the higher-earning parent's slab. At 20% or 30%, an 18-year FD usually lost buying power. For the steady part of a child's savings, a tax-free option such as PPF held up better (for a daughter, also see [Sukanya Samriddhi](/blog/sukanya-samriddhi-vs-mutual-funds/))." },
+      { type: 'step', title: "Name the education you're saving for", text: 'School-level costs rose about 5.5% a year. A private professional degree or study abroad has likely risen faster, so use a higher rate if that is the goal.' },
+      { type: 'paragraph', text: 'This is general information drawn from past data, not a recommendation for your family. The rest of this article shows the numbers behind each point.' },
 
       { type: 'heading', text: 'How we measured it' },
       { type: 'paragraph', text: "Each window invests ₹1,000 on the first trading day of every month for 216 months, then values what has built up the month after the last instalment. We call that the child's 18th birthday. Every option gets the same money on the same dates." },
@@ -57,16 +66,16 @@ export const blogs = [
         ['October 2002', 'October 2020', '₹6,56,701'],
       ], caption: 'Before tax at withdrawal. All windows put in ₹2,16,000.' },
       { type: 'paragraph', text: "By the last few years of an 18-year SIP, almost all the money is already invested, so a fall in the final year hits the whole corpus. A bad start month barely matters: the first instalments are small next to everything that comes after." },
-      { type: 'paragraph', text: "This is why many planners move a child's corpus gradually into lower-risk funds over the two or three years before the money is needed, instead of waiting for the birthday. You can't choose when markets fall. You can choose not to need all the money on one date." },
+      { type: 'paragraph', text: "This is why many planners move a child's corpus gradually into lower-risk funds over the three or four years before the money is needed, instead of waiting for the birthday. You can't choose when markets fall. You can choose not to need all the money on one date." },
 
       { type: 'heading', text: 'Did a fixed deposit keep up with inflation?' },
       { type: 'paragraph', text: "Before tax, just about. After tax, for most parents, no. Interest on an FD in a minor's name is added to the income of the parent who earns more and taxed at their slab ([how clubbing works](/blog/tax-on-investments-in-childs-name-clubbing/)). Over these windows inflation averaged about 6.75% a year, so the ₹2,16,000 put in was worth around ₹4,08,000 in the money of the 18th birthday." },
-      { type: 'table', headers: ["Parent's tax slab", 'FDs that kept up with inflation', 'Median buying power at 18'], rows: [
-        ['0%', '113 of 113', '1.09x what was put in'],
+      { type: 'table', headers: ["Parent's tax slab", 'FDs that beat inflation', 'Median buying power at 18'], rows: [
+        ['0%', '113 of 113', '1.09x'],
         ['10%', '75 of 113', '1.00x'],
         ['20%', '17 of 113', '0.93x'],
         ['30%', '0 of 113', '0.86x'],
-      ], caption: 'Buying power: value at 18 divided by the instalments restated in money of the same month, using CPI for Industrial Workers.' },
+      ], caption: 'Buying power: value at 18 divided by the instalments restated in money of the same month, using CPI for Industrial Workers. 1.00x means it exactly kept pace.' },
       { type: 'paragraph', text: "After inflation, the Nifty 50 SIP gave a median of 1.76 times the buying power put in, and PPF 1.15 times. In the worst equity window, the April 2002 one, it was 1.19 times. PPF is tax-free, which is why it holds up where a taxed FD doesn't." },
       { type: 'callout', title: 'What this does not mean', text: "An FD is not a bad product. It is the right place for money needed within a year or two, and for the last stretch before a goal. The finding is narrower: as the main 18-year savings for a child, an FD taxed at 20% or 30% has usually lost ground to prices." },
 
@@ -82,7 +91,7 @@ export const blogs = [
       { type: 'paragraph', text: "The useful question is which education you are saving for. For school costs, 5% to 6% a year is closer to the record than 10%. For a private professional degree, plan for more. Our [calculator](/calculator/) lets you set your own rate." },
 
       { type: 'heading', text: 'Look up any start month' },
-      { type: 'paragraph', text: 'Pick a start month between July 1999 and November 2008, set the monthly amount and your tax slab, and see what each option was worth 18 years later. These are past results, not projections.' },
+      { type: 'paragraph', text: "Pick a start month between July 1999 and November 2008, set the monthly amount and your tax slab, and see what each option was worth 18 years later. These are past results, not projections. If your child is young, use it to see how much the same monthly habit varied, and how much the final year mattered." },
       { type: 'sip_explorer', id: 'explore' },
 
       { type: 'heading', text: 'What this study can and cannot tell you' },
@@ -114,7 +123,7 @@ export const blogs = [
       { type: 'paragraph', text: "**Inflation.** Labour Bureau CPI for Industrial Workers, chained across its 1982, 2001 and 2016 base years with the Bureau's linking factors and interpolated monthly. The education comparison uses RBI's CPI combined index." },
       { type: 'sources', items: [
         { label: 'NSE Indices: Nifty 50 Total Return Index, historical data', url: 'https://www.niftyindices.com/reports/historical-data' },
-        { label: 'RBI: Handbook of Statistics on the Indian Economy, structure of interest rates', url: 'https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy' },
+        { label: 'RBI: Handbook of Statistics on the Indian Economy, table "Structure of Interest Rates"', url: 'https://www.rbi.org.in/' },
         { label: 'RBI: Database on Indian Economy, consumer price index', url: 'https://data.rbi.org.in/' },
         { label: 'Labour Bureau: Consumer Price Index for Industrial Workers', url: 'https://labourbureau.gov.in/' },
         { label: 'National Savings Institute: PPF interest rates', url: 'https://www.nsiindia.gov.in/' },
