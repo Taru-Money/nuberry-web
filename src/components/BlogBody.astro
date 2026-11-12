@@ -2,6 +2,11 @@
 // Renders the block format used in src/data/blogs.js. Consecutive 'step'
 // blocks share one numbered list. Inline text supports **bold** and
 // [links](url) to https:// pages or internal /paths/.
+// Research posts can also use 'sip_chart' (static SVG), 'sip_explorer' and
+// 'data_download' (React islands, hydrated only when scrolled into view).
+import SipChart from './SipChart.astro'
+import SipExplorer from '../islands/SipExplorer.jsx'
+import DataDownload from '../islands/DataDownload.jsx'
 interface Props { body: any[] }
 const { body } = Astro.props
 const inline = (t: string) =>
@@ -52,6 +57,15 @@ for (const b of body) {
     case 'callout': return <div class="callout"><b>{b.title}</b><p set:html={inline(b.text)} /></div>
     case 'steps': return (
       <ol class="howto">{b.items.map((s: any) => <li><h3>{s.title}</h3><p set:html={inline(s.text)} /></li>)}</ol>
+    )
+    case 'sip_chart': return <SipChart />
+    case 'sip_explorer': return <div class="sipx-wrap" id={b.id}><SipExplorer client:visible /></div>
+    case 'data_download': return (
+      <section class="data-band" id={b.id} aria-labelledby={`${b.id}-h`}>
+        <h2 id={`${b.id}-h`}>{b.title}</h2>
+        <p set:html={inline(b.text)} />
+        <DataDownload client:visible source={b.source} files={b.files} privacyPath="/privacy/" />
+      </section>
     )
     default: return null
   }
