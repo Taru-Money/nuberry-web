@@ -96,7 +96,7 @@ export const blogs = [
       {
         type: 'data_download', id: 'data', source: 'data:sip-18-study',
         title: 'Get the data',
-        text: "Every window, every option, and the RBI series we used, as CSV files with a README on the method. Free to use with credit to Nuberry and a link to this page. Writing about it? Email akshay@nuberry.in and we'll send the files directly.",
+        text: "Every window, every option, and the RBI series we used, as CSV files with a README on the method. Free to use with credit to Nuberry and a link to this page.",
         files: [
           { path: '/data/sip-18-study/nuberry-18-year-sip-windows.csv', label: '18-year windows (113 rows)', note: 'All four options, before and after tax, plus inflation' },
           { path: '/data/sip-18-study/nuberry-15-year-sip-windows.csv', label: '15-year windows (149 rows)', note: 'Same method over 15 years' },
