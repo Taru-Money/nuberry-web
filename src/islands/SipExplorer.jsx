@@ -63,7 +63,7 @@ export default function SipExplorer() {
     const options = [
       { key: 'eq', name: 'Nifty 50 SIP', note: 'after 1% yearly cost and tax at withdrawal', value: eq },
       { key: 'ppf', name: 'PPF', note: 'tax-free', value: ppf },
-      { key: 'fd', name: 'Fixed deposit', note: slab ? `after tax at ${slab}%` : 'no tax', value: fd },
+      { key: 'fd', name: 'Fixed deposit', note: slab ? `after tax at ${slab}%` : 'before tax', value: fd },
     ]
     const max = Math.max(...options.map((o) => o.value))
     const rank = byEquity.findIndex((x) => x.start === start) + 1
@@ -125,7 +125,10 @@ export default function SipExplorer() {
 
       <div className="sipx__result" aria-live="polite">
         <span className="sipx__label">Started {label(start)}, valued {label(r.row.end)}</span>
-        <p className="sipx__sub">{inrExact(amount)} a month for 18 years: {inrExact(r.invested)} put in.</p>
+        <p className="sipx__sub">
+          {inrExact(amount)} a month for 18 years: {inrExact(r.invested)} put in. Prices rose over those years, so in{' '}
+          {label(r.row.end)} money that was worth <b>{inr(r.real)}</b>. That is the figure to beat.
+        </p>
         <ul className="sipx__bars">
           {r.options.map((o) => (
             <li key={o.key} className={`sipx__bar sipx__bar--${o.key}`}>
@@ -136,14 +139,14 @@ export default function SipExplorer() {
               <span className="sipx__track"><i style={{ width: `${(o.value / r.max) * 100}%` }} /></span>
               <small className="sipx__real">
                 {o.value >= r.real
-                  ? `${(o.value / r.real).toFixed(2)}x the buying power put in`
-                  : `${Math.round((1 - o.value / r.real) * 100)}% less buying power than was put in`}
+                  ? `After inflation: ${(o.value / r.real).toFixed(2)} times what was put in`
+                  : `After inflation: ${Math.round((1 - o.value / r.real) * 100)}% less than was put in`}
               </small>
             </li>
           ))}
         </ul>
         <p className="sipx__foot">
-          Allowing for inflation, the {inrExact(r.invested)} put in was worth {inr(r.real)} in {label(r.row.end)} money.
+          Amounts are in rupees of {label(r.row.end)}, not adjusted for inflation.
           {r.rank === 1
             ? ` For the Nifty 50 SIP, this was the lowest of all ${ROWS.length} start months.`
             : r.rank === ROWS.length

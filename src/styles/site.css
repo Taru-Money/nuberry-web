@@ -595,7 +595,8 @@ button.tc-row-toggle:focus-visible { outline: 2px solid var(--focus); outline-of
 .sipx__hint { font-size: var(--type-caption-size); color: var(--text-muted); line-height: 1.5; }
 .sipx__result { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5); background: var(--surface); border: 1.5px solid var(--border-strong); border-radius: var(--radius-xl); }
 .sipx__label { font-family: var(--font-display); font-weight: 700; font-size: 21px; line-height: 1.2; color: var(--heading); }
-.sipx__sub { font-size: 15px; color: var(--text-muted); }
+.sipx__sub { font-size: 15px; color: var(--text-muted); line-height: 1.55; }
+.sipx__sub b { color: var(--heading); }
 .prose .sipx__bars { list-style: none; padding: 0; margin: var(--space-2) 0 0; display: flex; flex-direction: column; gap: var(--space-4); }
 .prose .sipx__bars li + li { margin-top: 0; }
 .sipx__bar-top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); flex-wrap: wrap; font-size: 15px; }
