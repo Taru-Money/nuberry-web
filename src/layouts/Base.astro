@@ -20,7 +20,7 @@ import baloo800 from '@fontsource/baloo-2/files/baloo-2-latin-800-normal.woff2?u
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import WaitlistBand from '../components/WaitlistBand.astro'
-import { SITE_URL, BRAND, COMPANY, ANALYTICS, SOCIAL_LINKS, ORG_ID, PERSON_ID, CONTACT_EMAIL, FOUNDER } from '../lib/site.js'
+import { SITE_URL, BRAND, COMPANY, ANALYTICS, SOCIAL_LINKS, ORG_PROFILES, ORG_ID, PERSON_ID, CONTACT_EMAIL, FOUNDER } from '../lib/site.js'
 
 interface Props {
   title: string
@@ -72,7 +72,7 @@ const orgLd = {
   ],
   address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressRegion: 'Maharashtra', postalCode: '400064', addressCountry: 'IN' },
   founder: { '@id': PERSON_ID },
-  sameAs: SOCIAL_LINKS.map((s) => s.url).filter(Boolean),
+    sameAs: [...SOCIAL_LINKS.map((s) => s.url), ...ORG_PROFILES].filter(Boolean),
 }
 const breadcrumbLd = breadcrumbs.length
   ? {
