@@ -52,7 +52,9 @@ export const SOCIAL_LINKS = [
   { label: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/company/nuberry-in' },
   { label: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/nuberry.in' },
 ]
-
+export const ORG_PROFILES = [
+  'https://www.crunchbase.com/organization/nuberry-4525',
+]
 // Ads and pixel IDs carried over from taru.money. They only load on the
 // production host, so previews and local builds never fire events.
 export const ANALYTICS = {
