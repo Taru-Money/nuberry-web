@@ -38,7 +38,7 @@ export const blogs = [
       { type: 'bullet_list', items: [
         '**After 3 years** from the date the account was opened.',
         "**For three purposes only:** your child's education, treatment of a specified illness, or a disability of more than 75%.",
-        "**Up to 25% of your own contributions,** not of the balance. If you have paid in ₹9 lakh, a withdrawal is capped at ₹2.25 lakh, even if the account has grown to ₹18 lakh.",
+        "**Up to 25% of your own contributions,** not of the balance. If you have paid in ₹9 lakh, a withdrawal is capped at ₹2.25 lakh, even if the account is worth ₹18 lakh.",
         '**Twice before 18,** and twice more between 18 and 21 once your child has completed KYC.',
       ]},
       { type: 'paragraph', text: 'A mutual fund in your child\'s name has none of these limits. The money can be redeemed whenever it is needed, though it must be paid into the child\'s own bank account. That freedom cuts both ways: it is also easier to spend.' },
@@ -59,13 +59,13 @@ export const blogs = [
         ['10%', '₹24.3 lakh', '₹19.4 lakh', '₹4.9 lakh'],
         ['12%', '₹29.9 lakh', '₹23.9 lakh', '₹6.0 lakh'],
       ], caption: 'Value of ₹5,000 a month for 15 years from age 1, ₹9 lakh paid in, left invested to 18. Before tax and charges.' },
-      { type: 'assume', title: 'How these are worked out', text: 'Contributions at the start of each month for 15 years, compounded monthly at the stated rate, then left to grow for two more years. No partial withdrawals. Charges are left out; they are low in NPS but not zero. These rates are assumptions, not promises. Market-linked returns can be higher or lower than this, and can be negative over short periods. Try your own numbers in the [SIP calculator](/calculator/).' },
+      { type: 'assume', title: 'How these are worked out', text: 'Contributions at the start of each month for 15 years, compounded monthly at the stated rate, then left invested for two more years. No partial withdrawals. Charges are left out; they are low in NPS but not zero. These rates are assumptions, not promises. Market-linked returns can be higher or lower than this, and can be negative over short periods. Try your own numbers in the [SIP calculator](/calculator/).' },
       { type: 'paragraph', text: "Look at the last column. The ₹8 lakh line is low for anyone saving seriously. At ₹5,000 a month and 10% a year, the balance crosses ₹8 lakh in under nine years. To stay under it at 18 on the same return and timeline, you would need to keep contributions to about ₹1,600 a month. Above that, a slice of the money becomes a pension for an 18-year-old, or the whole balance moves into regular NPS." },
 
       { type: 'heading', text: 'How is NPS Vatsalya taxed?' },
       { type: 'subheading', text: 'When you pay in' },
       { type: 'paragraph', text: "Contributions qualify for a deduction of up to ₹50,000 a year under Section 124(4) of the Income-tax Act, 2025 (earlier 80CCD(1B)), but only if you file under the old regime. The new regime, now the default, has no deduction for it. The law caps the deduction under that provision at ₹50,000 in total, so if you already claim the full ₹50,000 for your own NPS, your child's account appears to add nothing more. Check this with a tax professional before counting on it." },
-      { type: 'subheading', text: 'While it grows' },
+      { type: 'subheading', text: 'While it stays invested' },
       { type: 'paragraph', text: "Gains inside the NPS account are not taxed year by year. That matters for a child's account, because gains you take from a mutual fund in your child's name are clubbed with your income until 18 and taxed at your rates. The details are in our [guide to clubbing](/blog/tax-on-investments-in-childs-name-clubbing/)." },
       { type: 'subheading', text: 'When money comes out' },
       { type: 'paragraph', text: "Partial withdrawals within the 25% limit are tax-free in both regimes. At exit, the NPS Trust's FAQ says a lump sum of up to 60% of the balance is tax-free and the amount used to buy an annuity is not taxed at that point. It does not spell out how the slice between 60% and 80% is taxed, and annuity income is taxable when it is paid. Tax rules change. Confirm how they apply to you with a tax professional before acting." },
@@ -98,7 +98,7 @@ export const blogs = [
       { type: 'subheading', text: '"It\'s a savings scheme for your child\'s future"' },
       { type: 'paragraph', text: "It's a pension scheme. The money is built to reach retirement, and the rules at 18 show it: above ₹8 lakh, your child can't take everything out. They can move it into regular NPS, where it stays until retirement, or exit and put at least 20% into an annuity at 18. That can be the right choice. It just isn't the same as a college fund." },
       { type: 'subheading', text: '"You can withdraw 25% for education"' },
-      { type: 'paragraph', text: "25% of what you paid in, not of what the account is worth. After years of growth those are very different numbers. In the ₹5,000 a month example, the account could hold ₹24 lakh at 18 while the most a partial withdrawal can reach is ₹2.25 lakh." },
+      { type: 'paragraph', text: "25% of what you paid in, not of what the account is worth. After years of returns those are very different numbers. In the ₹5,000 a month example, the account could hold ₹24 lakh at 18 while the most a partial withdrawal can reach is ₹2.25 lakh." },
       { type: 'subheading', text: '"An extra ₹50,000 tax deduction for every parent"' },
       { type: 'paragraph', text: 'Only in the old regime, which fewer salaried parents now use. And the ₹50,000 limit is one limit under that provision, so it appears to be shared with your own NPS contribution rather than added on top. For a parent on the new regime, NPS Vatsalya has no tax benefit on the way in.' },
 
