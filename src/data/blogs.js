@@ -1,5 +1,132 @@
 export const blogs = [
   {
+    id: 11,
+    slug: 'nps-vatsalya-for-your-child',
+    datePublished: '2026-11-18T18:00:00+05:30',
+    title: 'Is NPS Vatsalya good for your child? The rules at 18, vs PPF and mutual funds',
+    seoTitle: 'NPS Vatsalya for your child: rules at 18, vs PPF and MF | Nuberry',
+    subtitle: 'What you can take out before 18, the ₹8 lakh rule when your child turns 18, how it is taxed, and where PPF or a mutual fund fits better. Checked against the 2025 guidelines and the NPS Trust FAQ of June 2026.',
+    topic: 'Comparison',
+    readingTime: '9 min',
+    metaDescription: "NPS Vatsalya explained for parents: 25% partial withdrawals, the ₹8 lakh rule at 18, tax in the old and new regimes, and how it compares with PPF and mutual funds.",
+    waitlist: {
+      title: 'Weighing a mutual fund in their name too?',
+      text: "Nuberry opens a mutual fund folio in your child's name and runs the SIP for you, and gives your child their own view of it as they grow. Join the waitlist and we'll tell you the day it opens.",
+    },
+    body: [
+      // AKSHAY: rewrite these two paragraphs in your own voice.
+      { type: 'paragraph', text: "NPS Vatsalya is a pension account in your child's name. It is a good fit if you want money that stays invested for decades at very low cost, and you file under the old tax regime. It is a poor fit if the money is meant for college at 18, because very little of it can come out before then, and once the balance passes ₹8 lakh, 20% of it must buy a pension annuity if your child exits." },
+      { type: 'paragraph', text: "Most pages about NPS Vatsalya stop at \"start with ₹250\" and \"extra ₹50,000 tax deduction\". This one covers what happens to the money at 18, which is the part that decides whether it suits you, and puts it next to PPF and mutual funds with the same numbers. A disclosure first: Nuberry distributes mutual funds and earns a commission from fund houses on them. Nuberry doesn't offer NPS Vatsalya today and earns nothing on it." },
+      {
+        type: 'key_facts', title: 'Key facts',
+        items: [
+          "**Who it's for:** any Indian citizen under 18, including NRIs and OCIs. One account per child, opened and run by a parent or guardian until 18.",
+          '**How much:** at least ₹250 at opening and ₹250 a financial year. No upper limit. Relatives and friends can contribute as gifts.',
+          '**Where the money goes:** you pick one PFRDA-registered pension fund. Returns are market-linked and not guaranteed. Funds can now put up to 100% in equity under their own allocation pattern.',
+          "**Before 18:** up to two partial withdrawals, only after 3 years, only for the child's education, specified illness or disability above 75%, and each capped at 25% of what you have paid in, not of the balance.",
+          '**At 18 to 21:** your child completes fresh KYC and can stay in the scheme until 21, move the whole balance into regular NPS, or exit. Exit means up to 80% as cash and at least 20% into an annuity, unless the balance is ₹8 lakh or less.',
+          '**Tax:** contributions qualify for up to ₹50,000 under Section 124(4) of the Income-tax Act, 2025 (earlier 80CCD(1B)), in the old regime only. No deduction in the new regime.',
+        ],
+      },
+
+      { type: 'heading', text: 'What is NPS Vatsalya, in plain terms?' },
+      { type: 'paragraph', text: 'It is the National Pension System, opened early. The account gets its own Permanent Retirement Account Number (PRAN) in your child\'s name, you choose a pension fund to manage the money, and you pay in whenever you like, as long as it is at least ₹250 a year. The scheme was launched on 18 September 2024. PFRDA replaced its first set of rules with the NPS Vatsalya Scheme Guidelines 2025, issued on 7 January 2026, which loosened withdrawals and changed what happens at 18.' },
+      { type: 'paragraph', text: "Skipping a year doesn't close the account before 18. You can open it online through eNPS or through a bank or other Point of Presence, with your child's date of birth proof and your own KYC and PAN." },
+
+      { type: 'heading', text: 'How much can you take out before your child turns 18?' },
+      { type: 'paragraph', text: 'Not much, and only for three reasons. The rules allow partial withdrawals:' },
+      { type: 'bullet_list', items: [
+        '**After 3 years** from the date the account was opened.',
+        "**For three purposes only:** your child's education, treatment of a specified illness, or a disability of more than 75%.",
+        "**Up to 25% of your own contributions,** not of the balance. If you have paid in ₹9 lakh, a withdrawal is capped at ₹2.25 lakh, even if the account has grown to ₹18 lakh.",
+        '**Twice before 18,** and twice more between 18 and 21 once your child has completed KYC.',
+      ]},
+      { type: 'paragraph', text: 'A mutual fund in your child\'s name has none of these limits. The money can be redeemed whenever it is needed, though it must be paid into the child\'s own bank account. That freedom cuts both ways: it is also easier to spend.' },
+
+      { type: 'heading', text: 'What happens when your child turns 18?' },
+      { type: 'paragraph', text: 'Your child takes over. They complete fresh KYC and add their own nominee, and from then on they decide. Until they complete KYC, nothing can be done with the account. Between 18 and 21 they have three choices:' },
+      { type: 'bullet_list', items: [
+        '**Stay in NPS Vatsalya** until 21, with two more partial withdrawals allowed on the same conditions.',
+        '**Move the whole balance into regular NPS,** where it stays invested for retirement under the normal NPS rules.',
+        '**Exit.** If the balance is ₹8 lakh or less, all of it can be withdrawn. If it is more, up to 80% can be taken as cash and at least 20% must be used to buy an annuity, a monthly pension that starts right away.',
+      ]},
+      { type: 'paragraph', text: 'If your child makes no choice by 21, the account moves automatically into a higher-equity NPS scheme with the same pension fund. It does not pay out on its own.' },
+
+      { type: 'heading', text: 'What could ₹5,000 a month add up to by 18?' },
+      { type: 'paragraph', text: 'Say your child is 1. You put in ₹5,000 a month for 15 years, ₹9 lakh in all, and leave it invested until they turn 18. Here is what NPS Vatsalya could hold at 18, and how much of it could come out as cash if your child exits.' },
+      { type: 'table', headers: ['Assumed return a year', 'Balance at 18', 'Most they can take as cash', 'Must buy an annuity'], rows: [
+        ['8%', '₹19.8 lakh', '₹15.9 lakh', '₹4.0 lakh'],
+        ['10%', '₹24.3 lakh', '₹19.4 lakh', '₹4.9 lakh'],
+        ['12%', '₹29.9 lakh', '₹23.9 lakh', '₹6.0 lakh'],
+      ], caption: 'Value of ₹5,000 a month for 15 years from age 1, ₹9 lakh paid in, left invested to 18. Before tax and charges.' },
+      { type: 'assume', title: 'How these are worked out', text: 'Contributions at the start of each month for 15 years, compounded monthly at the stated rate, then left to grow for two more years. No partial withdrawals. Charges are left out; they are low in NPS but not zero. These rates are assumptions, not promises. Market-linked returns can be higher or lower than this, and can be negative over short periods. Try your own numbers in the [SIP calculator](/calculator/).' },
+      { type: 'paragraph', text: "Look at the last column. The ₹8 lakh line is low for anyone saving seriously. At ₹5,000 a month and 10% a year, the balance crosses ₹8 lakh in under nine years. To stay under it at 18 on the same return and timeline, you would need to keep contributions to about ₹1,600 a month. Above that, a slice of the money becomes a pension for an 18-year-old, or the whole balance moves into regular NPS." },
+
+      { type: 'heading', text: 'How is NPS Vatsalya taxed?' },
+      { type: 'subheading', text: 'When you pay in' },
+      { type: 'paragraph', text: "Contributions qualify for a deduction of up to ₹50,000 a year under Section 124(4) of the Income-tax Act, 2025 (earlier 80CCD(1B)), but only if you file under the old regime. The new regime, now the default, has no deduction for it. The law caps the deduction under that provision at ₹50,000 in total, so if you already claim the full ₹50,000 for your own NPS, your child's account appears to add nothing more. Check this with a tax professional before counting on it." },
+      { type: 'subheading', text: 'While it grows' },
+      { type: 'paragraph', text: "Gains inside the NPS account are not taxed year by year. That matters for a child's account, because gains you take from a mutual fund in your child's name are clubbed with your income until 18 and taxed at your rates. The details are in our [guide to clubbing](/blog/tax-on-investments-in-childs-name-clubbing/)." },
+      { type: 'subheading', text: 'When money comes out' },
+      { type: 'paragraph', text: "Partial withdrawals within the 25% limit are tax-free in both regimes. At exit, the NPS Trust's FAQ says a lump sum of up to 60% of the balance is tax-free and the amount used to buy an annuity is not taxed at that point. It does not spell out how the slice between 60% and 80% is taxed, and annuity income is taxable when it is paid. Tax rules change. Confirm how they apply to you with a tax professional before acting." },
+
+      { type: 'heading', text: 'NPS Vatsalya vs PPF vs mutual funds' },
+      { type: 'paragraph', text: 'The three suit different jobs. The table shows where each one stands on the things that decide it.' },
+      { type: 'table', text: true, headers: ['', 'NPS Vatsalya', 'PPF in your child\'s name', 'Equity mutual fund in their name'], rows: [
+        ['Return', 'Market-linked, not guaranteed', '7.1% a year (Oct to Dec 2026), set every quarter', 'Market-linked, not guaranteed'],
+        ['Can it fall in value?', 'Yes', 'No', 'Yes'],
+        ['How much', '₹250 a year minimum, no maximum', '₹500 to ₹1.5 lakh a year, shared with your own PPF', 'Usually from ₹100 to ₹500 a month, no maximum'],
+        ['Money out before 18', '25% of contributions, twice, after 3 years, for education, illness or disability only', 'Partial withdrawal from the 7th financial year; loan from the 3rd to the 6th', 'Any time'],
+        ['At 18', 'Stay to 21, move to NPS, or exit. Over ₹8 lakh, 20% must buy an annuity', 'Child runs the account; it matures 15 years after opening', 'Child takes over after changing the folio from minor to major'],
+        ['Deduction on deposits', 'Up to ₹50,000, old regime only', 'Within ₹1.5 lakh under Section 123, old regime only', 'None (except ELSS, old regime)'],
+        ['Tax on growth', 'Not taxed yearly; partly taxed at exit', 'Tax-free', 'Taxed when sold; clubbed with a parent until 18'],
+      ], caption: 'Sources: NPS Vatsalya Scheme Guidelines 2025 (PIB, 13 January 2026); NPS Trust FAQ on NPS Vatsalya (updated 16 June 2026); National Savings Institute PPF rules; small savings rates for October to December 2026.' },
+
+      { type: 'heading', text: 'NPS Vatsalya or PPF: which is better for a child?' },
+      { type: 'paragraph', text: 'Run the same ₹5,000 a month for 15 years through PPF at today\'s 7.1%, and it comes to about ₹18.7 lakh by 18 if you leave it in after the deposits stop. All of it is tax-free, none of it can fall, and none of it has to buy an annuity. That beats NPS Vatsalya at 8% on what your child can actually take out (₹15.9 lakh), and loses to it at 10% or more, before any tax on the NPS side.' },
+      { type: 'paragraph', text: 'PPF has its own limits. The ₹1.5 lakh a year cap covers your own PPF and your child\'s together, the rate can be cut in any quarter, and the account runs on its own 15-year clock. NPS Vatsalya has no cap and much more equity, but it decides what the money can be used for at 18. If you want certainty and freedom at 18, PPF is the simpler tool. If you want long-term growth and are comfortable with part of it staying a pension, NPS Vatsalya can do more.' },
+
+      { type: 'heading', text: 'Who is NPS Vatsalya a good fit for?' },
+      { type: 'bullet_list', items: [
+        "**Good fit:** you file under the old regime and haven't used the ₹50,000 NPS deduction yourself; you want a slice of money for your child that stays invested for decades; you like that it is hard to dip into; or relatives want to gift into something that can't be spent early.",
+        '**Poor fit:** the money is for college fees at 17 or 18; you are on the new regime and the deduction was the main reason; you expect to put in more than about ₹1,600 a month and want it all available at 18; or you want to control exactly which shares or funds it holds.',
+      ]},
+      { type: 'paragraph', text: 'Many parents use more than one. A small NPS Vatsalya contribution for the long run can sit next to a SIP for the goals that have a date, such as education. How to split it depends on your income, tax regime and what else you hold, so this page won\'t give you a ratio. Our [complete guide to mutual funds for your child](/blog/mutual-funds-for-your-child/) covers the SIP side, and the [Sukanya Samriddhi comparison](/blog/sukanya-samriddhi-vs-mutual-funds/) covers the option for daughters.' },
+
+      // AKSHAY: this section is where your own view goes. Rewrite it in your voice.
+      { type: 'heading', text: 'What most guides get wrong' },
+      { type: 'subheading', text: '"It\'s a savings scheme for your child\'s future"' },
+      { type: 'paragraph', text: "It's a pension scheme. The money is built to reach retirement, and the rules at 18 show it: above ₹8 lakh, your child can't take everything out. They can move it into regular NPS, where it stays until retirement, or exit and put at least 20% into an annuity at 18. That can be the right choice. It just isn't the same as a college fund." },
+      { type: 'subheading', text: '"You can withdraw 25% for education"' },
+      { type: 'paragraph', text: "25% of what you paid in, not of what the account is worth. After years of growth those are very different numbers. In the ₹5,000 a month example, the account could hold ₹24 lakh at 18 while the most a partial withdrawal can reach is ₹2.25 lakh." },
+      { type: 'subheading', text: '"An extra ₹50,000 tax deduction for every parent"' },
+      { type: 'paragraph', text: 'Only in the old regime, which fewer salaried parents now use. And the ₹50,000 limit is one limit under that provision, so it appears to be shared with your own NPS contribution rather than added on top. For a parent on the new regime, NPS Vatsalya has no tax benefit on the way in.' },
+
+      { type: 'heading', text: 'Frequently asked questions' },
+      { type: 'faq', items: [
+        { q: 'Is NPS Vatsalya a good investment for my child?', a: 'It suits long-term money you are happy to see stay invested past 18, especially if you file under the old regime. It suits college fees poorly, because partial withdrawals before 18 are capped at 25% of contributions, and above ₹8 lakh at least 20% must buy an annuity if your child exits.' },
+        { q: 'Can I withdraw from NPS Vatsalya for my child\'s education?', a: 'Yes, after 3 years from opening, up to 25% of the contributions made (not the balance), twice before 18 and twice between 18 and 21. Withdrawals are allowed only for education, specified illness or disability above 75%, and they are tax-free.' },
+        { q: 'What happens to NPS Vatsalya when my child turns 18?', a: 'Your child completes fresh KYC and takes over. Until 21 they can stay in the scheme, shift the balance to regular NPS, or exit. On exit, all of it can be withdrawn if the balance is ₹8 lakh or less; otherwise up to 80% as cash and at least 20% into an annuity. If they choose nothing by 21, it moves to a higher-equity NPS scheme.' },
+        { q: 'NPS Vatsalya or PPF: which is better for my child?', a: 'PPF pays a government-set, tax-free 7.1% (October to December 2026), cannot fall in value, and has no annuity rule. NPS Vatsalya is market-linked with more equity and no deposit cap, but restricts what comes out at 18. PPF suits certainty and access at 18; NPS Vatsalya suits long-term growth.' },
+        { q: 'Can I claim the NPS Vatsalya deduction in the new tax regime?', a: 'No. The deduction of up to ₹50,000 under Section 124(4) of the Income-tax Act, 2025 (earlier 80CCD(1B)) is available only in the old regime. It also appears to share its ₹50,000 limit with your own NPS contribution.' },
+        { q: 'What is the minimum amount for NPS Vatsalya?', a: '₹250 to open and ₹250 in each financial year, with no upper limit. Missing a year does not close the account before your child turns 18.' },
+        { q: 'Can grandparents put money into NPS Vatsalya?', a: 'Yes. Relatives and friends can contribute to the account as gifts. The account is still run by the parent or guardian until the child turns 18.' },
+      ]},
+
+      { type: 'heading', text: 'Sources' },
+      { type: 'sources', items: [
+        { label: 'PIB: PFRDA issues NPS Vatsalya Scheme Guidelines 2025 (13 January 2026)', url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2214246&reg=3&lang=1' },
+        { label: 'NPS Trust: FAQs on NPS Vatsalya (updated 16 June 2026)', url: 'https://npstrust.org.in/sites/default/files/inline-files/FAQs_NPS_Vatsalya_updated_16_06_2026.pdf' },
+        { label: 'NPS Trust: NPS Vatsalya brochure (documents and how to open)', url: 'https://npstrust.org.in/sites/default/files/inline-files/NPSVatsalyaBrochureCombined.pdf' },
+        { label: 'Upstox: PFRDA circular of 23 February 2026 on NPS Vatsalya asset allocation', url: 'https://upstox.com/news/personal-finance/latest-updates/nps-vatsalya-pfrda-grants-pension-funds-control-over-investments-data-access-and-allocation-flexibility/article-189881' },
+        { label: 'TaxGuru: Finance Bill 2025 text on the deduction for NPS Vatsalya contributions', url: 'https://taxguru.in/?p=947649' },
+        { label: 'National Savings Institute: Public Provident Fund rules', url: 'https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=55' },
+        { label: 'Paisabazaar: PPF account for minors (combined ₹1.5 lakh limit)', url: 'https://www.paisabazaar.com/saving-schemes/ppf-account-for-minors/' },
+        { label: 'Outlook Money: small savings rates for October to December 2026 (PPF 7.1%)', url: 'https://www.outlookmoney.com/retirement/pension/small-savings-rates-unchanged-ppf-at-710-per-cent-nsc-at-770-per-cent' },
+      ]},
+    ],
+  },
+  {
     id: 10,
     slug: 'sip-from-birth-to-18-what-the-data-shows',
     datePublished: '2026-11-12T12:00:00+05:30',
