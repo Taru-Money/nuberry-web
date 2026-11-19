@@ -130,6 +130,7 @@ export const blogs = [
     id: 10,
     slug: 'sip-from-birth-to-18-what-the-data-shows',
     datePublished: '2026-11-12T12:00:00+05:30',
+    dateModified: '2026-11-20T12:00:00+05:30',
     title: 'SIP from birth to 18: what 27 years of data shows',
     seoTitle: 'SIP from birth to 18: what 27 years of data shows | Nuberry',
     subtitle: 'We ran ₹1,000 a month for 18 years through every start month since July 1999, and compared the Nifty 50 with PPF and fixed deposits after costs, tax and inflation.',
@@ -139,6 +140,15 @@ export const blogs = [
     waitlist: {
       title: 'Planning for your own child?',
       text: "Nuberry opens a mutual fund folio in your child's name and runs the SIP for you, with a plan for the years before they turn 18. Join the waitlist and we'll tell you the day it opens.",
+    },
+    dataset: {
+      name: 'Eighteen-Year Monthly Investing in India: Rolling-Window Outcomes for the Nifty 50, PPF and Bank Deposits, 1999 to 2026 (Dataset and Code)',
+      description: '₹1,000 invested on the first trading day of every month for 18, 15 and 10 years, for every start month since July 1999, valued for the Nifty 50 Total Return Index, PPF and bank fixed deposits before and after costs, tax and inflation. Includes the RBI deposit-rate and CPI series used and the analysis code.',
+      doi: '10.5281/zenodo.24377908',
+      license: 'https://creativecommons.org/licenses/by/4.0/',
+      temporalCoverage: '1999-06/2026-11',
+      keywords: ['systematic investment plan', 'household finance', 'India', 'Nifty 50', 'Public Provident Fund', 'fixed deposits', 'inflation', 'education savings'],
+      files: ['/data/sip-18-study/nuberry-18-year-sip-windows.csv', '/data/sip-18-study/nuberry-15-year-sip-windows.csv', '/data/sip-18-study/nuberry-10-year-sip-windows.csv'],
     },
     body: [
       // AKSHAY: rewrite these two paragraphs in your own voice.
@@ -243,6 +253,7 @@ export const blogs = [
           { path: '/data/sip-18-study/README.txt', label: 'README and method', note: 'How every column was worked out' },
         ],
       },
+      { type: 'callout', title: 'Cite this study', text: "Kumar, A. (2026). Eighteen-Year Monthly Investing in India: Rolling-Window Outcomes for the Nifty 50, PPF and Bank Deposits, 1999 to 2026 (Dataset and Code), version 1.0. Zenodo. [doi.org/10.5281/zenodo.24377908](https://doi.org/10.5281/zenodo.24377908). The archived copy holds the same data, the README and the analysis code, under a CC BY 4.0 licence." },
 
       { type: 'heading', text: 'Method and sources' },
       { type: 'paragraph', text: "**Equity.** Official daily values of the Nifty 50 Total Return Index from 30 June 1999 to 11 November 2026. Units are bought at the first trading day's value each month and valued on the first trading day of the month after the 216th instalment. A 1% yearly cost is deducted monthly." },
@@ -255,6 +266,7 @@ export const blogs = [
         { label: 'RBI: Database on Indian Economy, consumer price index', url: 'https://data.rbi.org.in/' },
         { label: 'Labour Bureau: Consumer Price Index for Industrial Workers', url: 'https://labourbureau.gov.in/' },
         { label: 'National Savings Institute: PPF interest rates', url: 'https://www.nsiindia.gov.in/' },
+        { label: 'Nuberry: this study\'s data and code on Zenodo (DOI 10.5281/zenodo.24377908)', url: 'https://doi.org/10.5281/zenodo.24377908' },
       ]},
 
       { type: 'faq', items: [

@@ -45,6 +45,35 @@ if (faqItems.length) jsonLd.push({
     acceptedAnswer: { '@type': 'Answer', text: plain(f.a) },
   })),
 } as any)
+// Research articles with a `dataset` field also get Dataset markup, so Google
+// Dataset Search and AI answer engines can find the archived data by its DOI.
+if (blog.dataset) {
+  const d = blog.dataset
+  const doiUrl = `https://doi.org/${d.doi}`
+  jsonLd[0].isBasedOn = doiUrl
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: d.name,
+    description: d.description,
+    url,
+    sameAs: doiUrl,
+    identifier: doiUrl,
+    license: d.license,
+    isAccessibleForFree: true,
+    temporalCoverage: d.temporalCoverage,
+    spatialCoverage: 'India',
+    keywords: d.keywords,
+    creator: { '@type': 'Person', '@id': PERSON_ID, name: FOUNDER.name, url: `${SITE_URL}${FOUNDER.path}` },
+    publisher: { '@id': ORG_ID },
+    datePublished: blog.datePublished,
+    distribution: d.files.map((f: string) => ({
+      '@type': 'DataDownload',
+      encodingFormat: 'text/csv',
+      contentUrl: `${SITE_URL}${f}`,
+    })),
+  } as any)
+}
 // Optional per-article waitlist copy, so the ask matches the page.
 const cta = blog.waitlist || { title: 'The hardest part is starting', text: "Join the waitlist and we'll tell you the day it opens." }
 ---
