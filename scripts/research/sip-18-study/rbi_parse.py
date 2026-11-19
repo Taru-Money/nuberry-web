@@ -11,7 +11,7 @@ for row in wb.active.iter_rows(min_row=11, values_only=True):
     r = [c for c in row if c is not None]
     if len(r) > 4 and isinstance(r[0], str) and r[0][:4].isdigit():
         fy = int(r[0][:4]); lo, hi = map(float, str(r[3]).split('-'))
-        rows.append((fy, lo, hi, (lo + hi) / 2, r[0].strip()))
+        rows.append((fy, lo, hi, (lo + hi) / 2, r[0].split()[0]))  # drop RBI's footnote marks, e.g. '2026-27 @'
 rows.sort()
 with open(f'{OUT}/fd_rates.csv', 'w', newline='') as f:
     w = csv.writer(f); w.writerow(['fy_start', 'label', 'low', 'high', 'mid'])

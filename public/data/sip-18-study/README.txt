@@ -8,6 +8,11 @@ Article: https://nuberry.in/blog/sip-from-birth-to-18-what-the-data-shows/
 You are free to use and quote these files with credit to "Nuberry (nuberry.in)" and a
 link to the article.
 
+Archived copy with a permanent DOI (data, README and code, CC BY 4.0):
+Kumar, A. (2026). Eighteen-Year Monthly Investing in India: Rolling-Window Outcomes for
+the Nifty 50, PPF and Bank Deposits, 1999 to 2026 (Dataset and Code) (Version 1.0).
+Zenodo. https://doi.org/10.5281/zenodo.24377908
+
 Mutual fund investments are subject to market risks. Read all scheme related documents
 carefully. Past performance of an index is not an indication of future returns. Nothing
 here is investment advice or a recommendation of any scheme.

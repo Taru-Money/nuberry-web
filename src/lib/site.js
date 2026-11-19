@@ -25,6 +25,7 @@ export const FOUNDER = {
   name: 'Akshay Kumar',
   role: 'Founder & CEO',
   linkedin: 'https://www.linkedin.com/in/akshaykumar91/',
+  orcid: 'https://orcid.org/0009-0000-3364-7343',
   photo: '/brand/akshay-kumar.jpg',
   // Author page. Every article is written by the founder, so this is the byline.
   path: '/author/akshay-kumar/',
